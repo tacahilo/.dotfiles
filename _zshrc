@@ -64,7 +64,7 @@ alias rl="/usr/local/bin/r"
 alias -s {txt,md,markdown,xml}=lv
 alias -s py=python
 alias -s hs=runhaskell
-if [ `uname` = "Darvim"]; then
+if [ `uname` = "Darvin" ]; then
     alias preview='open -a Preview'
 fi
 alias -s {gif,png,jpg,bmp,pdf,GIF,PNG,JPG,BMP,PDF}=preview
