@@ -55,16 +55,42 @@ alias lf="ls -F"
 alias ll="la -lh"
 alias du="du -h"
 alias df="df -h"
-alias -s txt=lv
-alias -s md=lv
-alias -s markdown=lv
-alias -s xml=lv
 alias vi="vim"
 alias bup="brew update"
 alias brug="brew upgrade"
 alias bs="brew -S"
 alias bi="brew info"
 alias rl="/usr/local/bin/r"
+alias -s {txt,md,markdown,xml}=lv
+alias -s py=python
+alias -s hs=runhaskell
+if [ `uname` = "Darvim"]; then
+    alias preview='open -a Preview'
+fi
+alias -s {gif,png,jpg,bmp,pdf,GIF,PNG,JPG,BMP,PDF}=preview
+if [ `uname` = "Darwin" ]; then
+    alias google-chrome='open -a Google\ Chrome'
+fi
+alias chrome='google-chrome'
+alias -s html=chrome
+function extract() {
+  case $1 in
+    *.tar.gz|*.tgz) tar xzvf $1;;
+    *.tar.xz) tar Jxvf $1;;
+    *.zip) unzip $1;;
+    *.lzh) lha e $1;;
+    *.tar.bz2|*.tbz) tar xjvf $1;;
+    *.tar.Z) tar zxvf $1;;
+    *.gz) gzip -dc $1;;
+    *.bz2) bzip2 -dc $1;;
+    *.Z) uncompress $1;;
+    *.tar) tar xvf $1;;
+    *.arj) unarj $1;;
+  esac
+}
+alias -s {gz,tgz,zip,lzh,bz2,tbz,Z,tar,arj,xz}=extract
+function runcpp () { g++ -O2 $1; ./a.out }
+alias -s {c,cpp}=runcpp
 
 #================================##
 ## Version Control for Languages ##
