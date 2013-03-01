@@ -31,6 +31,10 @@ NeoBundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
 filetype plugin indent on
 " END NeoBundle
 
+" BEGIN Dict
+autocmd BufRead *.php\|*.ctp\|*.tpl :set dictionary=~/.vim/dict/php.dict filetype=php
+" END Dict
+
 "ファイル操作系
 set encoding=UTF-8 "文字コードをUTF-8にする
 set fileencoding=UTF-8 "文字コードをUTF-8にする
@@ -88,17 +92,14 @@ set showmatch "閉じ括弧の入力時に対応する括弧を表示する
 set matchtime=3 "showmatchの表示時間
 
 " BEGIN NeoComplecache
-"set completeopt=menuone "補完候補が１つだけでも表示する
+set completeopt=menuone "補完候補が１つだけでも表示
 let g:neocomplcache_enable_at_startup = 1
-" 大文字が入力されるまで大文字小文字の区別を無視する
-let g:neocomplcache_enable_smart_case = 1
-" _(アンダースコア)区切りの補完を有効化
-let g:neocomplcache_enable_underbar_completion = 1
-let g:neocomplcache_enable_camel_case_completion  =  1
-" ポップアップメニューで表示される候補の数
-let g:neocomplcache_max_list = 20
-" シンタックスをキャッシュするときの最小文字長
-let g:neocomplcache_min_syntax_length = 3
+let g:neocomplcache_enable_smart_case = 1 " 大文字が入力されるまで大文字小文字の区別を無視
+let g:neocomplcache_enable_underbar_completion = 1 " スネークケースの補完を有効化
+let g:neocomplcache_enable_camel_case_completion  =  1 " キャメルケースの補完を有効化
+let g:neocomplcache_max_list = 20 " ポップアップメニューで表示される候補の数
+let g:neocomplcache_min_syntax_length = 3 " シンタックスをキャッシュするときの最小文字長
+
 "tabで補完候補の選択を行う
 inoremap <expr><TAB>   pumvisible() ? "\<Down>" : "\<TAB>"
 inoremap <expr><S-TAB> pumvisible() ? "\<Up>"   : "\<S-TAB>"
@@ -113,7 +114,7 @@ inoremap <expr><C-g> neocomplcache#undo_completion()
 inoremap <expr><C-l> neocomplcache#complete_common_string()
 " END NeoComplecache
 
-" Enable omni completion.
+" BEGIN Omni Completion
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
@@ -128,6 +129,7 @@ let g:neocomplcache_omni_patterns.ruby = '[^. *\t]\.\w*\|\h\w*::'
 let g:neocomplcache_omni_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
 let g:neocomplcache_omni_patterns.c = '\%(\.\|->\)\h\w*'
 let g:neocomplcache_omni_patterns.cpp = '\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
+" END Omni Complition
 
 " BEGIN NeoComplecache_Snippets
 let g:neocomplcache_snippets_dir='~/.vim/snippets' " snippetの配置場所
@@ -135,6 +137,7 @@ let g:neocomplcache_snippets_dir='~/.vim/snippets' " snippetの配置場所
 imap <C-k> <plug>(neocomplcache_snippets_expand)
 smap <C-k> <plug>(neocomplcache_snippets_expand)
 " END NeoComplecache_Snippets
+
 " BEGIN Vim-LaTeX
 set shellslash
 set grepprg=grep\ -nH\ $*
