@@ -27,7 +27,8 @@ NeoBundle 'Shougo/neosnippet'
 NeoBundle 'mitechie/pyflakes-pathogen'
 NeoBundle 'sontek/rope-vim'
 NeoBundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
-
+NeoBundle 'Pydiction'
+NeoBundle 'nathanaelkane/vim-indent-guides'
 filetype plugin indent on
 " END NeoBundle
 
@@ -50,6 +51,7 @@ set tabstop=4
 set expandtab "タブの代わりに空白文字を挿入する
 set softtabstop=4 "ファイル内の <Tab> が対応する空白の数
 set shiftwidth=4 "シフト移動幅
+set ts=4 sw=4 et
 
 "バックアップ系
 set backupdir=$HOME/.vim/backup "バックアップディレクトリを指定する
@@ -80,6 +82,7 @@ set whichwrap=b,s,h,l,<,>,[,] "カーソルを行頭、行末で止まらない�
 
 "表示系
 colorscheme desert
+set background=dark
 set number "行番号を表示する
 set title "編集中のファイル名を表示する
 set showcmd "入力中のコマンドを表示する
@@ -138,6 +141,14 @@ imap <C-k> <plug>(neocomplcache_snippets_expand)
 smap <C-k> <plug>(neocomplcache_snippets_expand)
 " END NeoComplecache_Snippets
 
+" BEGIN vim-indent-guides
+let g:indent_guides_enable_on_vim_startup = 1 " vim-indent-guidesの自動有効化
+let g:indent_guides_color_change_percent = 10 "色の変化の幅（パーセント）
+let g:indent_guides_guide_size = 1 "インデントの色付け幅
+let g:indent_guides_start_level = 1
+let g:indent_guides_space_guides = 1
+" END vim-indent-guides
+
 " BEGIN Vim-LaTeX
 set shellslash
 set grepprg=grep\ -nH\ $*
@@ -150,3 +161,10 @@ let g:Tex_FormatDependency_pdf = 'dvi,pdf'
 let g:Tex_BibtexFlavor = 'pbibtex'
 let g:Tex_MakeIndexFlavor = 'mendex $*.idx'
 " END Vim-LaTeX
+
+" BEGIN Python
+autocmd FileType python let g:pydiction_location = '~/.vim/bundle/Pydiction/complete-dict'
+autocmd FileType python setl autoindent
+autocmd FileType python setl smartindent cinwords=if,elif,else,for,while,try,except,finally,def,class
+autocmd FileType python setl expandtab tabstop=8 shiftwidth=4 softtabstop=4
+" END Python
