@@ -129,7 +129,7 @@ let g:neocomplcache_omni_patterns.cpp='\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
 
 "NeoComplecache_Snippets
 let g:neocomplcache_snippets_dir='~/.vim/snippets' " snippetの配置場所
-"" キーマップ
+"キーマップ
 imap <C-k> <plug>(neocomplcache_snippets_expand)
 smap <C-k> <plug>(neocomplcache_snippets_expand)
 
@@ -139,6 +139,13 @@ let g:indent_guides_color_change_percent=10 "色の変化の幅（パーセン�
 let g:indent_guides_guide_size=1 "インデントの色付け幅
 let g:indent_guides_start_level=1
 let g:indent_guides_space_guides=1
+
+"vim-easymotion
+let g:EasyMotion_keys='hjklasdfgyuiopqwertnmzxcvbHJKLASDFGYUIOPQWERTNMZXCVB'
+let g:EasyMotion_leader_key="'"	"「'」 + 何かにマッピング
+let g:EasyMotion_grouping=1	" 1 ストローク選択を優先する
+hi EasyMotionTarget ctermbg=none ctermfg=green
+hi EasyMotionShade  ctermbg=none ctermfg=darkgray
 
 "Vim-LaTeX
 set shellslash
