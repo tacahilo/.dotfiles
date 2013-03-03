@@ -1,35 +1,33 @@
 " BEGIN NeoBundle
-set nocompatible "Vi互換をオフ（Vimの機能を使えるようにする）
-filetype off
-filetype plugin indent off
-
+set nocompatible
 if has('vim_starting')
 	set runtimepath+=~/.vim/bundle/neobundle.vim/
-	call neobundle#rc(expand('~/.vim/bundle/'))
 endif
+call neobundle#rc(expand('~/.vim/bundle/'))
 
 NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/vimproc'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'Shougo/neocomplcache'
+NeoBundle 'Shougo/neosnippet'
+NeoBundle 'scrooloose/syntastic'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'vim-ruby/vim-ruby'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'scrooloose/syntastic'
 NeoBundle 'eagletmt/ghcmod-vim'
 NeoBundle 'ujihisa/neco-ghc'
 NeoBundle 'eagletmt/unite-haddock'
 NeoBundle 'wannesm/wmgraphviz.vim'
-NeoBundle 'Shougo/neosnippet'
 NeoBundle 'mitechie/pyflakes-pathogen'
 NeoBundle 'sontek/rope-vim'
 NeoBundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
 NeoBundle 'Pydiction'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 filetype plugin indent on
+NeoBundleCheck
 " END NeoBundle
 
 " BEGIN Dict
@@ -51,7 +49,7 @@ set tabstop=4
 set expandtab "タブの代わりに空白文字を挿入する
 set softtabstop=4 "ファイル内の <Tab> が対応する空白の数
 set shiftwidth=4 "シフト移動幅
-set ts=4 sw=4 et
+set ts=4 sw=4
 
 "バックアップ系
 set backupdir=$HOME/.vim/backup "バックアップディレクトリを指定する
@@ -93,6 +91,18 @@ set laststatus=2 "ステータスラインを常に表示する
 syntax on "シンタックスカラーリングを設定する
 set showmatch "閉じ括弧の入力時に対応する括弧を表示する
 set matchtime=3 "showmatchの表示時間
+
+" BEGIN syntastic
+let g:syntastic_enable_signs = 1
+let g:syntastic_auto_loc_list = 2
+let g:syntastic_enable_highlighting = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_python_checkers = ['pylint']
+let g:syntastic_zsh_checkers = ['zsh']
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+" END syntastic
 
 " BEGIN NeoComplecache
 set completeopt=menuone "補完候補が１つだけでも表示

@@ -33,7 +33,7 @@ RPROMPT="%{[34m%}[%~]%{[m%}"
 #==========##
 ## HISTORY ##
 ##==========#
-HISTFILE=~/.zsh_history
+HISTFILE=~/.zsh/.zsh_history
 HISTSIZE=100000
 SAVEHIST=100000
 setopt extended_history
@@ -96,15 +96,9 @@ alias -s {c,cpp}=runcpp
 ## Version Control for Languages ##
 ##================================#
 # rbenv
-if which rbenv > /dev/null; then
+if [ -s rbenv ]; then
     eval "$(rbenv init - zsh)"
     source "`brew --prefix rbenv`/completions/rbenv.zsh"
-fi
-
-# phpenv
-if which phpenv > /dev/null; then
-    eval "$(phpenv init - zsh)"
-    source "$HOME/.phpenv/completions/rbenv.zsh"
 fi
 
 # perlbrew
@@ -113,7 +107,12 @@ if which perlbrew > /dev/null; then
 fi
 
 # pythonbrew
-[[ -s "$HOME/.pythonbrew/etc/bashrc" ]] && . "$HOME/.pythonbrew/etc/bashrc"
+if [ -s "$HOME/.pythonbrew/etc/bashrc" ]; then
+    source "$HOME/.pythonbrew/etc/bashrc"
+    alias mkvirtualenv="pythonbrew venv create"
+    alias rmvirtualenv="pythonbrew venv delete"
+    alias workon="pythonbrew venv use"
+fi
 
 #====##
 ## z ##
