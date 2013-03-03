@@ -8,7 +8,13 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
-NeoBundle 'Shougo/vimproc'
+NeoBundle 'Shougo/vimproc', {
+            \ 'build' : {
+            \     'windows' : 'make -f make_mingw32.mak',
+            \     'cygwin' : 'make -f make_cygwin.mak',
+            \     'mac' : 'make -f make_mac.mak',
+            \     'unix' : 'make -f make_unix.mak',
+            \ }}
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'thinca/vim-quickrun'
@@ -102,7 +108,7 @@ let g:neocomplcache_min_syntax_length=3 " シンタックスをキャッシュ�
 inoremap <expr><TAB>   pumvisible() ? "\<Down>" : "\<TAB>"
 inoremap <expr><S-TAB> pumvisible() ? "\<Up>"   : "\<S-TAB>"
 " 改行、Deleteキーで補完ウィンドウを閉じる
-inoremap <expr><CR>  neocomplcache#smart_close_popup() . "\<CR>"
+inoremap <expr><CR>  neocomplcache#smart_close_popup()
 inoremap <expr><C-h> neocomplcache#smart_close_popup() . ”\<C-h>”
 " 現在選択している候補を確定します
 inoremap <expr><C-y> neocomplcache#close_popup()
@@ -110,6 +116,10 @@ inoremap <expr><C-y> neocomplcache#close_popup()
 inoremap <expr><C-e> neocomplcache#cancel_popup()
 inoremap <expr><C-g> neocomplcache#undo_completion()
 inoremap <expr><C-l> neocomplcache#complete_common_string()
+let g:neocomplcache_dictionary_filetype_lists = {
+    \ 'default' : '',
+    \ 'vimshell' : $HOME.'/.vimshell/command-history'
+    \ }
 
 "Omni Completion
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
