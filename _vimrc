@@ -20,10 +20,18 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'Lokaltog/vim-easymotion'
-NeoBundle 'tpope/vim-endwise'
-NeoBundle 'vim-ruby/vim-ruby'
-NeoBundle 'vim-scripts/ruby-matchit'
-NeoBundle 'Shougo/neocomplcache-rsense'
+NeoBundle 'vim-ruby/vim-ruby', {
+            \ 'autoload' : {
+            \     'filetypes' : ['ruby']
+            \ }}
+NeoBundle 'vim-scripts/ruby-matchit', {
+            \ 'autoload' : {
+            \     'filetypes' : ['ruby']
+            \ }}
+NeoBundle 'Shougo/neocomplcache-rsense', {
+            \ 'autoload' : {
+            \     'filetypes' : ['ruby']
+            \ }}
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'eagletmt/ghcmod-vim'
@@ -89,6 +97,24 @@ syntax on	"シンタックスカラーリングを設定する
 set showmatch	"閉じ括弧の入力時に対応する括弧を表示する
 set matchtime=3	"showmatchの表示時間
 
+"unite.vim
+nnoremap <silent> ,ub :<C-u>Unite buffer<CR>	"バッファ一覧
+nnoremap <silent> ,uf :<C-u>UniteWithBufferDir -buffer-name=files file<CR>	"ファイル一覧
+nnoremap <silent> ,ur :<C-u>Unite -buffer-name=register register<CR>	"レジスタ一覧
+nnoremap <silent> ,um :<C-u>Unite file_mru<CR>	"最近使用したファイル一覧
+nnoremap <silent> ,uu :<C-u>Unite buffer file_mru<CR>	"常用セット
+nnoremap <silent> ,ua :<C-u>UniteWithBufferDir -buffer-name=files buffer file_mru bookmark file<CR>	"全部乗せ
+
+"ウィンドウを分割して開く
+au FileType unite nnoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
+au FileType unite inoremap <silent> <buffer> <expr> <C-j> unite#do_action('split')
+"ウィンドウを縦に分割して開く
+au FileType unite nnoremap <silent> <buffer> <expr> <C-l> unite#do_action('vsplit')
+au FileType unite inoremap <silent> <buffer> <expr> <C-l> unite#do_action('vsplit')
+"ESCキーを2回押すと終了する
+au FileType unite nnoremap <silent> <buffer> <ESC><ESC> q
+au FileType unite inoremap <silent> <buffer> <ESC><ESC> <ESC>q
+
 "syntastic
 let g:syntastic_enable_signs=1
 let g:syntastic_auto_loc_list=2
@@ -99,6 +125,59 @@ let g:syntastic_zsh_checkers=['zsh']
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+
+"neocomplcache-rsense
+let g:rsenseHome="/usr/local/Cellar/rsense/0.3/libexec/"
+let g:rsenseUseOmniFunc=1
+let g:neocomplcache#sources#rsense#home_directory="/usr/local/Cellar/rsense/0.3/libexec"
+
+"vim-indent-guides
+let g:indent_guides_enable_on_vim_startup=1 " vim-indent-guidesの自動有効化
+let g:indent_guides_color_change_percent=10 "色の変化の幅（パーセント）
+let g:indent_guides_guide_size=1 "インデントの色付け幅
+let g:indent_guides_start_level=1
+let g:indent_guides_space_guides=1
+
+"vim-rails
+let g:rails_default_file='config/database.yml'
+let g:rails_level=4
+let g:rails_mappings=1
+let g:rails_modelines=0
+function! SetUpRailsSetting()
+    nnoremap <buffer><Space>r :R<CR>
+    nnoremap <buffer><Space>a :A<CR>
+    nnoremap <buffer><Space>m :Rmodel<Space>
+    nnoremap <buffer><Space>c :Rcontroller<Space>
+    nnoremap <buffer><Space>v :Rview<Space>
+    nnoremap <buffer><Space>p :Rpreview<CR>
+endfunction
+ 
+aug MyAutoCmd
+    au User Rails call SetUpRailsSetting()
+aug END
+ 
+aug RailsDictSetting
+    au!
+aug END
+
+"vim-easymotion
+let g:EasyMotion_keys='hjklasdfgyuiopqwertnmzxcvbHJKLASDFGYUIOPQWERTNMZXCVB'
+let g:EasyMotion_leader_key="'"	"「'」 + 何かにマッピング
+let g:EasyMotion_grouping=1	" 1 ストローク選択を優先する
+hi EasyMotionTarget ctermbg=none ctermfg=green
+hi EasyMotionShade  ctermbg=none ctermfg=darkgray
+
+"Vim-LaTeX
+set shellslash
+set grepprg=grep\ -nH\ $*
+let tex_flavor='latex'
+let g:Tex_DefaultTargetFormat='pdf'
+let g:Tex_ViewRule_pdf='open -a Preview.app'
+let g:Tex_CompileRule_dvi='platex  -synctex=1 -interaction=nonstopmode $*'
+let g:Tex_CompileRule_pdf='dvipdfmx $*.dvi'
+let g:Tex_FormatDependency_pdf='dvi,pdf'
+let g:Tex_BibtexFlavor='pbibtex'
+let g:Tex_MakeIndexFlavor='mendex $*.idx'
 
 "NeoComplecache
 set completeopt=menuone "補完候補が１つだけでも表示
@@ -147,36 +226,3 @@ let g:neocomplcache_snippets_dir='~/.vim/snippets' " snippetの配置場所
 "キーマップ
 imap <C-k> <plug>(neocomplcache_snippets_expand)
 smap <C-k> <plug>(neocomplcache_snippets_expand)
-
-"vim-indent-guides
-let g:indent_guides_enable_on_vim_startup=1 " vim-indent-guidesの自動有効化
-let g:indent_guides_color_change_percent=10 "色の変化の幅（パーセント）
-let g:indent_guides_guide_size=1 "インデントの色付け幅
-let g:indent_guides_start_level=1
-let g:indent_guides_space_guides=1
-
-"vim-endwise
-let g:endwise_no_mapping=1
-
-"vim-easymotion
-let g:EasyMotion_keys='hjklasdfgyuiopqwertnmzxcvbHJKLASDFGYUIOPQWERTNMZXCVB'
-let g:EasyMotion_leader_key="'"	"「'」 + 何かにマッピング
-let g:EasyMotion_grouping=1	" 1 ストローク選択を優先する
-hi EasyMotionTarget ctermbg=none ctermfg=green
-hi EasyMotionShade  ctermbg=none ctermfg=darkgray
-
-"neocomplcache-rsense
-let g:rsenseHome="/usr/local/Cellar/rsense/0.3/libexec/"
-let g:neocomplcache#sources#rsense#home_directory="/usr/local/Cellar/rsense/0.3/libexec"
-
-"Vim-LaTeX
-set shellslash
-set grepprg=grep\ -nH\ $*
-let tex_flavor='latex'
-let g:Tex_DefaultTargetFormat='pdf'
-let g:Tex_ViewRule_pdf='open -a Preview.app'
-let g:Tex_CompileRule_dvi='platex  -synctex=1 -interaction=nonstopmode $*'
-let g:Tex_CompileRule_pdf='dvipdfmx $*.dvi'
-let g:Tex_FormatDependency_pdf='dvi,pdf'
-let g:Tex_BibtexFlavor='pbibtex'
-let g:Tex_MakeIndexFlavor='mendex $*.idx'
