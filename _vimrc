@@ -10,7 +10,7 @@ NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/vimproc', {
             \ 'build' : {
-            \     'windows' : 'make -f make_mingw32.mak',
+            \     'windows' : 'make -f make_mingw64.mak',
             \     'cygwin' : 'make -f make_cygwin.mak',
             \     'mac' : 'make -f make_mac.mak',
             \     'unix' : 'make -f make_unix.mak',
@@ -20,7 +20,10 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'Lokaltog/vim-easymotion'
+NeoBundle 'tpope/vim-endwise'
 NeoBundle 'vim-ruby/vim-ruby'
+NeoBundle 'vim-scripts/ruby-matchit'
+NeoBundle 'Shougo/neocomplcache-rsense'
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-fugitive'
 NeoBundle 'eagletmt/ghcmod-vim'
@@ -108,7 +111,10 @@ let g:neocomplcache_min_syntax_length=3 " シンタックスをキャッシュ�
 inoremap <expr><TAB>   pumvisible() ? "\<Down>" : "\<TAB>"
 inoremap <expr><S-TAB> pumvisible() ? "\<Up>"   : "\<S-TAB>"
 " 改行、Deleteキーで補完ウィンドウを閉じる
-inoremap <expr><CR>  neocomplcache#smart_close_popup()
+function! s:my_cr_func()
+    return pumvisible() ? neocomplcache#smart_close_popup() : "\<CR>"
+endfunction
+inoremap <silent> <CR> <C-R>=<SID>my_cr_func()<CR>
 inoremap <expr><C-h> neocomplcache#smart_close_popup() . ”\<C-h>”
 " 現在選択している候補を確定します
 inoremap <expr><C-y> neocomplcache#close_popup()
@@ -132,7 +138,6 @@ if !exists('g:neocomplcache_omni_patterns')
       let g:neocomplcache_omni_patterns={}
 endif
 let g:neocomplcache_omni_patterns.ruby='[^. *\t]\.\w*\|\h\w*::'
-"autocmd FileType ruby setlocal omnifunc=rubycomplete#Complete
 let g:neocomplcache_omni_patterns.php='[^. \t]->\h\w*\|\h\w*::'
 let g:neocomplcache_omni_patterns.c='\%(\.\|->\)\h\w*'
 let g:neocomplcache_omni_patterns.cpp='\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
@@ -150,12 +155,19 @@ let g:indent_guides_guide_size=1 "インデントの色付け幅
 let g:indent_guides_start_level=1
 let g:indent_guides_space_guides=1
 
+"vim-endwise
+let g:endwise_no_mapping=1
+
 "vim-easymotion
 let g:EasyMotion_keys='hjklasdfgyuiopqwertnmzxcvbHJKLASDFGYUIOPQWERTNMZXCVB'
 let g:EasyMotion_leader_key="'"	"「'」 + 何かにマッピング
 let g:EasyMotion_grouping=1	" 1 ストローク選択を優先する
 hi EasyMotionTarget ctermbg=none ctermfg=green
 hi EasyMotionShade  ctermbg=none ctermfg=darkgray
+
+"neocomplcache-rsense
+let g:rsenseHome="/usr/local/Cellar/rsense/0.3/libexec/"
+let g:neocomplcache#sources#rsense#home_directory="/usr/local/Cellar/rsense/0.3/libexec"
 
 "Vim-LaTeX
 set shellslash
