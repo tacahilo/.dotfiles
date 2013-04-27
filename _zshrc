@@ -33,7 +33,7 @@ RPROMPT="%{[34m%}[%~]%{[m%}"
 #==========##
 ## HISTORY ##
 ##==========#
-HISTFILE=~/.zsh/.zsh_history
+HISTFILE=~/.zsh_history
 HISTSIZE=100000
 SAVEHIST=100000
 setopt extended_history
@@ -79,19 +79,19 @@ fi
 alias chrome='google-chrome'
 alias -s html=chrome
 function extract() {
-  case $1 in
+case $1 in
     *.tar.gz|*.tgz) tar xzvf $1;;
-    *.tar.xz) tar Jxvf $1;;
+*.tar.xz) tar Jxvf $1;;
     *.zip) unzip $1;;
-    *.lzh) lha e $1;;
+*.lzh) lha e $1;;
     *.tar.bz2|*.tbz) tar xjvf $1;;
-    *.tar.Z) tar zxvf $1;;
+*.tar.Z) tar zxvf $1;;
     *.gz) gzip -dc $1;;
-    *.bz2) bzip2 -dc $1;;
+*.bz2) bzip2 -dc $1;;
     *.Z) uncompress $1;;
-    *.tar) tar xvf $1;;
+*.tar) tar xvf $1;;
     *.arj) unarj $1;;
-  esac
+esac
 }
 alias -s {gz,tgz,zip,lzh,bz2,tbz,Z,tar,arj,xz}=extract
 function runcpp () { g++ -O2 $1; ./a.out }
@@ -121,8 +121,8 @@ fi
 
 #====##
 ## z ##
-##====#
-. $HOME/.zsh/z.sh
+##===#
+. $HOME/.zsh/z/z.sh
 precmd() {
     z --add "$(pwd -P)"
 }
@@ -136,9 +136,9 @@ source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 ## stacx ##
 ##========#
 show_buffer_stack() {
-  POSTDISPLAY="
-stack: $LBUFFER"
-  zle push-line-or-edit
+    POSTDISPLAY="
+    stack: $LBUFFER"
+    zle push-line-or-edit
 }
 zle -N show_buffer_stack
 setopt noflowcontrol
