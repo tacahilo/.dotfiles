@@ -33,7 +33,7 @@ RPROMPT="%{[34m%}[%~]%{[m%}"
 #==========##
 ## HISTORY ##
 ##==========#
-HISTFILE=~/.zsh_history
+HISTFILE=~/.backup/zsh_history
 HISTSIZE=100000
 SAVEHIST=100000
 setopt extended_history

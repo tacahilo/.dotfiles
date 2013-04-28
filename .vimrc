@@ -59,10 +59,10 @@ set hidden "ファイル変更中でも他のファイルを開けるように�
 set autoread "ファイル内容が変更されると自動読み込みする
 
 ""Backup
-set backupdir=$HOME/.vim/backup "バックアップディレクトリを指定する
+set backupdir=$HOME/.backup/vim "バックアップディレクトリを指定する
 set browsedir=buffer "ファイル保存ダイアログの初期ディレクトリをバッファファイル位置に設定
-set directory=$HOME/.vim/backup "スワップファイルディレクトリを指定する
-set history=1000 "履歴保存数
+set directory=$HOME/.backup/vim "スワップファイルディレクトリを指定する
+set history=10000 "履歴保存数
 
 ""Search
 set incsearch "インクリメンタルサーチを行う
