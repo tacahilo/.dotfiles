@@ -4,7 +4,7 @@
 This plugin provides:
 - Compilation for Graphviz dot-files.
 - Omnicompletion for the attribute names and specific values.
-- Extensions for working with SnipMate and dot2tex.
+- Extensions for working with SnipMate, UltiSnips and dot2tex.
 
 ==============================================================================
 
@@ -14,7 +14,7 @@ This plugin provides:
 |wmgraphviz-omnicompletion|       OMNICOMPLETION
 |wmgraphviz-settings|             SETTINGS
 
-|wmgraphviz-snipmate|             SNIPMATE
+|wmgraphviz-snippets|             SNIPPETS
 |wmgraphviz-dot2tex|              DOT2TEX
 
 |wmgraphviz-contact|              CONTACT
@@ -35,11 +35,15 @@ http://www.macports.org.
 
 MAPPINGS                                                 *wmgraphviz-mappings*
 
-<Leader>ll		|:GraphvizCompile|
+<LocalLeader>ll		|:GraphvizCompile|
 	Create the graph in the same directory as the current dot-file.
 
-<Leader>lv		|:GraphvizShow|
+<LocalLeader>lv		|:GraphvizShow|
 	View the graph in the current dot-file.
+
+<LocalLeader>li		|:GraphvizInteractive|
+	Open interactive dot viewer that immediately redraws image when
+	dot-file is saved.
 
 ==============================================================================
 
@@ -58,6 +62,10 @@ COMMANDS                                                 *wmgraphviz-commands*
 
 *:GraphvizShow*
 	View the graph in the current dot-file.
+
+*:GraphvizInteractive*
+	Open interactive dot viewer that immediately redraws image when
+	dot-file is saved.
 
 ==============================================================================
 
@@ -101,9 +109,10 @@ SETTINGS                                                 *wmgraphviz-settings*
 
 ==============================================================================
 
-SNIPMATE                                                 *wmgraphviz-snipmate*
+SNIPPETS                                                 *wmgraphviz-snippets*
 
 If the snipMate plugin (http://www.vim.org/scripts/script.php?script_id=2540)
+or the UltiSnips plugin (http://www.vim.org/scripts/script.php?script_id=2715)
 is installed, there are some snippets provided. For example >
 	graph<TAB>
 	digraph<TAB>
@@ -120,17 +129,17 @@ you can use an extra command:
 
 Available keymapping:
 
-<Leader>lt		|:GraphvizCompileLaTeX|
+<LocalLeader>lt		|:GraphvizCompileLaTeX|
 
 Available settings:
 
-*g:WMGraphviz_tex2dot*                                     Default: 'dot2tex'
+*g:WMGraphviz_dot2tex*                                     Default: 'dot2tex'
 
 	Path to dot2tex binary.
 
-*g:WMGraphviz_tex2dotoptions*                              Default: '-tmath'
+*g:WMGraphviz_dot2texoptions*                              Default: '-tmath'
 
-	Options for tex2dot.
+	Options for dot2tex.
 
 ==============================================================================
 
