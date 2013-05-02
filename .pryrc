@@ -8,11 +8,7 @@ rescue
 end
 
 Pry.config.prompt = proc do |obj, level, _|
-<<<<<<< HEAD
   prompt = "\e[0;33m"
-=======
-  prompt = "\e[0;37m"
->>>>>>> d9646655c7a62a7db600205a9e2b35fa82944c05
   prompt << "#{Rails.version} @ " if defined?(Rails)
   prompt << "#{RUBY_VERSION}"
   "#{prompt} (#{obj})> \e[0m"
