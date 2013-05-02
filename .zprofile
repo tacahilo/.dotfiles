@@ -12,6 +12,7 @@ export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/share:$PATH
 export PATH=/usr/local/texlive/2012/bin/x86_64-darwin:$PATH
 # Cabal(Haskell)用設定
 export PATH=$HOME/.cabal/bin:$PATH
+
 # rbenv用設定
 export PATH=$HOME/.rbenv/shims:$PATH
 # NODEBREW用PATH指定

@@ -2,7 +2,6 @@
 ## File Operation ##
 ##=================#
 fpath=(~/.zsh/zsh-completions/src $fpath)
-autoload -U ~/.zsh/zsh-completions/*(:t)
 autoload -U compinit && compinit
 setopt auto_cd
 setopt auto_pushd

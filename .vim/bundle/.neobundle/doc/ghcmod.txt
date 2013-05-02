@@ -40,7 +40,7 @@ DETAILS                                                       *ghcmod-details*
 
 If you'd like to give GHC options, set |g:ghcmod_ghc_options|.
 
-:GhcModType                                                      *:GhcModType*
+:GhcModType[!]                                                   *:GhcModType*
 	The sub-expression under the cursor is highlighted and its type is
 	echoed. If you type |:GhcModType| multiple times, the sub-expression
 	changes.
@@ -48,64 +48,91 @@ If you'd like to give GHC options, set |g:ghcmod_ghc_options|.
 	Sub-expressions are highlighted as |hl-Search| by default. You can
 	customize it by setting |g:ghcmod_type_highlight|.
 
-:GhcModInfo                                                      *:GhcModInfo*
-	Information about the identifier under the cursor is echoed.
+	When the current buffer is modified, this command is disabled unless
+	"!" is given.
 
-:GhcModInfo {identifier}
+:GhcModTypeInsert[!]                                       *:GhcModTypeInsert*
+	Insert a type signature under the cursor.
+
+	When the current buffer is modified, this command is disabled unless
+	"!" is given.
+
+:GhcModInfo[!] [{identifier}]                                    *:GhcModInfo*
+	Information about {identifier} is echoed. If {identifier} isn't given,
+	the word under the cursor is used.
+
+	When the current buffer is modified, this command is disabled unless
+	"!" is given.
+
 	Information about {identifier} is echoed.
 
-:GhcModInfoPreview                                        *:GhcModInfoPreview*
-	Information about the identifier under the cursor is displayed in
-	the preview window. Info accumulates until the preview window is
-	closed or renamed, for example by a different command.
+:GhcModInfoPreview[!] [{identifier}]                      *:GhcModInfoPreview*
+	Information about the {identifier} is displayed in the preview window.
+	If {identifier} isn't given, the word under the cursor is used. Info
+	accumulates until the preview window is closed or renamed, for example
+	by a different command.
 
-:GhcModInfoPreview {identifier}
+	When the current buffer is modified, this command is disabled unless
+	"!" is given.
+
+:GhcModInfoPreview[!] {identifier}
 	Information about {identifier} is displayed in the preview window.
 	Info accumulates until the preview window is closed or renamed,
 	for example by a different command.
 
+	When the current buffer is modified, this command is disabled unless
+	"!" is given.
+
 :GhcModTypeClear                                            *:GhcModTypeClear*
 	Clear the highlight created by |:GhcModType|.
 
-:GhcModCheck                                                    *:GhcModCheck*
+:GhcModCheck[!]                                                 *:GhcModCheck*
 	Display compiler errors/warnings in |quickfix|.
 
-:GhcModLint                                                      *:GhcModLint*
+	When the current buffer is modified, this command is disabled unless
+	"!" is given.
+
+:GhcModLint[!]                                                   *:GhcModLint*
 	Display hlint suggestions in |quickfix|. If you'd like to pass options
 	to hlint, set |g:ghcmod_hlint_options|.
 
-:GhcModCheckAsync                                          *:GhcModCheckAsync*
+	When the current buffer is modified, this command is disabled unless
+	"!" is given.
+
+:GhcModCheckAsync[!]                                       *:GhcModCheckAsync*
 	Asynchronous variant of |:GhcModCheck|. This would be useful when
 	you'd like to run check and/or lint automatically (especially on
 	|BufWritePost|).  See |ghcmod-customize| wiki page for more detail.
 
-:GhcModLintAsync                                            *:GhcModLintAsync*
+	When the current buffer is modified, this command is disabled unless
+	"!" is given.
+
+:GhcModLintAsync[!]                                         *:GhcModLintAsync*
 	Asynchronous variant of |:GhcModLint|.
+
+	When the current buffer is modified, this command is disabled unless
+	"!" is given.
 
 :GhcModCheckAndLintAsync                            *:GhcModCheckAndLintAsync*
 	Perform |:GhcModCheck| and |:GhcModLint| asynchronously.
 
-:GhcModExpand                                                  *:GhcModExpand*
+:GhcModExpand[!]                                               *:GhcModExpand*
 	Display the expansion of splices in |quickfix|.
+
+	When the current buffer is modified, this command is disabled unless
+	"!" is given.
 
 ==============================================================================
 GLOBAL VARIABLES                                     *ghcmod-global-variables*
 
 g:ghcmod_ghc_options                                    *g:ghcmod_ghc_options*
-	Pass these options to GHC. By default, ghcmod only passes the
-	"-fno-code" option for performance reasons. Defining this variable
-	will prevent this, so if you want that option you should include
-	it manually. When ghcmod finds a Cabal directory structure,
-	ghcmod automatically appends suitable options for it.
+	Pass these options to GHC. By default, ghcmod doesn't pass any GHC
+	options. When ghcmod finds a Cabal directory structure, ghcmod
+	automatically append suitable options for it.
 
-	Example: passing ONLY -idir1 and -idir2 to GHC.
+	Example: passing -idir1 and -idir2 to GHC
 >
 	let g:ghcmod_ghc_options = ['-idir1', '-idir2']
-<
-	Example: excluding the implicit "-fno-code". This was the default in
-	previous version of ghcmod.
->
-	let g:ghcmod_ghc_options = []
 <
 
 b:ghcmod_ghc_options                                    *b:ghcmod_ghc_options*
@@ -144,15 +171,12 @@ g:ghcmod_type_highlight                              *g:ghcmod_type_highlight*
 	let g:ghcmod_type_highlight = 'ghcmodType'
 <
 g:ghcmod_use_basedir                                    *g:ghcmod_use_basedir*
-	The directory to execute ghc-mod from. This can have an effect
-	particularly on template Haskell splices that expect to find certain
-	files in certain places. A good practice in these cases is to make
-	them work from the projects base directory, and open Vim from there.
->
-	let g:ghcmod_use_basedir = getcwd()
-<
-	If you do not set it, ghcmod will be executed from the folder the file
-	current Haskell file is contained in.
+	The directory to execute ghc-mod from.
+
+	If you do not set it, ghc-mod is executed from project base directory,
+	e.g. from directory where cabal file is placed. This can have an
+	effect particularly on template Haskell splices that expect to find
+	certain files in certain places.
 
 g:ghcmod_max_preview_size                          *g:ghcmod_max_preview_size*
 	The maximum size in lines of that the preview window will grow to
