@@ -34,8 +34,6 @@ NeoBundle 'Shougo/neocomplcache-rsense', {
             \ }}
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-fugitive'
-NeoBundle 'eagletmt/ghcmod-vim'
-NeoBundle 'ujihisa/neco-ghc'
 NeoBundle 'eagletmt/unite-haddock'
 NeoBundle 'wannesm/wmgraphviz.vim'
 NeoBundle 'mitechie/pyflakes-pathogen'
