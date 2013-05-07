@@ -20,6 +20,7 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'Lokaltog/vim-easymotion'
+NeoBundle 'fuenor/qfixhowm'
 NeoBundle 'vim-ruby/vim-ruby', {
             \ 'autoload' : {
             \     'filetypes' : ['ruby']
@@ -232,3 +233,12 @@ let g:neocomplcache_snippets_dir='~/.vim/snippets' " snippetの配置場所
 "キーマップ
 imap <C-k> <plug>(neocomplcache_snippets_expand)
 smap <C-k> <plug>(neocomplcache_snippets_expand)
+
+""QFixHowm
+set runtimepath+=~/.vim/bundle/qfixhowm/
+
+let QFixHowm='g'
+let howm_dir = '~/Documents/howm'
+let howm_filename = '%Y/%m/%Y-%m-%d-%H%M%S.txt'
+let howm_fileencoding = 'utf-8'
+let howm_fileformat = 'unix'

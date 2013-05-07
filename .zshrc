@@ -1,7 +1,7 @@
 #=================##
 ## File Operation ##
 ##=================#
-fpath=(~/.zsh/zsh-completions/src $fpath)
+fpath=(~/.zsh.d/zsh-completions/src $fpath)
 autoload -U compinit && compinit
 setopt auto_cd
 setopt auto_pushd
@@ -99,12 +99,6 @@ alias -s {c,cpp}=runcpp
 #================================##
 ## Version Control for Languages ##
 ##================================#
-# rbenv
-if [ -s rbenv ]; then
-    eval "$(rbenv init - zsh)"
-    source "`brew --prefix rbenv`/completions/rbenv.zsh"
-fi
-
 # perlbrew
 if which perlbrew > /dev/null; then
     source "$HOME/perl5/perlbrew/etc/bashrc"
@@ -121,7 +115,7 @@ fi
 #====##
 ## z ##
 ##===#
-. $HOME/.zsh/z/z.sh
+. $HOME/.zsh.d/z/z.sh
 precmd() {
     z --add "$(pwd -P)"
 }
@@ -129,7 +123,7 @@ precmd() {
 #==========================##
 ## zsh-syntax-highligthdng ##
 ##==========================#
-source $HOME/.zsh/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOME/.zsh.d/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 #========##
 ## stacx ##
