@@ -10,10 +10,10 @@ NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/vimproc', {
             \ 'build' : {
-            \     'windows' : 'make -f make_mingw64.mak',
-            \     'cygwin' : 'make -f make_cygwin.mak',
-            \     'mac' : 'make -f make_mac.mak',
-            \     'unix' : 'make -f make_unix.mak',
+            \   'windows' : 'make -f make_mingw64.mak',
+            \   'cygwin' : 'make -f make_cygwin.mak',
+            \   'mac' : 'make -f make_mac.mak',
+            \   'unix' : 'make -f make_unix.mak',
             \ }}
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/unite.vim'
@@ -23,15 +23,15 @@ NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'fuenor/qfixhowm'
 NeoBundle 'vim-ruby/vim-ruby', {
             \ 'autoload' : {
-            \     'filetypes' : ['ruby']
+            \   'filetypes' : ['ruby']
             \ }}
 NeoBundle 'vim-scripts/ruby-matchit', {
             \ 'autoload' : {
-            \     'filetypes' : ['ruby']
+            \   'filetypes' : ['ruby']
             \ }}
 NeoBundle 'Shougo/neocomplcache-rsense', {
             \ 'autoload' : {
-            \     'filetypes' : ['ruby']
+            \   'filetypes' : ['ruby']
             \ }}
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-fugitive'
@@ -238,7 +238,7 @@ smap <C-k> <plug>(neocomplcache_snippets_expand)
 set runtimepath+=~/.vim/bundle/qfixhowm/
 
 let QFixHowm='g'
-let howm_dir = '~/Documents/howm'
-let howm_filename = '%Y/%m/%Y-%m-%d-%H%M%S.txt'
-let howm_fileencoding = 'utf-8'
-let howm_fileformat = 'unix'
+let howm_dir='~/Documents/howm'
+let howm_filename='%Y/%m/%Y-%m-%d-%H%M%S.txt'
+let howm_fileencoding='utf-8'
+let howm_fileformat='unix'
