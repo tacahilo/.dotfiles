@@ -1,1 +1,1 @@
-echo "> Hello, Z World."
+echo "Hello, Z World !"
