@@ -1,25 +1,17 @@
-require "awesome_print"
 require 'irb/completion'
 require 'irb/ext/save-history'
 require 'rubygems'
 require 'readline'
 require 'what_methods'
+require 'pp'
+require 'wirble'
 
-IRB.conf[:SAVE_HISTORY] = 5000
+# configuration
 IRB.conf[:AUTO_INDENT] = true
 IRB.conf[:USE_READLINE] = true
-IRB.conf[:HISTORY_PATH] = File::expand_path("~/.backup/irb-history")
+IRB.conf[:SAVE_HISTORY] = 100000
+IRB.conf[:HISTORY_FILE] = "~/.backup/irb_history"
 
-unless IRB.version.include?('DietRB')
-  IRB::Irb.class_eval do
-    def output_value
-      ap @context.last_value
-    end
-  end
-else # MacRuby
-  IRB.formatter = Class.new(IRB::Formatter) do
-    def inspect_object(object)
-      object.ai
-    end
-  end.new
-end
+# wirble
+Wirble.init
+Wirble.colorize
