@@ -18,10 +18,8 @@ export PATH=/usr/local/texlive/2012/bin/x86_64-darwin:$PATH
 # Cabal(Haskell)
 export PATH=$HOME/.cabal/bin:$PATH
 
-
 # rbenv
 export PATH=$HOME/.rbenv/shims:$PATH
-
 
 # nodebrew
 export PATH=$HOME/.nodebrew/current/bin:$PATH

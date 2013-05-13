@@ -105,7 +105,8 @@ if which perlbrew > /dev/null; then
 fi
 
 # pythonbrew
-if [ -s "$HOME/.pythonbrew/etc/bashrc" ]; then
+which pythonbrew > /dev/null
+if [ $? -eq 0 ]; then
     source "$HOME/.pythonbrew/etc/bashrc"
     alias mkvirtualenv="pythonbrew venv create"
     alias rmvirtualenv="pythonbrew venv delete"
