@@ -19,3 +19,6 @@
 [submodule ".zsh.d/zsh-syntax-highlighting"]
 	path = .zsh.d/zsh-syntax-highlighting
 	url = git://github.com/zsh-users/zsh-syntax-highlighting.git
+[submodule "libs/phpenv"]
+	path = libs/phpenv
+	url = git://github.com/phpenv/phpenv.git
