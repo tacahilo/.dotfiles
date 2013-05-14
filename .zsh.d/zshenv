@@ -1,3 +1,15 @@
+# typeset -U path
+## (N-/): 存在しないディレクトリは登録しない。
+##    パス(...): ...という条件にマッチするパスのみ残す。
+##            N: NULL_GLOBオプションを設定。
+##               globがマッチしなかったり存在しないパスを無視する。
+##            -: シンボリックリンク先のパスを評価。
+##            /: ディレクトリのみ残す。
+## thanks for http://www.clear-code.com/blog/2011/9/5.html
+# path=(# システム用
+#       /bin(N-/)
+
+#       )
 # lang
 export LANG=ja_JP.UTF-8
 export SHELL=/usr/local/bin/zsh
