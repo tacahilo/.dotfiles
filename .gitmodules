@@ -22,3 +22,6 @@
 [submodule "libs/phpenv"]
 	path = libs/phpenv
 	url = git://github.com/phpenv/phpenv.git
+[submodule ".zsh.d/auto-fu"]
+	path = .zsh.d/auto-fu
+	url = git://github.com/hchbaw/auto-fu.zsh.git
