@@ -100,7 +100,8 @@ alias -s {c,cpp}=runcpp
 ## Version Control for Languages ##
 ##================================#
 # perlbrew
-if which perlbrew > /dev/null; then
+which perlbrew > /dev/null
+if [ $? -eq 0 ]; then
     source "$HOME/perl5/perlbrew/etc/bashrc"
 fi
 
@@ -115,16 +116,27 @@ fi
 
 #====##
 ## z ##
-##===#
-. $HOME/.zsh.d/z/z.sh
-precmd() {
-    z --add "$(pwd -P)"
-}
+##====#
+if [ -f ~/.zsh.d/z/z.sh ]; then
+    . ~/.zsh.d/z/z.sh
+fi
 
 #==========================##
 ## zsh-syntax-highligthdng ##
 ##==========================#
 source $HOME/.zsh.d/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+#=====================##
+## source auto-fu.zsh ##
+##=====================#
+if [ -f ~/.zsh.d/auto-fu/auto-fu.zsh ]; then
+    source ~/.zsh.d/auto-fu/auto-fu.zsh
+    function zle-line-init () {
+        auto-fu-init
+    }
+    zle -N zle-line-init
+    zstyle ':completion:*' completer _oldlist _complete
+fi
 
 #========##
 ## stacx ##
