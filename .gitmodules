@@ -25,3 +25,6 @@
 [submodule ".zsh.d/auto-fu"]
 	path = .zsh.d/auto-fu
 	url = git://github.com/hchbaw/auto-fu.zsh.git
+[submodule "libs/plenv"]
+	path = libs/plenv
+	url = git://github.com/tokuhirom/plenv.git
