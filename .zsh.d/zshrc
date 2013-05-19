@@ -65,6 +65,7 @@ alias br="brew upgrade"
 alias bs="brew -S"
 alias bi="brew info"
 alias rl="/usr/local/bin/r"
+alias gitignoring="~/.junk/gitignore_reloaded.sh"
 alias -s {txt,md,markdown,xml}=lv
 alias -s py=python
 alias -s hs=runhaskell
