@@ -28,34 +28,33 @@ export PATH=/usr/local/bin:/usr/local/sbin:/usr/local/share:$PATH
 export PATH=/usr/local/texlive/2012/bin/x86_64-darwin:$PATH
 
 # Cabal(Haskell)
-export PATH=$HOME/.cabal/bin:$PATH
-
-# rbenv
-export PATH=$HOME/.rbenv/shims:$PATH
+if [ -d ~/.cabal ]; then
+    export PATH=$HOME/.cabal/bin:$PATH
+fi
 
 # nodebrew
-export PATH=$HOME/.nodebrew/current/bin:$PATH
-export NODEBREW_ROOT=$HOME/.nodebrew
-
+if [ -d ~/.nodebrew ]; then
+    export PATH=$HOME/.nodebrew/current/bin:$PATH
+    export NODEBREW_ROOT=$HOME/.nodebrew
+fi
 
 # python
-which pythonbrew > /dev/null
-if [ $? -eq 0 ]; then
-    export PYTHONPATH=$HOME/.pythonbrew/current:$PYTHONPATH
-    export WORKON_HOME=$HOME/.virtualenvs
+if [ -d ~/.pyenv ]; then
+    export PATH=$HOME/.pyenv/bin:$HOME/.pyenv/shims:$PATH
+    eval "$(pyenv init - zsh)"
+    source $HOME/.pyenv/completions/pyenv.zsh
 fi
 
 
 # perlbrev
-which perlbrew > /dev/null
-if [ $? -eq 0 ]; then
-    export PATH=$HOME/perl5/perlbrew/bin/:$PATH
+if [ -d ~/.plenv ]; then
+    export PATH=$HOME/.plenv/bin:$PATH
+    eval "$(plenv init - zsh)"
 fi
 
 
 # rbenv
-which rbenv > /dev/null
-if [ $? -eq 0 ]; then
+if [ -d ~/.rbenv ]; then
     export PATH=$HOME/.rbenv/bin:$HOME/.rbenv/shims:$PATH
     eval "$(rbenv init - zsh)"
     source $HOME/.rbenv/completions/rbenv.zsh
@@ -63,8 +62,7 @@ fi
 
 
 # phpenv
-which phpenv > /dev/null
-if [ $? -eq 0 ]; then
+if [ -d ~/.phpenv ]; then
     export PATH=$HOME/.phpenv/bin:$HOME/.phpenv/shims:$PATH
     eval "$(phpenv init - zsh)"
     source $HOME/.phpenv/completions/phpenv.zsh

@@ -2,11 +2,11 @@
 
 if expr "$OSTYPE" : "^darwing" >/dev/null; then
     echo migrating...
+    cd ~/.
 else
     exit 1
 fi
 
-cd ~/.
 
 # install homebrew
 which brew > /dev/null
@@ -29,18 +29,41 @@ else
 fi
 
 
-# install pythonbrew
-which pythonbrew > /dev/null
+# plenv
+which plenv > /dev/null 2>&1
 if [ $? -eq 0 ]; then
-    echo pythonbrew already installed
+    echo plenv already installed
 else
-    curl -kL http://xrl.us/pythonbrewinstall | bash
+   ln -s ~/.dotfiles/libs/plenv ~/.plenv
 fi
 
 
-if [[ condition ]]; then
-    #statements
+# pyenv
+which pyenv > /dev/null 2>&1
+if [ $? -eq 0 ]; then
+    echo pyenv already installed
+else
+   ln -s ~/.dotfiles/libs/pyenv ~/.pyenv
 fi
+
+
+# rbenv
+which rbenv > /dev/null 2>&1
+if [ $? -eq 0 ]; then
+    echo rbenv already installed
+else
+   ln -s ~/.dotfiles/libs/rbenv ~/.rbenv
+fi
+
+
+# phpenv
+which phpenv > /dev/null 2>&1
+if [ $? -eq 0 ]; then
+    echo phpenv already installed
+else
+   ln -s ~/.dotfiles/libs/phpenv ~/.phpenv
+fi
+
 
 # alias dotfiles
 for file in `find ~/.dotfiles -d 1 -name '.*' | grep -v '.git$' | sed "s/.*dotfiles\///g"`; do

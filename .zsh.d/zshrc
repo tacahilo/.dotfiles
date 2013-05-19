@@ -69,15 +69,18 @@ alias gitignoring="~/.junk/gitignore_reloaded.sh"
 alias -s {txt,md,markdown,xml}=lv
 alias -s py=python
 alias -s hs=runhaskell
+
 if [ `uname` = "Darvin" ]; then
+    # Preview
     alias preview='open -a Preview'
-fi
-alias -s {gif,png,jpg,bmp,pdf,GIF,PNG,JPG,BMP,PDF}=preview
-if [ `uname` = "Darwin" ]; then
+    alias -s {gif,png,jpg,bmp,pdf,GIF,PNG,JPG,BMP,PDF}=preview
+
+    # Chrome
     alias google-chrome='open -a Google\ Chrome'
+    alias chrome='google-chrome'
+    alias -s html=chrome
 fi
-alias chrome='google-chrome'
-alias -s html=chrome
+
 function extract() {
 case $1 in
     *.tar.gz|*.tgz) tar xzvf $1;;
@@ -100,20 +103,7 @@ alias -s {c,cpp}=runcpp
 #================================##
 ## Version Control for Languages ##
 ##================================#
-# perlbrew
-which perlbrew > /dev/null
-if [ $? -eq 0 ]; then
-    source "$HOME/perl5/perlbrew/etc/bashrc"
-fi
-
-# pythonbrew
-which pythonbrew > /dev/null
-if [ $? -eq 0 ]; then
-    source "$HOME/.pythonbrew/etc/bashrc"
-    alias mkvirtualenv="pythonbrew venv create"
-    alias rmvirtualenv="pythonbrew venv delete"
-    alias workon="pythonbrew venv use"
-fi
+# nothing
 
 #====##
 ## z ##
@@ -125,7 +115,8 @@ fi
 #==========================##
 ## zsh-syntax-highligthdng ##
 ##==========================#
-source $HOME/.zsh.d/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# zsh-syntax-highligthdng is incompatible with auto-fu
+# source $HOME/.zsh.d/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 #=====================##
 ## source auto-fu.zsh ##
