@@ -28,3 +28,6 @@
 [submodule "libs/plenv"]
 	path = libs/plenv
 	url = git://github.com/tokuhirom/plenv.git
+[submodule "libs/pyenv"]
+	path = libs/pyenv
+	url = git://github.com/yyuu/pyenv.git
