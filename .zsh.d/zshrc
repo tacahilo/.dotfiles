@@ -11,13 +11,20 @@ fpath=(~/.zsh.d/zsh-completions/src $fpath)
 ##===============#
 autoload -U compinit && compinit
 setopt auto_cd
+setopt auto_menu
 setopt auto_pushd
+setopt auto_param_keys
+setopt auto_remove_slash
 setopt correct
 setopt magic_equal_subst
-setopt nobeep
+setopt no_beep
+setopt no_flow_control
 setopt prompt_subst
 setopt list_packed
+setopt list_types
+setopt long_list_jobs
 setopt complete_aliases
+setopt zle
 zstyle ':completion:*' verbose yes
 zstyle ':completion:*' list-colors 'di=;34;1' 'ln=;35;1' 'so=;32;1' 'ex=31;1' 'bd=46;34' 'cd=43;34'
 zstyle ':completion:*' group-name ''
