@@ -38,3 +38,5 @@ Icon
 .vim/bundle/.neobundle/doc/*
 .vim/bundle/.neobundle/install_info
 .vim/bundle/.neobundle/doc/tags
+
+.vim/bundle/.neobundle/.netrwhist
