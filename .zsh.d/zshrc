@@ -1,7 +1,14 @@
-#=================##
-## File Operation ##
-##=================#
+umask 002
+bindkey -e
+
+#================##
+## zsh func path ##
+##================#
 fpath=(~/.zsh.d/zsh-completions/src $fpath)
+
+#===============##
+## Shell Option ##
+##===============#
 autoload -U compinit && compinit
 setopt auto_cd
 setopt auto_pushd
@@ -10,6 +17,7 @@ setopt magic_equal_subst
 setopt nobeep
 setopt prompt_subst
 setopt list_packed
+setopt complete_aliases
 zstyle ':completion:*' verbose yes
 zstyle ':completion:*' list-colors 'di=;34;1' 'ln=;35;1' 'so=;32;1' 'ex=31;1' 'bd=46;34' 'cd=43;34'
 zstyle ':completion:*' group-name ''
@@ -44,43 +52,6 @@ zle -N history-beginning-search-forward-end history-search-end
 bindkey "^P" history-beginning-search-backward-end
 bindkey "^N" history-beginning-search-forward-end
 
-#================##
-## ALIAS COMMAND ##
-##================#
-setopt complete_aliases
-alias ls="ls -G -w -h"
-alias la="ls -a"
-alias lf="ls -F"
-alias ll="la -lh"
-alias du="du -h"
-alias df="df -h"
-alias vi="vim"
-alias ga="git add"
-alias gpu="git push"
-alias gco="git commit"
-alias gcl="git clone"
-alias gpl="git pull"
-alias bu="brew update"
-alias br="brew upgrade"
-alias bs="brew -S"
-alias bi="brew info"
-alias rl="/usr/local/bin/r"
-alias gitignoring="~/.junk/gitignore_reloaded.sh"
-alias -s {txt,md,markdown,xml}=lv
-alias -s py=python
-alias -s hs=runhaskell
-
-if [ `uname` = "Darvin" ]; then
-    # Preview
-    alias preview='open -a Preview'
-    alias -s {gif,png,jpg,bmp,pdf,GIF,PNG,JPG,BMP,PDF}=preview
-
-    # Chrome
-    alias google-chrome='open -a Google\ Chrome'
-    alias chrome='google-chrome'
-    alias -s html=chrome
-fi
-
 function extract() {
 case $1 in
     *.tar.gz|*.tgz) tar xzvf $1;;
@@ -100,11 +71,6 @@ alias -s {gz,tgz,zip,lzh,bz2,tbz,Z,tar,arj,xz}=extract
 function runcpp () { g++ -O2 $1; ./a.out }
 alias -s {c,cpp}=runcpp
 
-#================================##
-## Version Control for Languages ##
-##================================#
-# nothing
-
 #====##
 ## z ##
 ##====#
@@ -112,10 +78,10 @@ if [ -f ~/.zsh.d/z/z.sh ]; then
     . ~/.zsh.d/z/z.sh
 fi
 
-#==========================##
-## zsh-syntax-highligthdng ##
-##==========================#
-# zsh-syntax-highligthdng is incompatible with auto-fu
+#===============================##
+## zsh-syntax-highligthdng      ##
+## is incompatible with auto-fu ##
+##===============================#
 # source $HOME/.zsh.d/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 #=====================##
@@ -141,3 +107,6 @@ show_buffer_stack() {
 zle -N show_buffer_stack
 setopt noflowcontrol
 bindkey '^Q' show_buffer_stack
+
+
+source ~/.zsh.d/aliases
