@@ -1,18 +1,13 @@
-#        _       _           _ 
+#        _       _           _
 #   __ _| | ___ | |__   __ _| |
 #  / _` | |/ _ \| '_ \ / _` | |
 # | (_| | | (_) | |_) | (_| | |
 #  \__, |_|\___/|_.__/ \__,_|_|
-#  |___/                       
+#  |___/
 
 alias cp="cp -i"
 alias du="du -h"
 alias df="df -h"
-alias ga="git add"
-alias gpu="git push"
-alias gco="git commit"
-alias gcl="git clone"
-alias gpl="git pull"
 alias grep="grep --color"
 alias ls="ls -G -w -h"
 alias la="ls -a"
@@ -30,8 +25,8 @@ alias -s hs=runhaskell
 
 #   ___  ____   __  __
 #  / _ \/ ___|  \ \/ /
-# | | | \___ \   \  / 
-# | |_| |___) |  /  \ 
+# | | | \___ \   \  /
+# | |_| |___) |  /  \
 #  \___/|____/  /_/\_\
 
 if [ `uname` = "Darvin" ]; then
