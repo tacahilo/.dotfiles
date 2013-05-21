@@ -44,6 +44,9 @@ NeoBundle 'nathanaelkane/vim-indent-guides'
 filetype plugin indent on
 NeoBundleCheck
 
+"Filetipe
+autocmd BufNewFile,BufRead Gemfile set filetype=ruby
+
 "Dict
 autocmd BufRead *.php\|*.ctp\|*.tpl :set dictionary=~/.vim/dict/php.dict filetype=php
 
