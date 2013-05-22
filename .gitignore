@@ -40,3 +40,9 @@ Icon
 .vim/bundle/.neobundle/doc/tags
 
 .vim/bundle/.neobundle/.netrwhist
+
+.vim/bundle/open-browser-github.vim
+
+.vim/bundle/open-browser.vim
+
+.vim/bundle/vim-browsereload-mac
