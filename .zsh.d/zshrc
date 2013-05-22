@@ -26,7 +26,7 @@ setopt long_list_jobs
 setopt complete_aliases
 setopt zle
 zstyle ':completion:*' verbose yes
-zstyle ':completion:*' list-colors 'di=;34;1' 'ln=;35;1' 'so=;32;1' 'ex=31;1' 'bd=46;34' 'cd=43;34'
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
 zstyle ':completion:*' group-name ''
 zstyle ':completion:*:descriptions' format '%B[%d]%b'
 zstyle ':completion:*:messages' format '%d'
@@ -42,7 +42,7 @@ PROMPT="%B%{[33m%}%n:%{[m%}%b "
 PROMPT2="%B%{[33m%}%_%{[m%}%b "
 SPROMPT="%BDid you mean %{[31m%}%r? [n,y,a,e]:%{[m%}%b "
 [ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && PROMPT="%{[37m%}${HOST%%.*} ${PROMPT}"
-RPROMPT="%{[34m%}[%~]%{[m%}"
+RPROMPT="%{[32m%}[%~]%{[m%}"
 
 #==========##
 ## HISTORY ##
