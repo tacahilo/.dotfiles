@@ -1,7 +1,6 @@
 "Operation
 
 "NeoBundle
->>>>>>> refs/remotes/origin/master
 set nocompatible
 
 if has('vim_starting')
