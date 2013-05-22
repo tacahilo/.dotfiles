@@ -1,4 +1,7 @@
-"neoBundle
+"Operation
+
+"NeoBundle
+>>>>>>> refs/remotes/origin/master
 set nocompatible
 
 if has('vim_starting')
@@ -45,6 +48,12 @@ NeoBundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'tyru/open-browser-github.vim'
+if has("unix")
+    let s:uname=system("uname")
+    if s:uname=="Darwin\n"
+        NeoBundle 'tell-k/vim-browsereload-mac'
+    endif
+endif
 filetype plugin indent on
 NeoBundleCheck
 
@@ -95,6 +104,7 @@ inoremap <c-j> <down>
 inoremap <c-k> <up>
 inoremap <c-h> <left>
 inoremap <c-l> <right>
+noremap <Leader><c-w> :silent ! start chrome %<CR>
 
 ""Display
 colorscheme desert
