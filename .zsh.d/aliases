@@ -29,7 +29,7 @@ alias -s hs=runhaskell
 # | |_| |___) |  /  \
 #  \___/|____/  /_/\_\
 
-if [ `uname` = "Darvin" ]; then
+if [ `uname` = "Darwin" ]; then
     # Homebrew
     alias bu="brew update"
     alias br="brew upgrade"
