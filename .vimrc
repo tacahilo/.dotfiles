@@ -1,8 +1,10 @@
-"NeoBundle
+"neoBundle
 set nocompatible
+
 if has('vim_starting')
  set runtimepath+=~/.vim/bundle/neobundle.vim/
 endif
+
 call neobundle#rc(expand('~/.vim/bundle/'))
 
 NeoBundle 'Shougo/neobundle.vim'
@@ -41,6 +43,8 @@ NeoBundle 'mitechie/pyflakes-pathogen'
 NeoBundle 'sontek/rope-vim'
 NeoBundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
 NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'tyru/open-browser.vim'
+NeoBundle 'tyru/open-browser-github.vim'
 filetype plugin indent on
 NeoBundleCheck
 
