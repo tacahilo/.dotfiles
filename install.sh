@@ -65,6 +65,15 @@ else
 fi
 
 
+# nodebrew
+which nodebrew > /dev/null 2>&1
+if [ $? -eq 0 ]; then
+    echo nodebrew already installed
+else
+    curl -L git.io/nodebrew | perl - setup
+fi
+
+
 # alias dotfiles
 for file in `find ~/.dotfiles -d 1 -name '.*' | grep -v '.git$' | sed "s/.*dotfiles\///g"`; do
    ln -s ~/.dotfiles/$file ~/$file
