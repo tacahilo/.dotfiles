@@ -39,6 +39,7 @@ NeoBundle 'Shougo/neocomplcache-rsense', {
             \ }}
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'tpope/vim-fugitive'
+NeoBundle 'dag/vim2hs'
 NeoBundle 'eagletmt/unite-haddock'
 NeoBundle 'wannesm/wmgraphviz.vim'
 NeoBundle 'mitechie/pyflakes-pathogen'
@@ -258,3 +259,6 @@ let howm_dir='~/Documents/howm'
 let howm_filename='%Y/%m/%Y-%m-%d-%H%M%S.txt'
 let howm_fileencoding='utf-8'
 let howm_fileformat='unix'
+
+""vim2hs
+let g:haskell_conceal_wide = 1

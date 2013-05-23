@@ -35,6 +35,7 @@ Icon
 .vim/bundle/wmgraphviz.vim/
 .vim/bundle/neocomplcache/
 .vim/bundle/vim-ruby/
+.vim/bundle/vim2hs/
 .vim/bundle/open-browser.vim/
 .vim/bundle/open-browser-github.vim/
 .vim/bundle/.neobundle/doc/*
