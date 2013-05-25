@@ -28,3 +28,6 @@
 [submodule "libs/pyenv"]
 	path = libs/pyenv
 	url = git://github.com/yyuu/pyenv.git
+[submodule "libs/tmux-solarized"]
+	path = libs/tmux-solarized
+	url = git://github.com/seebi/tmux-colors-solarized.git
