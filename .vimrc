@@ -49,6 +49,7 @@ NeoBundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'tyru/open-browser-github.vim'
+NeoBundle 'altercation/vim-colors-solarized'
 if has("unix")
     let s:uname=system("uname")
     if s:uname=="Darwin\n"
@@ -108,9 +109,11 @@ inoremap <c-l> <right>
 noremap <Leader><c-w> :silent ! start chrome %<CR>
 
 ""Display
-colorscheme desert
+colorscheme solarized
 set background=dark
-syntax on   "シンタックスカラーリングを設定する
+let g:solarized_termcolors=256
+let g:solarized_termtrans=1
+syntax enable   "シンタックスカラーリングを設定する
 set number "行番号を表示する
 set title "編集中のファイル名を表示する
 set showcmd "入力中のコマンドを表示する
