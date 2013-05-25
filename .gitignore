@@ -37,6 +37,7 @@ Icon
 .vim/bundle/vim-ruby/
 .vim/bundle/vim2hs/
 .vim/bundle/vim-rspec
+.vim/bundle/vim-colors-solarized
 .vim/bundle/open-browser.vim/
 .vim/bundle/open-browser-github.vim/
 .vim/bundle/.neobundle/doc/*
