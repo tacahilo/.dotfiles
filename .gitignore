@@ -7,6 +7,11 @@ Icon
 .Spotlight-V100
 .Trashes
 
+### libs
+libs/plenv/*
+libs/pyenv/*
+libs/rbenv/*
+
 ### Vim
 .vim/bundle/.neobundle/doc/*
 .vim/bundle/.neobundle/install_info
