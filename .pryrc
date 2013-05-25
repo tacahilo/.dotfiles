@@ -3,7 +3,7 @@ require 'rubygems'
 require 'pry-theme'
 
 
-Pry.config.theme = "monokai"
+Pry.config.theme = "solarized"
 
 # begin
 #   Pry.print = proc { |output, value| output.puts value.ai }

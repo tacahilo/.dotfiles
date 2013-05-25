@@ -56,6 +56,7 @@ NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'tyru/open-browser-github.vim'
 NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'Lokaltog/vim-powerline'
 if has("unix")
     let s:uname=system("uname")
     if s:uname=="Darwin\n"
