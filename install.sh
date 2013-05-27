@@ -1,6 +1,6 @@
 #!/bin/sh
 
-if expr "$OSTYPE" : "^darwing" >/dev/null; then
+if expr "$OSTYPE" : "^darwin" >/dev/null; then
     echo migrating...
     cd ~/.
 else
@@ -16,6 +16,7 @@ else
     echo install homebrew >&2
     ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
     brew install git
+    brew install tig
     brew install mercurial
     brew install zsh
     brew install wget
