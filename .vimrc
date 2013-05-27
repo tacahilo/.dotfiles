@@ -109,6 +109,9 @@ set clipboard=unnamed "クリップボードを利用する
 
 "" Dvorak用にhtで左右移動するようRemap
 noremap  t     l
+"" Dvorak触ってると違和感があったので、jとkの役割を入れ替える
+noremap  j <up>
+noremap  k <down>
 "" 挿入モード中に'Ctr-*'でコマンドモードでの移動・削除を可能にする
 inoremap <c-d> <delete>
 inoremap <c-j> <down>
