@@ -45,10 +45,9 @@ zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/s
 ##=========#
 autoload -U colors && colors
 
-PROMPT="%B%{[33m%}[%n]$%{[m%}%b "
-PROMPT2="%B%{[33m%}%_%{[m%}%b "
-SPROMPT="%BDid you mean %{[31m%}%r? [n,y,a,e]:%{[m%}%b "
-[ -n "${REMOTEHOST}${SSH_CONNECTION}" ] && PROMPT="%{[37m%}${HOST%%.*} ${PROMPT}"
+PROMPT="%B%F{246}[%n]$%f%b "
+PROMPT2="%B%F{246}%_>%f%b "
+SPROMPT="Did you mean %B%F{001}%r%f%b? [n,y,a,e]: "
 
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git svn hg bzr
@@ -60,7 +59,7 @@ precmd () {
     [ -n "$vcs_info_msg_0_" ] && psvar[1]="$vcs_info_msg_0_"
 }
 
-RPROMPT="%{[34m%}[%{[m%}%{[32m%}%1(v|%1v |)%{[m%}%{[34m%}%~]%{[m%}"
+RPROMPT="%F{038}[%f%F{077}%1(v|%1v |)%f%F{038}%~]%f"
 
 #==========##
 ## HISTORY ##
