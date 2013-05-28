@@ -8,7 +8,7 @@ Icon
 .Trashes
 
 ### Vim
-.vim/bundle/*
+.vim/bundle/**/*
 .*.s[a-w][a-z]
 *.un~
 Session.vim
