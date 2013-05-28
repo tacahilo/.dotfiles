@@ -4,8 +4,6 @@
 "  _   \ V /| | | | | | | | | (__
 " (_)   \_/ |_|_| |_| |_|_|  \___|
 
-"Operation
-
 "NeoBundle
 set nocompatible
 
@@ -15,7 +13,8 @@ endif
 
 call neobundle#rc(expand('~/.vim/bundle/'))
 
-NeoBundle 'Shougo/neobundle.vim'
+NeoBundleFetch 'Shougo/neobundle.vim'
+
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'nathanaelkane/vim-indent-guides'
