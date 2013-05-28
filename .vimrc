@@ -18,6 +18,11 @@ call neobundle#rc(expand('~/.vim/bundle/'))
 NeoBundle 'Shougo/neobundle.vim'
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
+NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'tyru/open-browser.vim'
+NeoBundle 'tyru/open-browser-github.vim'
+NeoBundle 'altercation/vim-colors-solarized'
+NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'Shougo/vimproc', {
             \ 'build' : {
             \   'windows' : 'make -f make_mingw64.mak',
@@ -31,6 +36,7 @@ NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'fuenor/qfixhowm'
+"Ruby
 NeoBundle 'vim-ruby/vim-ruby', {
             \ 'autoload' : {
             \   'filetypes' : ['ruby']
@@ -46,19 +52,19 @@ NeoBundle 'Shougo/neocomplcache-rsense', {
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'skwp/vim-rspec'
 NeoBundle 'tpope/vim-fugitive'
+"Haskell
 NeoBundle 'dag/vim2hs'
 NeoBundle 'eagletmt/unite-haddock'
 NeoBundle 'eagletmt/ghcmod-vim'
 NeoBundle 'ujihisa/neco-ghc'
-NeoBundle 'wannesm/wmgraphviz.vim'
+"Python
 NeoBundle 'mitechie/pyflakes-pathogen'
+NeoBundle 'wannesm/wmgraphviz.vim'
 NeoBundle 'sontek/rope-vim'
-NeoBundle 'git://vim-latex.git.sourceforge.net/gitroot/vim-latex/vim-latex'
-NeoBundle 'nathanaelkane/vim-indent-guides'
-NeoBundle 'tyru/open-browser.vim'
-NeoBundle 'tyru/open-browser-github.vim'
-NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'Lokaltog/vim-powerline'
+"HTML/CSS
+NeoBundle 'othree/html5.vim'
+NeoBundle 'cakebaker/scss-syntax.vim'
+NeoBundle 'hail2u/vim-css3-syntax'
 if has("unix")
     let s:uname=system("uname")
     if s:uname=="Darwin\n"
