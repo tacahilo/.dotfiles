@@ -8,6 +8,6 @@ Icon
 .Trashes
 
 ### Vim
-.vim/bundle/**/*
 .netrwhist
+.vim/bundle/*/*
 
