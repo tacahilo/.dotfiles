@@ -23,6 +23,7 @@ NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'tyru/open-browser-github.vim'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'Lokaltog/vim-powerline'
+NeoBundle 'rking/ag.vim'
 NeoBundle 'Shougo/vimproc', {
             \ 'build' : {
             \   'windows' : 'make -f make_mingw64.mak',
