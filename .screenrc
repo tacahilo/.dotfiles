@@ -1,0 +1,7 @@
+defutf8 on
+defencoding utf8
+encoding utf-8 utf-8
+autodetach on
+shell $SHELL
+deflog on
+logfile "$HOME/Dropbox/log/screen/screen-%Y%m%d-%n.log"

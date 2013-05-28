@@ -1,0 +1,136 @@
+#          _
+#  _______| |__  _ __ ___
+# |_  / __| '_ \| '__/ __|
+#  / /\__ \ | | | | | (__
+# /___|___/_| |_|_|  \___|
+
+umask 002
+bindkey -e
+
+#================##
+## zsh func path ##
+##================#
+fpath=(~/.zsh.d/zsh-completions/src $fpath)
+
+#===============##
+## Shell Option ##
+##===============#
+autoload -U compinit && compinit
+setopt auto_cd
+setopt auto_menu
+setopt auto_pushd
+setopt auto_param_keys
+setopt auto_remove_slash
+setopt correct
+setopt magic_equal_subst
+setopt no_beep
+setopt no_flow_control
+setopt prompt_subst
+setopt list_packed
+setopt list_types
+setopt long_list_jobs
+setopt complete_aliases
+setopt zle
+zstyle ':completion:*' verbose yes
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' group-name ''
+zstyle ':completion:*:descriptions' format '%B[%d]%b'
+zstyle ':completion:*:messages' format '%d'
+zstyle ':completion:*:warnings' format 'No matches: %d'
+zstyle ':completion:*:default' menu select=1
+zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin
+
+#=========##
+## PROMPT ##
+##=========#
+autoload -U colors && colors
+
+PROMPT="%B%F{246}[%n]$%f%b "
+PROMPT2="%B%F{246}%_>%f%b "
+SPROMPT="Did you mean %B%F{001}%r%f%b? [n,y,a,e]: "
+
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable git svn hg bzr
+zstyle ':vcs_info:*' formats '%b'
+zstyle ':vcs_info:*' actionformats '%b|%a'
+precmd () {
+    psvar=()
+    LANG=en_US.UTF-8 vcs_info
+    [ -n "$vcs_info_msg_0_" ] && psvar[1]="$vcs_info_msg_0_"
+}
+
+RPROMPT="%F{038}[%f%F{077}%1(v|%1v |)%f%F{038}%~]%f"
+
+#==========##
+## HISTORY ##
+##==========#
+HISTFILE=~/.backup/zsh_history
+HISTSIZE=100000
+SAVEHIST=100000
+setopt extended_history
+setopt hist_ignore_dups	#ignore duplication command history list
+setopt share_history	#share command history data
+autoload history-search-end
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+bindkey "^P" history-beginning-search-backward-end
+bindkey "^N" history-beginning-search-forward-end
+
+function extract() {
+case $1 in
+    *.tar.gz|*.tgz) tar xzvf $1;;
+*.tar.xz) tar Jxvf $1;;
+    *.zip) unzip $1;;
+*.lzh) lha e $1;;
+    *.tar.bz2|*.tbz) tar xjvf $1;;
+*.tar.Z) tar zxvf $1;;
+    *.gz) gzip -dc $1;;
+*.bz2) bzip2 -dc $1;;
+    *.Z) uncompress $1;;
+*.tar) tar xvf $1;;
+    *.arj) unarj $1;;
+esac
+}
+alias -s {gz,tgz,zip,lzh,bz2,tbz,Z,tar,arj,xz}=extract
+function runcpp () { g++ -O2 $1; ./a.out }
+alias -s {c,cpp}=runcpp
+
+#====##
+## z ##
+##====#
+if [ -f ~/.zsh.d/z/z.sh ]; then
+    . ~/.zsh.d/z/z.sh
+fi
+
+#===============================##
+## zsh-syntax-highligthdng      ##
+## is incompatible with auto-fu ##
+##===============================#
+# source $HOME/.zsh.d/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+#=====================##
+## source auto-fu.zsh ##
+##=====================#
+if [ -f ~/.zsh.d/auto-fu/auto-fu.zsh ]; then
+    source ~/.zsh.d/auto-fu/auto-fu.zsh
+    function zle-line-init () {
+        auto-fu-init
+    }
+    zle -N zle-line-init
+    zstyle ':completion:*' completer _oldlist _complete
+fi
+
+#========##
+## stacx ##
+##========#
+show_buffer_stack() {
+    POSTDISPLAY="
+    stack: $LBUFFER"
+    zle push-line-or-edit
+}
+zle -N show_buffer_stack
+setopt noflowcontrol
+bindkey '^Q' show_buffer_stack
+
+
+source ~/.zsh.d/aliases

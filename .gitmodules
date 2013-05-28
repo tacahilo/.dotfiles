@@ -1,0 +1,47 @@
+[submodule "libs/ruby-build"]
+	path = libs/ruby-build
+	url = git://github.com/sstephenson/ruby-build.git
+    ignore = dirty
+[submodule "libs/rbenv"]
+	path = libs/rbenv
+	url = git://github.com/sstephenson/rbenv.git
+    ignore = dirty
+[submodule ".vim/bundle/neobundle.vim"]
+	path = .vim/bundle/neobundle.vim
+	url = git://github.com/Shougo/neobundle.vim.git
+    ignore = dirty
+[submodule ".bash_it"]
+	path = .bash_it
+	url = git://github.com/revans/bash-it.git
+    ignore = dirty
+[submodule ".zsh.d/z"]
+	path = .zsh.d/z
+	url = git://github.com/rupa/z.git
+    ignore = dirty
+[submodule ".zsh.d/zsh-completions"]
+	path = .zsh.d/zsh-completions
+	url = git://github.com/zsh-users/zsh-completions.git
+    ignore = dirty
+[submodule ".zsh.d/zsh-syntax-highlighting"]
+	path = .zsh.d/zsh-syntax-highlighting
+	url = git://github.com/zsh-users/zsh-syntax-highlighting.git
+    ignore = dirty
+[submodule ".zsh.d/auto-fu"]
+	path = .zsh.d/auto-fu
+	url = git://github.com/hchbaw/auto-fu.zsh.git
+    ignore = dirty
+[submodule "libs/plenv"]
+	path = libs/plenv
+	url = git://github.com/tokuhirom/plenv.git
+    ignore = dirty
+[submodule "libs/pyenv"]
+	path = libs/pyenv
+	url = git://github.com/yyuu/pyenv.git
+    ignore = dirty
+[submodule "libs/tmux-solarized"]
+	path = libs/tmux-solarized
+	url = git://github.com/seebi/tmux-colors-solarized.git
+    ignore = dirty
+[submodule ".tmux.d/tmux-powerline"]
+	path = .tmux.d/tmux-powerline
+	url = https://github.com/jedipunkz/tmux-powerline.git
