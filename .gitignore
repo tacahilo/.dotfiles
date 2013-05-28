@@ -15,7 +15,3 @@ Session.vim
 .netrwhist
 *~
 
-### Linux.gitignore
-.*
-!.gitignore
-
