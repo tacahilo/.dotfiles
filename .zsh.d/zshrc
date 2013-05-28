@@ -44,22 +44,43 @@ zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/s
 ## PROMPT ##
 ##=========#
 autoload -U colors && colors
-
-PROMPT="%B%F{246}[%n]$%f%b "
-PROMPT2="%B%F{246}%_>%f%b "
-SPROMPT="Did you mean %B%F{001}%r%f%b? [n,y,a,e]: "
-
+autoload -Uz add-zsh-hook
 autoload -Uz vcs_info
-zstyle ':vcs_info:*' enable git svn hg bzr
-zstyle ':vcs_info:*' formats '%b'
-zstyle ':vcs_info:*' actionformats '%b|%a'
-precmd () {
+
+# >> http://yonchu.hatenablog.com/entry/20120413/1334341553
+function _for_prompt() {
+    # set tmux window
+    [ "$TMUX" ] && export TMUX_WINDOW=$(tmux display -p '#I-#P')
+
+    # set git stash-num and branch-name
     psvar=()
     LANG=en_US.UTF-8 vcs_info
-    [ -n "$vcs_info_msg_0_" ] && psvar[1]="$vcs_info_msg_0_"
+    psvar[1]=$vcs_info_msg_0_
+ 
+    if [ -e $PWD/.git/refs/stash ]; then
+        stashes=$(git stash list 2>/dev/null | wc -l)
+        psvar[2]=" @${stashes// /}"
+    fi
 }
+add-zsh-hook precmd _for_prompt
 
-RPROMPT="%F{038}[%f%F{077}%1(v|%1v |)%f%F{038}%~]%f"
+# >> http://kitak.hatenablog.jp/entry/2013/05/25/103059
+zstyle ':vcs_info:*' enable git svn cvs
+zstyle ':vcs_info:*' disable bzr cdv darcs mtn svk tla
+zstyle ':vcs_info:*' formats '(%b)'
+zstyle ':vcs_info:*' actionformats '(%b|%a)'
+
+# >> http://www.slideshare.net/tetutaro/zsh-20923001
+local p_info="%n@%m"
+local p_tmux="${TMUX_WINDOW:+[$TMUX_WINDOW]}"
+local p_giti="%077F%1(v|%1v |)%f"
+local p_cdir="%038F[%~]%f"
+local p_comd="%B%001F%r%f%b"
+
+PROMPT="$p_info$p_tmux %B$%b "
+PROMPT2="%_> "
+SPROMPT="Did you mean $p_comd? [n,y,a,e]: "
+RPROMPT="$p_giti$p_cdir"
 
 #==========##
 ## HISTORY ##
