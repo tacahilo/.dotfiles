@@ -40,3 +40,6 @@ Icon
 .vim/bundle/vim-powerline
 .vim/bundle/ghcmod-vim
 .vim/bundle/neco-ghc
+.vim/bundle/html5.vim
+.vim/bundle/scss-syntax.vim
+.vim/bundle/vim-css3-syntax
