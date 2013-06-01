@@ -48,19 +48,17 @@ autoload -Uz add-zsh-hook
 autoload -Uz vcs_info
 
 function _for_prompt() {
-    # >> http://yonchu.hatenablog.com/entry/20120413/1334341553
-    # set tmux window
-    [ "$TMUX" ] && export TMUX_WINDOW=$(tmux display -p '#I-#P')
-
+    # set git branch-name
     # >> http://www.slideshare.net/tetutaro/zsh-20923001
-    # set git stash-num and branch-name
     psvar=()
     LANG=en_US.UTF-8 vcs_info
     psvar[1]=$vcs_info_msg_0_
- 
-    if [ -e $PWD/.git/refs/stash ]; then
-        stashes=$(git stash list 2>/dev/null | wc -l)
-        psvar[2]=" @${stashes// /}"
+
+    # set git stash-num
+    # >> http://qiita.com/items/13f85c11d3d0aa35d7ef
+    git stash list &>/dev/null
+    if [ $? -eq 0 ]; then
+        psvar[2]=$(git stash list | wc -l | tr -d " ")
     fi
 }
 add-zsh-hook precmd _for_prompt
@@ -68,19 +66,17 @@ add-zsh-hook precmd _for_prompt
 # >> http://kitak.hatenablog.jp/entry/2013/05/25/103059
 zstyle ':vcs_info:*' enable git svn cvs
 zstyle ':vcs_info:*' disable bzr cdv darcs mtn svk tla
-zstyle ':vcs_info:*' formats '(%b)'
-zstyle ':vcs_info:*' actionformats '(%b|%a)'
+zstyle ':vcs_info:*' formats '%b'
+zstyle ':vcs_info:*' actionformats '%b|%a'
 
-local p_info="%n@%m"
-local p_tmux="${TMUX_WINDOW:+[$TMUX_WINDOW]}"
-local p_giti="%077F%1(v|%1v |)%f"
-local p_cdir="%038F[%~]%f"
-local p_comd="%B%001F%r%f%b"
+PROMPT='%n@%m'
+PROMPT+='$([ -n "$TMUX" ] && tmux display -p "[#I-#P]")' # >> http://yonchu.hatenablog.com/entry/20120413/1334341553
+PROMPT+=' %B$%b '
+PROMPT2='%_> '
+SPROMPT='Did you mean %B%001F%r%f%b? [n,y,a,e]: '
 
-PROMPT="$p_info$p_tmux %B$%b "
-PROMPT2="%_> "
-SPROMPT="Did you mean $p_comd? [n,y,a,e]: "
-RPROMPT="$p_giti$p_cdir"
+RPROMPT='%077F%2(v|(%1v @%2v) |)%f'
+RPROMPT+='%038F[%~]%f'
 
 #==========##
 ## HISTORY ##
