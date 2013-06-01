@@ -8,7 +8,7 @@
 set nocompatible
 
 if has('vim_starting')
- set runtimepath+=~/.vim/bundle/neobundle.vim/
+    set rtp+=~/.vim/bundle/neobundle.vim/
 endif
 
 call neobundle#rc(expand('~/.vim/bundle/'))
@@ -17,6 +17,7 @@ NeoBundleFetch 'Shougo/neobundle.vim'
 
 NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
+NeoBundle 'Shougo/vimfiler.vim'
 NeoBundle 'nathanaelkane/vim-indent-guides'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'tyru/open-browser-github.vim'
@@ -248,9 +249,9 @@ inoremap <expr><C-e> neocomplcache#cancel_popup()
 inoremap <expr><C-g> neocomplcache#undo_completion()
 inoremap <expr><C-l> neocomplcache#complete_common_string()
 let g:neocomplcache_dictionary_filetype_lists = {
-    \ 'default' : '',
-    \ 'vimshell' : $HOME.'/.vimshell/command-history'
-    \ }
+            \ 'default' : '',
+            \ 'vimshell' : $HOME.'/.vimshell/command-history'
+            \ }
 
 ""Omni Completion
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -260,7 +261,7 @@ autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 if !exists('g:neocomplcache_omni_patterns')
-      let g:neocomplcache_omni_patterns={}
+    let g:neocomplcache_omni_patterns={}
 endif
 let g:neocomplcache_omni_patterns.ruby='[^. *\t]\.\w*\|\h\w*::'
 let g:neocomplcache_omni_patterns.php='[^. \t]->\h\w*\|\h\w*::'
@@ -274,7 +275,7 @@ imap <C-k> <plug>(neocomplcache_snippets_expand)
 smap <C-k> <plug>(neocomplcache_snippets_expand)
 
 ""QFixHowm
-set runtimepath+=~/.vim/bundle/qfixhowm/
+set rtp+=~/.vim/bundle/qfixhowm/
 
 let QFixHowm='g'
 let howm_dir='~/Documents/howm'
@@ -288,17 +289,45 @@ let g:haskell_conceal_wide = 1
 ""vim-quickrun
 let g:quickrun_config = {}
 let g:quickrun_config._={
-    \  'runner': 'vimproc',
-    \  'runner/vimproc/updatetime': 60,
-    \  'outputter/buffer/split': ':botright',
-    \  'hook/time/enable': '1'
-    \}
+            \  'runner': 'vimproc',
+            \  'runner/vimproc/updatetime': 60,
+            \  'outputter/buffer/split': ':botright',
+            \  'hook/time/enable': '1'
+            \}
 let g:quickrun_config['ruby.rspec'] = {
-    \  'command': 'rspec',
-    \}
+            \  'command': 'rspec',
+            \}
 augroup RSpec
     autocmd!
     autocmd BufWinEnter,BufNewFile *_spec.rb set filetype=ruby.rspec
 augroup END
 
 nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
+
+"" go lang
+set rtp+=$GOROOT/misc/vim
+exe "set rtp+=".globpath($GOPATH, "scr/github.com/nsf/gocode/vim")
+set completeopt=menu,preview
+
+"" VimFiler
+nnoremap <F2> :VimFiler -buffer-name=explorer -split -winwidth=45 -toggle -no-quit<Cr>
+autocmd! FileType vimfiler call g:my_vimfiler_settings()
+function! g:my_vimfiler_settings()
+    nmap     <buffer><expr><Cr> vimfiler#smart_cursor_map("\<Plug>(vimfiler_expand_tree)", "\<Plug>(vimfiler_edit_file)")
+    nnoremap <buffer>s          :call vimfiler#mappings#do_action('my_split')<Cr>
+    nnoremap <buffer>v          :call vimfiler#mappings#do_action('my_vsplit')<Cr>
+endfunction
+
+let s:my_action = { 'is_selectable' : 1 }
+function! s:my_action.func(candidates)
+    wincmd p
+    exec 'split '. a:candidates[0].action__path
+endfunction
+call unite#custom_action('file', 'my_split', s:my_action)
+
+let s:my_action = { 'is_selectable' : 1 }                     
+function! s:my_action.func(candidates)
+    wincmd p
+    exec 'vsplit '. a:candidates[0].action__path
+endfunction
+call unite#custom_action('file', 'my_vsplit', s:my_action)
