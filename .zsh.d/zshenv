@@ -75,6 +75,27 @@ if [ -d ~/.phpenv ]; then
     source $HOME/.phpenv/completions/phpenv.zsh
 fi
 
+# go lang
+# https://gist.github.com/ivanzoid/3477252
+# http://python.matrix.jp/2013/05/09/go_start1.html
+type go &>/dev/null
+if [ $? -eq 0 ]; then
+    function setupGO() {
+        local GOPATH=`which go`
+        local GODIR=`dirname $GOPATH`
+        local GOPATH_BREW_RELATIVE=`readlink $GOPATH`
+        local GOPATH_BREW=`dirname $GOPATH_BREW_RELATIVE`
+        export GOROOT=`cd $GODIR; cd $GOPATH_BREW/..; pwd`
+    }
+    setupGO
+    
+    export GOBIN=
+    export GOARCH=amd64
+    export GOOS=darwin
+    export CGO_ENABLED=1
+    export GOPATH=$HOME/.go
+fi
+
 # Heroku Toolbelt
 if [ -d ~/.heroku ]; then
     export PATH="/usr/local/heroku/bin:$PATH"

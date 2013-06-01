@@ -47,11 +47,12 @@ autoload -U colors && colors
 autoload -Uz add-zsh-hook
 autoload -Uz vcs_info
 
-# >> http://yonchu.hatenablog.com/entry/20120413/1334341553
 function _for_prompt() {
+    # >> http://yonchu.hatenablog.com/entry/20120413/1334341553
     # set tmux window
     [ "$TMUX" ] && export TMUX_WINDOW=$(tmux display -p '#I-#P')
 
+    # >> http://www.slideshare.net/tetutaro/zsh-20923001
     # set git stash-num and branch-name
     psvar=()
     LANG=en_US.UTF-8 vcs_info
@@ -70,7 +71,6 @@ zstyle ':vcs_info:*' disable bzr cdv darcs mtn svk tla
 zstyle ':vcs_info:*' formats '(%b)'
 zstyle ':vcs_info:*' actionformats '(%b|%a)'
 
-# >> http://www.slideshare.net/tetutaro/zsh-20923001
 local p_info="%n@%m"
 local p_tmux="${TMUX_WINDOW:+[$TMUX_WINDOW]}"
 local p_giti="%077F%1(v|%1v |)%f"
@@ -89,8 +89,8 @@ HISTFILE=~/.backup/zsh_history
 HISTSIZE=100000
 SAVEHIST=100000
 setopt extended_history
-setopt hist_ignore_dups	#ignore duplication command history list
-setopt share_history	#share command history data
+setopt hist_ignore_dups #ignore duplication command history list
+setopt share_history #share command history data
 autoload history-search-end
 zle -N history-beginning-search-backward-end history-search-end
 zle -N history-beginning-search-forward-end history-search-end
