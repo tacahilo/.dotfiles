@@ -69,8 +69,8 @@ zstyle ':vcs_info:*' disable bzr cdv darcs mtn svk tla
 zstyle ':vcs_info:git:*' check-for-changes true
 zstyle ':vcs_info:git:*' stagedstr "+"
 zstyle ':vcs_info:git:*' unstagedstr "-"
-zstyle ':vcs_info:git:*' formats '%b[%c%u]'
-zstyle ':vcs_info:git:*' actionformats '%b|%a[%c%u]'
+zstyle ':vcs_info:git:*' formats '%b%c%u'
+zstyle ':vcs_info:git:*' actionformats '%b|%a%c%u'
 
 PROMPT='%n@%m'
 PROMPT+='$([ -n "$TMUX" ] && tmux display -p "[#I-#P]")' # >> http://yonchu.hatenablog.com/entry/20120413/1334341553
