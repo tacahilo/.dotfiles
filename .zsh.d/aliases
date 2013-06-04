@@ -44,3 +44,5 @@ if [ `uname` = "Darwin" ]; then
     alias chrome='google-chrome'
     alias -s html=chrome
 fi
+
+alias weechat-curses='TERM=screen-256color weechat-curses'
