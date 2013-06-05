@@ -15,118 +15,63 @@ fpath=(~/.zsh.d/zsh-completions/src $fpath)
 #===============##
 ## Shell Option ##
 ##===============#
-autoload -U compinit && compinit
+autoload -Uz add-zsh-hook
 setopt auto_cd
 setopt auto_menu
 setopt auto_pushd
 setopt auto_param_keys
 setopt auto_remove_slash
+setopt complete_aliases
 setopt correct
+setopt extended_glob
+setopt ignore_eof
+setopt list_packed
+setopt list_types
+setopt long_list_jobs
 setopt magic_equal_subst
 setopt no_beep
 setopt no_flow_control
 setopt prompt_subst
-setopt list_packed
-setopt list_types
-setopt long_list_jobs
-setopt complete_aliases
+setopt pushd_ignore_dups
 setopt zle
-zstyle ':completion:*' verbose yes
-zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+
+#                           ,--.       ,--. ,--.
+#  ,---.,---.,--,--,--.,---.|  |,---.,-'  '-`--',---.,--,--,
+# | .--| .-. |        | .-. |  | .-. '-.  .-,--| .-. |      \
+    # \ `--' '-' |  |  |  | '-' |  \   --. |  | |  ' '-' |  ||  |
+#  `---'`---'`--`--`--|  |-'`--'`----' `--' `--'`---'`--''--'
+#                     `--'
+autoload -U compinit && compinit -u
 zstyle ':completion:*' group-name ''
+zstyle ':completion:*' list-colors ${(s.:.)LS_COLORS}
+zstyle ':completion:*' use-cache yes
+zstyle ':completion:*' verbose yes
 zstyle ':completion:*:descriptions' format '%B[%d]%b'
 zstyle ':completion:*:messages' format '%d'
 zstyle ':completion:*:warnings' format 'No matches: %d'
-zstyle ':completion:*:default' menu select=1
+zstyle ':completion:*:default' menu select=2
 zstyle ':completion:*:sudo:*' command-path /usr/local/sbin /usr/local/bin /usr/sbin /usr/bin /sbin /bin
 
-#=========##
-## PROMPT ##
-##=========#
-autoload -U colors && colors
-autoload -Uz add-zsh-hook
-autoload -Uz vcs_info
+#======##
+## zaw ##
+##======#
+# cdr
+autoload -Uz chpwd_recent_dirs cdr
+add-zsh-hook chpwd chpwd_recent_dirs
+zstyle ':chpwd:*' recent-dirs-max 5000
+zstyle ':chpwd:*' recent-dirs-default yes
+zstyle ':completion:*' recent-dirs-insert both
 
-function _for_prompt() {
-    # set git branch-name
-    # >> http://www.slideshare.net/tetutaro/zsh-20923001
-    psvar=()
-    LANG=en_US.UTF-8 vcs_info
-    psvar[1]=$vcs_info_msg_0_
-
-    # set git stash-num
-    # >> http://qiita.com/items/13f85c11d3d0aa35d7ef
-    git stash list &>/dev/null
-    if [ $? -eq 0 ]; then
-        psvar[2]=$(git stash list | wc -l | tr -d " ")
-    fi
-}
-add-zsh-hook precmd _for_prompt
-
-# >> http://kitak.hatenablog.jp/entry/2013/05/25/103059
-zstyle ':vcs_info:*' enable git svn cvs
-zstyle ':vcs_info:*' disable bzr cdv darcs mtn svk tla
-zstyle ':vcs_info:git:*' check-for-changes true
-zstyle ':vcs_info:git:*' stagedstr "+"
-zstyle ':vcs_info:git:*' unstagedstr "-"
-zstyle ':vcs_info:git:*' formats '%b[%c%u]'
-zstyle ':vcs_info:git:*' actionformats '%b|%a[%c%u]'
-
-PROMPT='%n@%m'
-PROMPT+='$([ -n "$TMUX" ] && tmux display -p "[#I-#P]")' # >> http://yonchu.hatenablog.com/entry/20120413/1334341553
-PROMPT+=' %B$%b '
-PROMPT2='%_> '
-SPROMPT='Did you mean %B%001F%r%f%b? [n,y,a,e]: '
-
-RPROMPT='%077F%2(v|(%1v @%2v) |)%f'
-RPROMPT+='%038F[%~]%f'
-
-#==========##
-## HISTORY ##
-##==========#
-HISTFILE=~/.backup/zsh_history
-HISTSIZE=100000
-SAVEHIST=100000
-setopt extended_history
-setopt hist_ignore_dups #ignore duplication command history list
-setopt share_history #share command history data
-autoload history-search-end
-zle -N history-beginning-search-backward-end history-search-end
-zle -N history-beginning-search-forward-end history-search-end
-bindkey "^P" history-beginning-search-backward-end
-bindkey "^N" history-beginning-search-forward-end
-
-function extract() {
-case $1 in
-    *.tar.gz|*.tgz) tar xzvf $1;;
-*.tar.xz) tar Jxvf $1;;
-    *.zip) unzip $1;;
-*.lzh) lha e $1;;
-    *.tar.bz2|*.tbz) tar xjvf $1;;
-*.tar.Z) tar zxvf $1;;
-    *.gz) gzip -dc $1;;
-*.bz2) bzip2 -dc $1;;
-    *.Z) uncompress $1;;
-*.tar) tar xvf $1;;
-    *.arj) unarj $1;;
-esac
-}
-alias -s {gz,tgz,zip,lzh,bz2,tbz,Z,tar,arj,xz}=extract
-function runcpp () { g++ -O2 $1; ./a.out }
-alias -s {c,cpp}=runcpp
-
-#====##
-## z ##
-##====#
-if [ -f ~/.zsh.d/z/z.sh ]; then
-    . ~/.zsh.d/z/z.sh
+# zaw-src-cdr
+if [ -f ~/.zsh.d/zaw/zaw.zsh ]; then
+    source ~/.zsh.d/zaw/zaw.zsh
+    zstyle ':filter-select:highlight' matched fg=yellow,standout
+    zstyle ':filter-select' max-lines 10 # use 10 lines for filter-select
+    zstyle ':filter-select' max-lines -10 # use $LINES - 10 for filter-select
+    zstyle ':filter-select' case-insensitive yes # enable case-insensitive search
+    bindkey '^@' zaw-cdr
+    bindkey '^R' zaw-history
 fi
-
-#===============================##
-## zsh-syntax-highligthdng      ##
-## is incompatible with auto-fu ##
-##===============================#
-# source $HOME/.zsh.d/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 #=====================##
 ## source auto-fu.zsh ##
@@ -137,20 +82,31 @@ if [ -f ~/.zsh.d/auto-fu/auto-fu.zsh ]; then
         auto-fu-init
     }
     zle -N zle-line-init
+    zstyle ':auto-fu:highlight' input bold
+    zstyle ':auto-fu:highlight' completion fg=black,bold
+    zstyle ':auto-fu:highlight' completion/one fg=white,bold
+    zstyle ':auto-fu:var' disable magic-space
     zstyle ':completion:*' completer _oldlist _complete
 fi
 
-#========##
-## stacx ##
-##========#
-show_buffer_stack() {
-    POSTDISPLAY="
-    stack: $LBUFFER"
-    zle push-line-or-edit
-}
-zle -N show_buffer_stack
-setopt noflowcontrol
-bindkey '^Q' show_buffer_stack
+#==========##
+## HISTORY ##
+##==========#
+autoload history-search-end
+zle -N history-beginning-search-backward-end history-search-end
+zle -N history-beginning-search-forward-end history-search-end
+bindkey "^P" history-beginning-search-backward-end
+bindkey "^N" history-beginning-search-forward-end
+
+HISTFILE=~/.backup/zsh_history
+HISTSIZE=100000
+SAVEHIST=100000
+setopt extended_history #added timestamp
+setopt hist_ignore_dups #ignore duplication command history list
+setopt hist_ignore_all_dups #remove an older from history if duplication command.
+setopt share_history #share command history data
 
 
 source ~/.zsh.d/aliases
+source ~/.zsh.d/zsh-theme
+
