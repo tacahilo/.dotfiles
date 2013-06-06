@@ -20,7 +20,7 @@ alias gitignoring="~/.junk/gitignore_reloaded.sh"
 alias -s {txt,md,markdown,xml}=lv
 alias -s py=python
 alias -s hs=runhaskell
-
+alias be="bundle exec"
 
 #   ___  ____   __  __
 #  / _ \/ ___|  \ \/ /
@@ -45,4 +45,5 @@ if [ `uname` = "Darwin" ]; then
     alias -s html=chrome
 fi
 
+alias git=hub
 alias weechat-curses='TERM=screen-256color weechat-curses'
