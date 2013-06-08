@@ -51,7 +51,7 @@ NeoBundle 'Shougo/neocomplcache-rsense', {
             \   'filetypes' : ['ruby']
             \ }}
 NeoBundle 'tpope/vim-rails'
-NeoBundle 'skwp/vim-rspec'
+NeoBundle 'skwp/vim-rspec' "RBENV_VERSION=system sudo gem install hpricot
 NeoBundle 'tpope/vim-fugitive'
 "Haskell
 NeoBundle 'dag/vim2hs'
@@ -113,6 +113,19 @@ set softtabstop=4   "expandtabで<Tab>が対応する<Space>の数
 set backspace=indent,eol,start
 set whichwrap=b,s,h,l,<,>,[,] "カーソルを行頭、行末で止まらないようにする
 set clipboard=unnamed "クリップボードを利用する
+
+"" autocompletion for brackets and quotations
+inoremap { {}<LEFT>
+inoremap [ []<LEFT>
+inoremap ( ()<LEFT>
+inoremap " ""<LEFT>
+inoremap ' ''<LEFT>
+vnoremap { "zdi{<C-R>z}<ESC>
+vnoremap [ "zdi[<C-R>z]<ESC>
+vnoremap ( "zdi(<C-R>z)<ESC>
+vnoremap " "zdi"<C-R>z"<ESC>
+vnoremap ' "zdi'<C-R>z'<ESC>
+
 
 "" Dvorak用にhtで左右移動するようRemap
 noremap  t     l
@@ -234,8 +247,8 @@ let g:neocomplcache_enable_underbar_completion=1 " スネークケースの補�
 let g:neocomplcache_enable_camel_case_completion=1 " キャメルケースの補完を有効化
 let g:neocomplcache_max_list=20 " ポップアップメニューで表示される候補の数
 let g:neocomplcache_min_syntax_length=3 " シンタックスをキャッシュするときの最小文字長
-inoremap <expr><TAB>   pumvisible() ? "\<Down>" : "\<TAB>"
 inoremap <expr><S-TAB> pumvisible() ? "\<Up>"   : "\<S-TAB>"
+
 " 改行、Deleteキーで補完ウィンドウを閉じる
 function! s:my_cr_func()
     return pumvisible() ? neocomplcache#smart_close_popup() : "\<CR>"
@@ -269,10 +282,22 @@ let g:neocomplcache_omni_patterns.c='\%(\.\|->\)\h\w*'
 let g:neocomplcache_omni_patterns.cpp='\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
 
 ""NeoComplecache_Snippets
+"https://github.com/Shougo/neosnippet.vim"
+"http://kazuph.hateblo.jp/entry/2013/01/19/193745"
 let g:neocomplcache_snippets_dir='~/.vim/snippets' " snippetの配置場所
 "キーマップ
-imap <C-k> <plug>(neocomplcache_snippets_expand)
-smap <C-k> <plug>(neocomplcache_snippets_expand)
+imap <C-k> <Plug>(neosnippet_expand_or_jump)
+smap <C-k> <Plug>(neosnippet_expand_or_jump)
+xmap <C-k> <Plug>(neosnippet_expand_target)
+
+" SuperTab like snippets behavior.
+imap <expr><TAB> pumvisible() ? "\<C-n>" : neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+smap <expr><TAB> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
+
+" For snippet_complete marker.
+if has('conceal')
+    set conceallevel=2 concealcursor=i
+endif
 
 ""QFixHowm
 set rtp+=~/.vim/bundle/qfixhowm/
@@ -297,6 +322,12 @@ let g:quickrun_config._={
 let g:quickrun_config['ruby.rspec'] = {
             \  'command': 'rspec',
             \}
+
+""RSpec
+let g:RspecKeymap=0
+map <D-R> :RunSpec<cr>
+map <D-L> :RunSpecLine<cr>
+
 augroup RSpec
     autocmd!
     autocmd BufWinEnter,BufNewFile *_spec.rb set filetype=ruby.rspec

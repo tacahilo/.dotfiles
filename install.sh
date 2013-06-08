@@ -9,13 +9,18 @@ fi
 
 
 # install homebrew
-which brew > /dev/null
+type -p brew >&/dev/null
 if [ $? -eq 0 ]; then
     echo homebrew already installed
 else
-    echo install homebrew >&2
+    echo install homebrew
     ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
     brew install git
+    brew update
+fi
+
+type -p brew >&/dev/null
+if [ $? -eq 0 ]; then
     brew install tig
     brew install mercurial
     brew install zsh
@@ -28,6 +33,11 @@ else
     brew install fontforge
     brew install gibo
 fi
+
+
+# submodules
+git submodule update --init
+git submodule foreach 'git checkout master; git pull origin master'
 
 
 # plenv
