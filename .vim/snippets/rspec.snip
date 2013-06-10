@@ -1,14 +1,21 @@
 snippet     desc
-abbr        describe '' do end
+abbr        describe "" do end
 prev_word   '^'
-    describe '${1:target}' do
+    describe "${1:target}" do
+        ${2:example}
+    end
+
+snippet     it
+abbr        it "" do end
+prev_word   '^'
+    it "${1:target}" do
         ${2:example}
     end
 
 snippet     cont
-abbr        context '' do end
+abbr        context "" do end
 prev_word   '^'
-    context '${1:target}' do
+    context "${1:target}" do
         ${2:example}
     end
 
@@ -17,6 +24,12 @@ abbr        before {}
 prev_word   '^'
     before (:${1:each}) { ${2:proc} }
 
+snippet     bef
+abbr        before "" do end
+prev_word   '^'
+    before do
+        ${1:proc}
+    end
 snippet     sub
 abbr        subject.method
     subject.${1:method}
@@ -30,7 +43,6 @@ snippet     it
 abbr        it {}
 prev_word   '^'
     it { ${1:expression} }
-
 
 snippet     itl
 abbr        it { ->{} }
