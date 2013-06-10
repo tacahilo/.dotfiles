@@ -2,22 +2,14 @@ require 'rubygems'
 
 begin
   require 'pry-theme'
+  Pry.config.theme = "solarized"
 rescue LoadError
 end
-
 
 begin
   require 'awesome_print'
+  Pry.config.print = proc { |output, value| Pry::Helpers::BaseHelpers.stagger_output(" => #{value.ai}", output) }
 rescue LoadError
-end
-
-
-Pry.config.theme = "solarized"
-
-begin
-  Pry.print = proc { |output, value| output.puts value.ai }
-rescue
-  puts "=> Unable to load awesome_print, please type 'gem install awesome_print' or 'sudo gem install awesome_print'."
 end
 
 Pry.config.prompt = proc do |obj, level, _|
@@ -26,7 +18,6 @@ Pry.config.prompt = proc do |obj, level, _|
   prompt << "#{RUBY_VERSION}"
   "#{prompt} (#{obj})> \e[0m"
 end
-
 
 # http://morizyun.github.io/blog/pry-tips-rails-ruby/
 # hirbの設定
