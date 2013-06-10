@@ -52,6 +52,8 @@ NeoBundle 'Shougo/neocomplcache-rsense', {
             \ }}
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'skwp/vim-rspec' "RBENV_VERSION=system sudo gem install hpricot
+NeoBundle 'rhysd/unite-ruby-require.vim'
+NeoBundle 'rhysd/neco-ruby-keyword-args' 
 NeoBundle 'tpope/vim-fugitive'
 "Haskell
 NeoBundle 'dag/vim2hs'
@@ -77,6 +79,7 @@ NeoBundleCheck
 
 "Filetipe
 autocmd BufNewFile,BufRead Gemfile set filetype=ruby
+autocmd BufNewFile,BufRead *.rake set filetype=ruby
 
 "Dict
 autocmd BufRead *.php\|*.ctp\|*.tpl :set dictionary=~/.vim/dict/php.dict filetype=php
@@ -126,20 +129,17 @@ vnoremap ( "zdi(<C-R>z)<ESC>
 vnoremap " "zdi"<C-R>z"<ESC>
 vnoremap ' "zdi'<C-R>z'<ESC>
 
+"http://avr.paslog.jp/article/2496343.html
+nnoremap <Space>.  :<C-u>edit $MYVIMRC<CR> " .vimrcを開く
+nnoremap <Space>,  :<C-u>source $MYVIMRC<CR>  " source ~/.vimrc を実行する。
 
-"" Dvorak用にhtで左右移動するようRemap
-noremap  t     l
-"" Dvorak触ってると違和感があったので、jとkの役割を入れ替える
-noremap  j <up>
-noremap  k <down>
 "" 挿入モード中に'Ctr-*'でコマンドモードでの移動・削除を可能にする
-inoremap <c-d> <delete>
-inoremap <c-j> <down>
-inoremap <c-k> <up>
-inoremap <c-h> <left>
-inoremap <c-l> <right>
+""inoremap <C-j> <Down>
+""inoremap <C-k> <Up>
+inoremap <C-h> <Left>
+inoremap <C-l> <Right>
 noremap <Leader><c-w> :silent ! start chrome %<CR>
-
+"
 ""Display
 colorscheme solarized
 set background=dark
@@ -254,13 +254,13 @@ function! s:my_cr_func()
     return pumvisible() ? neocomplcache#smart_close_popup() : "\<CR>"
 endfunction
 inoremap <silent> <CR> <C-R>=<SID>my_cr_func()<CR>
-inoremap <expr><C-h> neocomplcache#smart_close_popup() . ”\<C-h>”
+""inoremap <expr><C-h> neocomplcache#smart_close_popup() . ”\<C-h>”
 " 現在選択している候補を確定します
 inoremap <expr><C-y> neocomplcache#close_popup()
 " 現在選択している候補をキャンセルし、ポップアップを閉じます
 inoremap <expr><C-e> neocomplcache#cancel_popup()
 inoremap <expr><C-g> neocomplcache#undo_completion()
-inoremap <expr><C-l> neocomplcache#complete_common_string()
+""inoremap <expr><C-l> neocomplcache#complete_common_string()
 let g:neocomplcache_dictionary_filetype_lists = {
             \ 'default' : '',
             \ 'vimshell' : $HOME.'/.vimshell/command-history'
@@ -363,3 +363,6 @@ function! s:my_action.func(candidates)
     exec 'vsplit '. a:candidates[0].action__path
 endfunction
 call unite#custom_action('file', 'my_vsplit', s:my_action)
+
+"unite-ruby-require.vim
+let g:unite_source_ruby_require_ruby_command = '$HOME/.rbenv/shims/ruby'
