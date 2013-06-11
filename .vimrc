@@ -6,12 +6,10 @@
 
 "NeoBundle
 set nocompatible
-
 if has('vim_starting')
     set rtp+=~/.vim/bundle/neobundle.vim/
 endif
-
-call neobundle#rc(expand('~/.vim/bundle/'))
+call neobundle#rc()
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 
