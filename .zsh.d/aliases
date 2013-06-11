@@ -46,6 +46,7 @@ if [ `uname` = "Darwin" ]; then
 fi
 
 alias git=hub
+alias gitPullReq=git pull-request
 alias weechat-curses='TERM=screen-256color weechat-curses'
 
 function extract() {

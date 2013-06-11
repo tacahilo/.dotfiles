@@ -33,7 +33,7 @@ zstyle ':vcs_info:git:*' actionformats '%b|%a[%c%u]'
 
 PROMPT='%n@%m'
 PROMPT+='$([ -n "$TMUX" ] && tmux display -p "[#I-#P]")' # >> http://yonchu.hatenablog.com/entry/20120413/1334341553
-PROMPT+=' %B$%b '
+PROMPT+=$'\n''%B$%b '
 PROMPT2='%_> '
 SPROMPT='Did you mean %B%001F%r%f%b? [n,y,a,e]: '
 
