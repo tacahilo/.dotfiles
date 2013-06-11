@@ -5,13 +5,6 @@ prev_word   '^'
         ${2:example}
     end
 
-snippet     it
-abbr        it "" do end
-prev_word   '^'
-    it "${1:target}" do
-        ${2:example}
-    end
-
 snippet     cont
 abbr        context "" do end
 prev_word   '^'
@@ -43,6 +36,13 @@ snippet     it
 abbr        it {}
 prev_word   '^'
     it { ${1:expression} }
+
+snippet     ita
+abbr        it "" do end
+prev_word   '^'
+    it "${1:target}" do
+        ${2:example}
+    end
 
 snippet     itl
 abbr        it { ->{} }
