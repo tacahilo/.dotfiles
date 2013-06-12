@@ -17,7 +17,7 @@ abbr        before {}
 prev_word   '^'
     before (:${1:each}) { ${2:proc} }
 
-snippet     bef
+snippet     befdo
 abbr        before "" do end
 prev_word   '^'
     before do
@@ -37,7 +37,7 @@ abbr        it {}
 prev_word   '^'
     it { ${1:expression} }
 
-snippet     ita
+snippet     itdo
 abbr        it "" do end
 prev_word   '^'
     it "${1:target}" do
@@ -57,6 +57,11 @@ prev_word   '^'
 snippet     let
 abbr        let(:hoge) {}
 prev_word   '^'
+    let(:${1:name}) { ${2:expression} }
+
+snippet     letb
+abbr        let!(:hoge) {}
+prev_word   '^'
     let${1:!}(:${2:name}) { ${3:expression} }
 
 snippet     cha
@@ -70,6 +75,18 @@ abbr        change(Hoge, :fuga).by(1)
 snippet     changeto
 abbr        change(Hoge, :fuga).from(old).to(new)
     change(${1:target}, :${2:method}).from(${3:old_value}).to(${4:new_value})
+
+snippet     expect
+abbr        expect().to be_valid
+prev_word   '^'
+    expect(${1:target}).to ${2:be_valid}
+
+snippet     expectdo
+abbr        expect do end.to be_valid
+prev_word   '^'
+    expect do
+      ${1:target}
+    end.to ${2:be_valid}
 
 snippet     sho
 abbr        should
