@@ -9,7 +9,7 @@ set nocompatible
 if has('vim_starting')
   set rtp+=~/.vim/bundle/neobundle.vim/
 endif
-call neobundle#rc()
+call neobundle#rc(expand('~/.vim/bundle/'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 
@@ -17,12 +17,9 @@ NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/vimfiler.vim'
 NeoBundle 'nathanaelkane/vim-indent-guides'
-NeoBundle 'mattn/zencoding-vim'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'tyru/open-browser-github.vim'
 NeoBundle 'altercation/vim-colors-solarized'
-NeoBundle 'Lokaltog/vim-powerline'
-NeoBundle 'rking/ag.vim'
 NeoBundle 'Shougo/vimproc', {
       \ 'build' : {
       \   'windows' : 'make -f make_mingw64.mak',
@@ -30,12 +27,12 @@ NeoBundle 'Shougo/vimproc', {
       \   'mac' : 'make -f make_mac.mak',
       \   'unix' : 'make -f make_unix.mak',
       \ }}
+NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'Lokaltog/vim-easymotion'
-NeoBundle 'fuenor/qfixhowm'
 "Ruby
 NeoBundle 'vim-ruby/vim-ruby', {
       \ 'autoload' : {
@@ -64,6 +61,7 @@ NeoBundle 'mitechie/pyflakes-pathogen'
 NeoBundle 'wannesm/wmgraphviz.vim'
 NeoBundle 'sontek/rope-vim'
 "HTML/CSS
+NeoBundle 'mattn/zencoding-vim'
 NeoBundle 'othree/html5.vim'
 NeoBundle 'cakebaker/scss-syntax.vim'
 NeoBundle 'hail2u/vim-css3-syntax'
@@ -220,23 +218,11 @@ aug RailsDictSetting
 aug END
 
 ""vim-easymotion
+hi EasyMotionTarget ctermbg=darkblue ctermfg=white
+hi link EasyMotionShade Comment
 let g:EasyMotion_keys='hjklasdfgyuiopqwertnmzxcvbHJKLASDFGYUIOPQWERTNMZXCVB'
-let g:EasyMotion_leader_key="'" "「'」 + 何かにマッピング
+let g:EasyMotion_leader_key="'"
 let g:EasyMotion_grouping=1 " 1 ストローク選択を優先する
-hi EasyMotionTarget ctermbg=none ctermfg=green
-hi EasyMotionShade  ctermbg=none ctermfg=darkgray
-
-""Vim-LaTeX
-set shellslash
-set grepprg=grep\ -nH\ $*
-let tex_flavor='latex'
-let g:Tex_DefaultTargetFormat='pdf'
-let g:Tex_ViewRule_pdf='open -a Preview.app'
-let g:Tex_CompileRule_dvi='platex  -synctex=1 -interaction=nonstopmode $*'
-let g:Tex_CompileRule_pdf='dvipdfmx $*.dvi'
-let g:Tex_FormatDependency_pdf='dvi,pdf'
-let g:Tex_BibtexFlavor='pbibtex'
-let g:Tex_MakeIndexFlavor='mendex $*.idx'
 
 ""NeoComplecache
 set completeopt=menuone "補完候補が１つだけでも表示
@@ -281,13 +267,11 @@ let g:neocomplcache_omni_patterns.c='\%(\.\|->\)\h\w*'
 let g:neocomplcache_omni_patterns.cpp='\h\w*\%(\.\|->\)\h\w*\|\h\w*::'
 
 ""NeoComplecache_Snippets
-"https://github.com/Shougo/neosnippet.vim"
 "http://kazuph.hateblo.jp/entry/2013/01/19/193745"
 let g:neocomplcache_snippets_dir='~/.vim/snippets' " snippetの配置場所
 "キーマップ
 imap <C-k> <Plug>(neosnippet_expand_or_jump)
 smap <C-k> <Plug>(neosnippet_expand_or_jump)
-xmap <C-k> <Plug>(neosnippet_expand_target)
 
 " SuperTab like snippets behavior.
 imap <expr><TAB> pumvisible() ? "\<C-n>" : neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : "\<TAB>"
@@ -297,15 +281,6 @@ smap <expr><TAB> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : 
 if has('conceal')
   set conceallevel=2 concealcursor=i
 endif
-
-""QFixHowm
-set rtp+=~/.vim/bundle/qfixhowm/
-
-let QFixHowm='g'
-let howm_dir='~/Documents/howm'
-let howm_filename='%Y/%m/%Y-%m-%d-%H%M%S.txt'
-let howm_fileencoding='utf-8'
-let howm_fileformat='unix'
 
 ""vim2hs
 let g:haskell_conceal_wide = 1
@@ -321,6 +296,7 @@ let g:quickrun_config._={
 let g:quickrun_config['ruby.rspec'] = {
       \  'command': 'rspec',
       \}
+nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
 
 ""RSpec
 let g:RspecKeymap=0
@@ -331,8 +307,6 @@ augroup RSpec
   autocmd!
   autocmd BufWinEnter,BufNewFile *_spec.rb set filetype=ruby.rspec
 augroup END
-
-nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
 
 "" go lang
 set rtp+=$GOROOT/misc/vim
@@ -369,5 +343,7 @@ let g:unite_source_ruby_require_ruby_command = '$HOME/.rbenv/shims/ruby'
 "zen-coding
 let g:user_zen_settings = {
       \  'lang' : 'ja',
-      \ 'indentation': " ",
+      \ 'indentation': "  ",
       \}
+
+let g:Powerline_symbols = 'unicode'
