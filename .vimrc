@@ -8,7 +8,7 @@
 set nocompatible
 
 if has('vim_starting')
-    set rtp+=~/.vim/bundle/neobundle.vim/
+  set rtp+=~/.vim/bundle/neobundle.vim/
 endif
 
 call neobundle#rc(expand('~/.vim/bundle/'))
@@ -19,18 +19,19 @@ NeoBundle 'Shougo/neocomplcache'
 NeoBundle 'Shougo/neosnippet'
 NeoBundle 'Shougo/vimfiler.vim'
 NeoBundle 'nathanaelkane/vim-indent-guides'
+NeoBundle 'mattn/zencoding-vim'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'tyru/open-browser-github.vim'
 NeoBundle 'altercation/vim-colors-solarized'
 NeoBundle 'Lokaltog/vim-powerline'
 NeoBundle 'rking/ag.vim'
 NeoBundle 'Shougo/vimproc', {
-            \ 'build' : {
-            \   'windows' : 'make -f make_mingw64.mak',
-            \   'cygwin' : 'make -f make_cygwin.mak',
-            \   'mac' : 'make -f make_mac.mak',
-            \   'unix' : 'make -f make_unix.mak',
-            \ }}
+      \ 'build' : {
+      \   'windows' : 'make -f make_mingw64.mak',
+      \   'cygwin' : 'make -f make_cygwin.mak',
+      \   'mac' : 'make -f make_mac.mak',
+      \   'unix' : 'make -f make_unix.mak',
+      \ }}
 NeoBundle 'Shougo/vimshell'
 NeoBundle 'Shougo/unite.vim'
 NeoBundle 'thinca/vim-quickrun'
@@ -39,17 +40,17 @@ NeoBundle 'Lokaltog/vim-easymotion'
 NeoBundle 'fuenor/qfixhowm'
 "Ruby
 NeoBundle 'vim-ruby/vim-ruby', {
-            \ 'autoload' : {
-            \   'filetypes' : ['ruby']
-            \ }}
+      \ 'autoload' : {
+      \   'filetypes' : ['ruby']
+      \ }}
 NeoBundle 'vim-scripts/ruby-matchit', {
-            \ 'autoload' : {
-            \   'filetypes' : ['ruby']
-            \ }}
+      \ 'autoload' : {
+      \   'filetypes' : ['ruby']
+      \ }}
 NeoBundle 'Shougo/neocomplcache-rsense', {
-            \ 'autoload' : {
-            \   'filetypes' : ['ruby']
-            \ }}
+      \ 'autoload' : {
+      \   'filetypes' : ['ruby']
+      \ }}
 NeoBundle 'tpope/vim-rails'
 NeoBundle 'skwp/vim-rspec' "RBENV_VERSION=system sudo gem install hpricot
 NeoBundle 'rhysd/unite-ruby-require.vim'
@@ -69,10 +70,10 @@ NeoBundle 'othree/html5.vim'
 NeoBundle 'cakebaker/scss-syntax.vim'
 NeoBundle 'hail2u/vim-css3-syntax'
 if has("unix")
-    let s:uname=system("uname")
-    if s:uname=="Darwin\n"
-        NeoBundle 'tell-k/vim-browsereload-mac'
-    endif
+  let s:uname=system("uname")
+  if s:uname=="Darwin\n"
+    NeoBundle 'tell-k/vim-browsereload-mac'
+  endif
 endif
 filetype plugin indent on
 NeoBundleCheck
@@ -109,10 +110,10 @@ set wrapscan "検索をファイルの先頭へループする
 
 ""Input
 set cindent "C言語のインデントに従って自動インデントを行う
-set shiftwidth=4    "行頭での<Tab>の幅
-set tabstop=4   "行頭以外での<Tab>の幅
+set shiftwidth=2    "行頭での<Tab>の幅
+set tabstop=2   "行頭以外での<Tab>の幅
 set expandtab   "<Tab>の代わりに<Space>を挿入する
-set softtabstop=4   "expandtabで<Tab>が対応する<Space>の数
+set softtabstop=2   "expandtabで<Tab>が対応する<Space>の数
 set backspace=indent,eol,start
 set whichwrap=b,s,h,l,<,>,[,] "カーソルを行頭、行末で止まらないようにする
 set clipboard=unnamed "クリップボードを利用する
@@ -204,20 +205,20 @@ let g:rails_level=4
 let g:rails_mappings=1
 let g:rails_modelines=0
 function! SetUpRailsSetting()
-    nnoremap <buffer><Space>r :R<CR>
-    nnoremap <buffer><Space>a :A<CR>
-    nnoremap <buffer><Space>m :Rmodel<Space>
-    nnoremap <buffer><Space>c :Rcontroller<Space>
-    nnoremap <buffer><Space>v :Rview<Space>
-    nnoremap <buffer><Space>p :Rpreview<CR>
+  nnoremap <buffer><Space>r :R<CR>
+  nnoremap <buffer><Space>a :A<CR>
+  nnoremap <buffer><Space>m :Rmodel<Space>
+  nnoremap <buffer><Space>c :Rcontroller<Space>
+  nnoremap <buffer><Space>v :Rview<Space>
+  nnoremap <buffer><Space>p :Rpreview<CR>
 endfunction
 
 aug MyAutoCmd
-    au User Rails call SetUpRailsSetting()
+  au User Rails call SetUpRailsSetting()
 aug END
 
 aug RailsDictSetting
-    au!
+  au!
 aug END
 
 ""vim-easymotion
@@ -251,7 +252,7 @@ inoremap <expr><S-TAB> pumvisible() ? "\<Up>"   : "\<S-TAB>"
 
 " 改行、Deleteキーで補完ウィンドウを閉じる
 function! s:my_cr_func()
-    return pumvisible() ? neocomplcache#smart_close_popup() : "\<CR>"
+  return pumvisible() ? neocomplcache#smart_close_popup() : "\<CR>"
 endfunction
 inoremap <silent> <CR> <C-R>=<SID>my_cr_func()<CR>
 ""inoremap <expr><C-h> neocomplcache#smart_close_popup() . ”\<C-h>”
@@ -262,9 +263,9 @@ inoremap <expr><C-e> neocomplcache#cancel_popup()
 inoremap <expr><C-g> neocomplcache#undo_completion()
 ""inoremap <expr><C-l> neocomplcache#complete_common_string()
 let g:neocomplcache_dictionary_filetype_lists = {
-            \ 'default' : '',
-            \ 'vimshell' : $HOME.'/.vimshell/command-history'
-            \ }
+      \ 'default' : '',
+      \ 'vimshell' : $HOME.'/.vimshell/command-history'
+      \ }
 
 ""Omni Completion
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
@@ -274,7 +275,7 @@ autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 if !exists('g:neocomplcache_omni_patterns')
-    let g:neocomplcache_omni_patterns={}
+  let g:neocomplcache_omni_patterns={}
 endif
 let g:neocomplcache_omni_patterns.ruby='[^. *\t]\.\w*\|\h\w*::'
 let g:neocomplcache_omni_patterns.php='[^. \t]->\h\w*\|\h\w*::'
@@ -296,7 +297,7 @@ smap <expr><TAB> neosnippet#jumpable() ? "\<Plug>(neosnippet_expand_or_jump)" : 
 
 " For snippet_complete marker.
 if has('conceal')
-    set conceallevel=2 concealcursor=i
+  set conceallevel=2 concealcursor=i
 endif
 
 ""QFixHowm
@@ -314,14 +315,14 @@ let g:haskell_conceal_wide = 1
 ""vim-quickrun
 let g:quickrun_config = {}
 let g:quickrun_config._={
-            \  'runner': 'vimproc',
-            \  'runner/vimproc/updatetime': 60,
-            \  'outputter/buffer/split': ':botright',
-            \  'hook/time/enable': '1'
-            \}
+      \  'runner': 'vimproc',
+      \  'runner/vimproc/updatetime': 60,
+      \  'outputter/buffer/split': ':botright',
+      \  'hook/time/enable': '1'
+      \}
 let g:quickrun_config['ruby.rspec'] = {
-            \  'command': 'rspec',
-            \}
+      \  'command': 'rspec',
+      \}
 
 ""RSpec
 let g:RspecKeymap=0
@@ -329,8 +330,8 @@ map <D-R> :RunSpec<cr>
 map <D-L> :RunSpecLine<cr>
 
 augroup RSpec
-    autocmd!
-    autocmd BufWinEnter,BufNewFile *_spec.rb set filetype=ruby.rspec
+  autocmd!
+  autocmd BufWinEnter,BufNewFile *_spec.rb set filetype=ruby.rspec
 augroup END
 
 nnoremap <expr><silent> <C-c> quickrun#is_running() ? quickrun#sweep_sessions() : "\<C-c>"
@@ -345,24 +346,30 @@ let g:vimfiler_as_default_explorer = 1
 nnoremap <F2> :VimFiler -buffer-name=explorer -split -winwidth=50 -toggle -no-quit<Cr>
 autocmd! FileType vimfiler call g:my_vimfiler_settings()
 function! g:my_vimfiler_settings()
-    nmap     <buffer><expr><Cr> vimfiler#smart_cursor_map("\<Plug>(vimfiler_expand_tree)", "\<Plug>(vimfiler_edit_file)")
-    nnoremap <buffer>s          :call vimfiler#mappings#do_action('my_split')<Cr>
-    nnoremap <buffer>v          :call vimfiler#mappings#do_action('my_vsplit')<Cr>
+  nmap     <buffer><expr><Cr> vimfiler#smart_cursor_map("\<Plug>(vimfiler_expand_tree)", "\<Plug>(vimfiler_edit_file)")
+  nnoremap <buffer>s          :call vimfiler#mappings#do_action('my_split')<Cr>
+  nnoremap <buffer>v          :call vimfiler#mappings#do_action('my_vsplit')<Cr>
 endfunction
 
 let s:my_action = { 'is_selectable' : 1 }
 function! s:my_action.func(candidates)
-    wincmd p
-    exec 'split '. a:candidates[0].action__path
+  wincmd p
+  exec 'split '. a:candidates[0].action__path
 endfunction
 call unite#custom_action('file', 'my_split', s:my_action)
 
 let s:my_action = { 'is_selectable' : 1 }                     
 function! s:my_action.func(candidates)
-    wincmd p
-    exec 'vsplit '. a:candidates[0].action__path
+  wincmd p
+  exec 'vsplit '. a:candidates[0].action__path
 endfunction
 call unite#custom_action('file', 'my_vsplit', s:my_action)
 
 "unite-ruby-require.vim
 let g:unite_source_ruby_require_ruby_command = '$HOME/.rbenv/shims/ruby'
+
+"zen-coding
+let g:user_zen_settings = {
+      \  'lang' : 'ja',
+      \ 'indentation': " ",
+      \}
