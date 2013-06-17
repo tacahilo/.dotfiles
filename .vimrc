@@ -8,10 +8,12 @@
 " ##setup {{{2
 
 set nocompatible
+
 if has('vim_starting')
-  set rtp+=~/.vim/bundle/neobundle.vim/
+  set rtp+=~/.vim/bundle/neobundle.vim
 endif
-call neobundle#rc()
+
+call neobundle#rc(expand('~/.vim/bundle'))
 
 NeoBundleFetch 'Shougo/neobundle.vim'
 
@@ -50,10 +52,6 @@ NeoBundle 'vim-ruby/vim-ruby', {
       \   'filetypes' : ['ruby']
       \ }}
 NeoBundle 'vim-scripts/ruby-matchit', {
-      \ 'autoload' : {
-      \   'filetypes' : ['ruby']
-      \ }}
-NeoBundle 'Shougo/neocomplcache-rsense', {
       \ 'autoload' : {
       \   'filetypes' : ['ruby']
       \ }}
