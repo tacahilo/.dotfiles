@@ -33,6 +33,7 @@ NeoBundle 'Shougo/unite.vim'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'scrooloose/syntastic'
 NeoBundle 'Lokaltog/vim-easymotion'
+NeoBundle 'plasticboy/vim-markdown.git'
 "Ruby
 NeoBundle 'vim-ruby/vim-ruby', {
       \ 'autoload' : {
@@ -71,6 +72,9 @@ if has("unix")
     NeoBundle 'tell-k/vim-browsereload-mac'
   endif
 endif
+
+NeoBundle 'rodjek/vim-puppet'
+
 filetype plugin indent on
 NeoBundleCheck
 
@@ -347,3 +351,4 @@ let g:user_zen_settings = {
       \}
 
 let g:Powerline_symbols = 'unicode'
+let g:vim_markdown_folding_disabled=1
