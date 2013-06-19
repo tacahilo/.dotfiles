@@ -31,9 +31,9 @@
 [submodule ".tmux.d/tmux-powerline"]
 	path = .tmux.d/tmux-powerline
 	url = https://github.com/jedipunkz/tmux-powerline.git
-[submodule ".vim/bundle/neobundle.vim"]
-	path = .vim/bundle/neobundle.vim
-	url = git://github.com/Shougo/neobundle.vim.git
 [submodule ".zsh.d/zaw"]
 	path = .zsh.d/zaw
 	url = git://github.com/zsh-users/zaw.git
+[submodule ".vim/bundle/neobundle.vim"]
+	path = .vim/bundle/neobundle.vim
+	url = git://github.com/Shougo/neobundle.vim.git

@@ -9,5 +9,5 @@ Icon
 zz
 ### Vim
 .netrwhist
-.vim/bundle/*/*
-
+.vim/bundle/*
+!.vim/bundle/neobundle.vim
