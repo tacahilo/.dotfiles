@@ -41,7 +41,7 @@ NeoBundle 'plasticboy/vim-markdown.git'
 NeoBundle 'thinca/vim-quickrun'
 NeoBundle 'tyru/open-browser.vim'
 NeoBundle 'tyru/open-browser-github.vim'
-NeoBundle 'godlygeek/tabular'
+NeoBundle 'Align'
 "               ,--.
 ",--.--.,--.,--.|  |-.,--. ,--.
 "|  .--'|  ||  || .-. '\  '  /
@@ -374,7 +374,6 @@ let g:user_zen_settings = {
 let g:unite_source_ruby_require_ruby_command = '$HOME/.rbenv/shims/ruby'
 let g:Powerline_symbols = 'unicode'
 let g:vim_markdown_folding_disabled=1
-let g:tabular_loaded=1
 "}}}
 "}}}
 
