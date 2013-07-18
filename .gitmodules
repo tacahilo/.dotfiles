@@ -40,3 +40,6 @@
 [submodule "myzsh"]
 	path = myzsh
 	url = https://github.com/Tacahilo/myzsh.git
+[submodule "myenv_puppet"]
+	path = myenv_puppet
+	url = https://github.com/Tacahilo/myenv_puppet.git
