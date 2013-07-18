@@ -34,3 +34,9 @@
 [submodule "libs/my_rbenv_set"]
 	path = libs/my_rbenv_set
 	url = https://github.com/Tacahilo/my_rbenv_set.git
+[submodule "myvim"]
+	path = myvim
+	url = https://github.com/Tacahilo/myvim.git
+[submodule "myzsh"]
+	path = myzsh
+	url = https://github.com/Tacahilo/myzsh.git
