@@ -13,12 +13,6 @@
 [submodule ".zsh.d/auto-fu"]
 	path = .zsh.d/auto-fu
 	url = git://github.com/hchbaw/auto-fu.zsh.git
-[submodule "libs/plenv"]
-	path = libs/plenv
-	url = git://github.com/tokuhirom/plenv.git
-[submodule "libs/pyenv"]
-	path = libs/pyenv
-	url = git://github.com/yyuu/pyenv.git
 [submodule "libs/tmux-solarized"]
 	path = libs/tmux-solarized
 	url = git://github.com/seebi/tmux-colors-solarized.git
@@ -31,9 +25,6 @@
 [submodule ".vim/bundle/neobundle.vim"]
 	path = .vim/bundle/neobundle.vim
 	url = git://github.com/Shougo/neobundle.vim.git
-[submodule "libs/my_rbenv_set"]
-	path = libs/my_rbenv_set
-	url = https://github.com/Tacahilo/my_rbenv_set.git
 [submodule "myvim"]
 	path = myvim
 	url = https://github.com/Tacahilo/myvim.git
