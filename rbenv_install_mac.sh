@@ -1,12 +1,7 @@
 #!/bin/sh
 
-if ! expr "$OSTYPE" : "^darwin" >/dev/null; then
-  echo not OS X
-  exit 1
-fi
-
-if [ -d ~/.rbenv ]; then
-  echo ~/.rbenv already exists
+if [ -f ~/.rbenv/bin/rbenv ]; then
+  echo rbenv already exists
   exit 1
 fi
 

@@ -1,7 +1,7 @@
 #!/bin/sh
 
-if [ -d ~/.plenv ]; then
-  echo ~/.plenv already exists
+if [ -f ~/.plenv/bin/plenv ]; then
+  echo plenv already exists
   exit 1
 fi
 
