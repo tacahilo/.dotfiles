@@ -13,9 +13,6 @@
 [submodule ".zsh.d/auto-fu"]
 	path = .zsh.d/auto-fu
 	url = git://github.com/hchbaw/auto-fu.zsh.git
-[submodule "libs/tmux-solarized"]
-	path = libs/tmux-solarized
-	url = git://github.com/seebi/tmux-colors-solarized.git
 [submodule ".tmux.d/tmux-powerline"]
 	path = .tmux.d/tmux-powerline
 	url = https://github.com/jedipunkz/tmux-powerline.git
