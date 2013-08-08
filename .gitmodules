@@ -13,9 +13,6 @@
 [submodule ".zsh.d/auto-fu"]
 	path = .zsh.d/auto-fu
 	url = git://github.com/hchbaw/auto-fu.zsh.git
-[submodule ".tmux.d/tmux-powerline"]
-	path = .tmux.d/tmux-powerline
-	url = https://github.com/jedipunkz/tmux-powerline.git
 [submodule ".zsh.d/zaw"]
 	path = .zsh.d/zaw
 	url = git://github.com/zsh-users/zaw.git
