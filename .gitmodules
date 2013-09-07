@@ -19,9 +19,6 @@
 [submodule ".vim/bundle/neobundle.vim"]
 	path = .vim/bundle/neobundle.vim
 	url = git://github.com/Shougo/neobundle.vim.git
-[submodule "myvim"]
-	path = myvim
-	url = https://github.com/Tacahilo/myvim.git
 [submodule "myzsh"]
 	path = myzsh
 	url = https://github.com/Tacahilo/myzsh.git
