@@ -7,7 +7,6 @@ else
     exit 1
 fi
 
-
 # install homebrew
 type -p brew >&/dev/null
 if [ $? -eq 0 ]; then
@@ -34,11 +33,8 @@ if [ $? -eq 0 ]; then
     brew install gibo
 fi
 
-
-# submodules
-git submodule update --init
-git submodule foreach 'git checkout master; git pull origin master'
-
+# vim
+git clone https://github.com/Tacahilo/.vim.git $HOME/.vim
 
 # plenv
 which plenv > /dev/null 2>&1
