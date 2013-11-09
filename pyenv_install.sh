@@ -1,10 +1,5 @@
 #!/bin/sh
 
-if [ -f ~/.pyenv/bin/pyenv ]; then
-  echo pyenv already exists
-  exit 1
-fi
-
 cat <<'EOF'
 
                      __             ___    ___                            
@@ -28,7 +23,7 @@ cat <<'EOF'
 
 EOF
 
-git clone git://github.com/yyuu/pyenv.git ~/.pyenv
+git clone git://github.com/yyuu/pyenv.git $HOME/.pyenv
 
 cat <<'EOF'
 
