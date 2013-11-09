@@ -1,10 +1,5 @@
 #!/bin/sh
 
-if [ -f ~/.rbenv/bin/rbenv ]; then
-  echo rbenv already exists
-  exit 1
-fi
-
 cat <<'EOF'
 
 _____               _        __  __   _
@@ -21,16 +16,22 @@ _____               _        __  __   _
 
 EOF
 
-git clone https://github.com/sstephenson/rbenv.git ~/.rbenv
-mkdir -p ~/.rbenv/plugins
-git clone https://github.com/sstephenson/ruby-build.git ~/.rbenv/plugins/ruby-build
-git clone https://github.com/sstephenson/rbenv-default-gems.git ~/.rbenv/plugins/rbenv-default-gems
-git clone https://github.com/sstephenson/rbenv-gem-rehash.git ~/.rbenv/plugins/rbenv-gem-rehash
+# install rbenv
+git clone https://github.com/sstephenson/rbenv.git $HOME/.rbenv
 
-cd ~/.rbenv
-touch default-gems
 
-cat <<EOF > default-gems
+# install plugins
+mkdir -p $HOME/.rbenv/plugins
+git clone https://github.com/znz/rbenv-plug $HOME/.rbenv/plugins/rbenv-plug
+
+PLUGINS=(ruby-build rbenv-default-gems rbenv-gem-rehash rbenv-update)
+for ITEM in ${PLUGINS[@]}
+do
+  rbenv plug $ITEM
+done
+
+# set default-gems
+cat <<EOF > $HOME/.rbenv/default-gems
 bundler
 pry
 pry-theme
