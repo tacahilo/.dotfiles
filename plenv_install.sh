@@ -26,9 +26,8 @@ EOF
 git clone git://github.com/tokuhirom/plenv.git ~/.plenv
 mkdir -p ~/.plenv/plugins
 git clone git://github.com/tokuhirom/Perl-Build.git ~/.plenv/plugins/perl-build
+git clone git://github.com/Tacahilo/plenv-update.git ~/.plenv/plugins/plenv-update
 
-plenv install-cpanm
-plenv rehash
 
 cat <<'EOF'
 
