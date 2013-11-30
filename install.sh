@@ -35,51 +35,8 @@ fi
 
 # vim
 git clone --recursive https://github.com/Tacahilo/.vim.git $HOME/.vim
-
-# plenv
-which plenv > /dev/null 2>&1
-if [ $? -eq 0 ]; then
-    echo plenv already installed
-else
-   ln -s ~/.dotfiles/libs/plenv ~/.plenv
-fi
-
-
-# pyenv
-which pyenv > /dev/null 2>&1
-if [ $? -eq 0 ]; then
-    echo pyenv already installed
-else
-   ln -s ~/.dotfiles/libs/pyenv ~/.pyenv
-fi
-
-
-# rbenv
-which rbenv > /dev/null 2>&1
-if [ $? -eq 0 ]; then
-    echo rbenv already installed
-else
-   ln -s ~/.dotfiles/libs/rbenv ~/.rbenv
-fi
-
-
-# phpenv
-which phpenv > /dev/null 2>&1
-if [ $? -eq 0 ]; then
-    echo phpenv already installed
-else
-   ln -s ~/.dotfiles/libs/phpenv ~/.phpenv
-fi
-
-
-# nodebrew
-which nodebrew > /dev/null 2>&1
-if [ $? -eq 0 ]; then
-    echo nodebrew already installed
-else
-    curl -L git.io/nodebrew | perl - setup
-fi
-
+# zsh
+git clone --recursive https://github.com/Tacahilo/.zsh.d.git $HOME/.zsh.d
 
 # alias dotfiles
 for file in `find ~/.dotfiles -d 1 -name '.*' | grep -v '.git$' | sed "s/.*dotfiles\///g"`; do
