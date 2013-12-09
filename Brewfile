@@ -1,6 +1,9 @@
+/* vim: set filetype=ruby : */
+
 tap 'homebrew/binary'
 tap 'homebrew/dupes'
 tap 'homebrew/versions'
+tap 'josegonzalez/php'
 brew 'bash'
 brew 'coreutils'
 brew 'ctags'
@@ -12,6 +15,7 @@ brew 'gfortran'
 brew 'gibo'
 brew 'git'
 brew 'git-flow'
+brew 'global'
 brew 'graphviz'
 brew 'hub'
 brew 'imagemagick'
@@ -30,4 +34,4 @@ brew 'tree'
 brew 'vim'
 brew 'weechat'
 brew 'wget'
-brew 'zsh'
+brew" zsh"
