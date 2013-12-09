@@ -1,0 +1,12 @@
+#/bin/bash
+
+# install homebrew
+type -p brew >&/dev/null
+if [ $? -eq 0 ]; then
+    echo homebrew already installed
+else
+    echo install homebrew
+    ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+    brew install git
+    brew update
+fi
