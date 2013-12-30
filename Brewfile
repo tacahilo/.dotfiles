@@ -1,37 +1,40 @@
-/* vim: set filetype=ruby : */
+update
+upgrade
+tap homebrew/binary || true
+tap homebrew/dupes || true
+tap homebrew/versions || true
+tap josegonzalez/php || true
+install bash
+install coreutils
+install ctags
+install curl
+install fontforge
+install gcc47
+install gcc48
+install gfortran
+install gibo
+install git --HEAD
+install git-flow
+install global --with-exuberant-ctags
+install graphviz
+install hub --HEAD
+install imagemagick
+install mosh
+install mysql
+install nkf
+install openssl
+install packer
+install readline
+install reattach-to-user-namespace
+install ssh-copy-id
+install the_silver_searcher
+install tig
+install tmux
+install tree
+install vim --with-lua
+install weechat
+install wget
+install zsh
 
-tap 'homebrew/binary'
-tap 'homebrew/dupes'
-tap 'homebrew/versions'
-tap 'josegonzalez/php'
-brew 'bash'
-brew 'coreutils'
-brew 'ctags'
-brew 'curl'
-brew 'fontforge'
-brew 'gcc47'
-brew 'gcc48'
-brew 'gfortran'
-brew 'gibo'
-brew 'git'
-brew 'git-flow'
-brew 'global'
-brew 'graphviz'
-brew 'hub'
-brew 'imagemagick'
-brew 'mosh'
-brew 'mysql'
-brew 'nkf'
-brew 'openssl'
-brew 'packer'
-brew 'readline'
-brew 'reattach-to-user-namespace'
-brew 'ssh-copy-id'
-brew 'the_silver_searcher'
-brew 'tig'
-brew 'tmux'
-brew 'tree'
-brew 'vim'
-brew 'weechat'
-brew 'wget'
-brew" zsh"
+cleanup
+doctor
