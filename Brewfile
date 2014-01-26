@@ -1,9 +1,9 @@
 update
 upgrade
-tap homebrew/binary || true
-tap homebrew/dupes || true
-tap homebrew/versions || true
-tap josegonzalez/php || true
+tap homebrew/binary
+tap homebrew/dupes
+tap homebrew/versions
+tap josegonzalez/php
 install bash
 install coreutils
 install ctags
