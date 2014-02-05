@@ -25,11 +25,10 @@ echo set editor vim
 git config --global core.editor vim
 git config --global merge.tool vimdiff
 
-echo set attributes
-git config --global core.attributesfile ~/.gitattributes_global
-
-echo set color
+echo set display
 git config --global color.ui auto
+git config --global alias.graph 'log --graph --decorate --oneline'
+git config --global core.attributesfile ~/.gitattributes_global
 
 echo set github
 git config --global github.user Tacahilo
