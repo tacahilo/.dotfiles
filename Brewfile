@@ -4,7 +4,9 @@ tap homebrew/binary
 tap homebrew/dupes
 tap homebrew/versions
 tap josegonzalez/php
+tap phinze/homebrew-cask
 install bash
+install brew-cask
 install coreutils
 install ctags
 install curl
@@ -36,5 +38,6 @@ install weechat
 install wget
 install zsh
 
+cask install google-chrome
 cleanup
 doctor
