@@ -25,6 +25,9 @@ echo set editor vim
 git config --global core.editor vim
 git config --global merge.tool vimdiff
 
+echo set attributes
+git config --global core.attributesfile ~/.gitattributes_global
+
 echo set color
 git config --global color.ui auto
 
