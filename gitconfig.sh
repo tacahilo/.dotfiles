@@ -36,3 +36,5 @@ git config --global github.email hfm.garden@gmail.com
 
 echo set push default
 git config --global push.default simple
+
+git config --list
