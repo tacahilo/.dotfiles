@@ -19,6 +19,7 @@ install git --HEAD
 install git-flow
 install global --with-exuberant-ctags
 install graphviz
+install highlight
 install hub --HEAD
 install imagemagick
 install mosh
