@@ -5,6 +5,7 @@ tap homebrew/dupes
 tap homebrew/versions
 tap josegonzalez/php
 tap phinze/homebrew-cask
+tap laurent22/massren
 install bash
 install brew-cask
 install coreutils
@@ -22,6 +23,7 @@ install graphviz
 install highlight
 install hub --HEAD
 install imagemagick
+install massren
 install mosh
 install mysql
 install nkf
