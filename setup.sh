@@ -1,8 +1,8 @@
 #!/bin/bash
 
-git clone --recursive git@github.com:Tacahilo/.dotfiles.git $HOME/.dotfiles
-git clone --recursive git@github.com:Tacahilo/.vim.git $HOME/.vim
-git clone --recursive git@github.com:Tacahilo/.zsh.d.git $HOME/.zsh.d
+git clone --recursive https://github.com/tacahilo/.dotfiles.git $HOME/.dotfiles
+git clone --recursive https://github.com/tacahilo/.vim.git $HOME/.vim
+git clone --recursive https://github.com/tacahilo/.zsh.d.git $HOME/.zsh.d
 
 if expr "$OSTYPE" : "^darwin" >/dev/null; then
   . setup.sh.osx
