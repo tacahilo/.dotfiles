@@ -15,7 +15,7 @@ git config --global alias.co checkout
 git config --global alias.ci commit
 git config --global alias.cl clone
 git config --global alias.d diff
-git config --global alias.s status
+git config --global alias.s 'status -sb'
 git config --global alias.r 'remote -v'
 git config --global alias.b 'branch -v'
 git config --global alias.l log
