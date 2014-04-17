@@ -22,11 +22,13 @@ install global --with-exuberant-ctags
 install graphviz
 install highlight
 install hub --HEAD
+install jq
 install imagemagick
 install massren
 install mosh
 install mysql
 install nkf
+install node
 install openssl
 install packer
 install readline
@@ -37,10 +39,21 @@ install tig
 install tmux
 install tree
 install vim --with-lua
-install weechat
+install weechat --with-python --with-perl --with-ruby --with-lua
 install wget
 install zsh
 
+cask install coteditor
+cask install cyberduck
+cask install dropbox
+cask install firefox
 cask install google-chrome
+cask install iterm2
+cask install opera
+cask install silverlight
+cask install skitch
+cask install skype
+cask install vagrant
+cask install virtualbox
 cleanup
 doctor
