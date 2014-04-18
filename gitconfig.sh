@@ -18,6 +18,7 @@ git config --global alias.d diff
 git config --global alias.s 'status -sb'
 git config --global alias.r 'remote -v'
 git config --global alias.b 'branch -v'
+git config --global alias.f 'fetch --prune'
 git config --global alias.l log
 git config --global alias.lg 'log --graph --all'
 
