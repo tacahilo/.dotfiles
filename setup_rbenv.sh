@@ -19,9 +19,8 @@ EOF
 # install rbenv
 git clone https://github.com/sstephenson/rbenv.git $HOME/.rbenv
 
-
 # install plugins
-mkdir -p $HOME/.rbenv/plugins
+mkdir $HOME/.rbenv/plugins
 git clone https://github.com/znz/rbenv-plug $HOME/.rbenv/plugins/rbenv-plug
 
 PLUGINS=(ruby-build rbenv-default-gems rbenv-gem-rehash rbenv-update)
