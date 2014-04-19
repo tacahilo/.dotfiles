@@ -1,7 +1,8 @@
-percol.view.PROMPT  = ur"<bold><yellow>X / _ / X</yellow></bold> %q"
-SPECIAL_KEYS.update({
-    127: '<backspace>'
-})
+# X / _ / X
+percol.view.PROMPT  = ur"<bold><yellow>Input:</yellow></bold> %q"
+percol.view.RPROMPT = ur"(%F) [%i/%I]"
+
+# Emacs like
 percol.import_keymap({
     "C-h" : lambda percol: percol.command.delete_backward_char(),
     "C-d" : lambda percol: percol.command.delete_forward_char(),
