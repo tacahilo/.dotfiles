@@ -47,6 +47,7 @@ ipaddress
 pry
 pry-theme
 puppet-lint
+reek
 sheet
 sup
 EOF
