@@ -39,11 +39,14 @@ cat <<EOF > $HOME/.rbenv/default-gems
 artii
 awesome_print
 bundler
+debugger
 hirb
 hirb-unicode
+ipaddress
 pry
 pry-theme
 puppet-lint
+sheet
 sup
 EOF
 
