@@ -44,6 +44,7 @@ hirb-unicode
 pry
 pry-theme
 puppet-lint
+sup
 EOF
 
 cat <<'EOF'
