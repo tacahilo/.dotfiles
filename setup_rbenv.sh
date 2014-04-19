@@ -23,10 +23,15 @@ git clone https://github.com/sstephenson/rbenv.git $HOME/.rbenv
 mkdir $HOME/.rbenv/plugins
 git clone https://github.com/znz/rbenv-plug $HOME/.rbenv/plugins/rbenv-plug
 
-PLUGINS=(ruby-build rbenv-default-gems rbenv-gem-rehash rbenv-update)
-for ITEM in ${PLUGINS[@]}
+plugins=(
+    ruby-build
+    rbenv-default-gems
+    rbenv-gem-rehash
+    rbenv-update
+)
+for item in ${plugins[@]}
 do
-  rbenv plug $ITEM
+  rbenv plug $item
 done
 
 # set default-gems
