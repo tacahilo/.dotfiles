@@ -36,11 +36,14 @@ done
 
 # set default-gems
 cat <<EOF > $HOME/.rbenv/default-gems
+artii
+awesome_print
 bundler
+hirb
+hirb-unicode
 pry
 pry-theme
-awesome_print
-hirb
+puppet-lint
 EOF
 
 cat <<'EOF'
