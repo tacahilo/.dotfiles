@@ -16,12 +16,13 @@ _____               _        __  __   _
 
 EOF
 
-# install rbenv
-git clone https://github.com/sstephenson/rbenv.git $HOME/.rbenv
 
-# install plugins
-mkdir $HOME/.rbenv/plugins
-git clone https://github.com/znz/rbenv-plug $HOME/.rbenv/plugins/rbenv-plug
+# install rbenv
+[ -d "$HOME/.rbenv" ] || {
+    git clone https://github.com/sstephenson/rbenv.git $HOME/.rbenv
+    mkdir $HOME/.rbenv/plugins
+    git clone https://github.com/znz/rbenv-plug $HOME/.rbenv/plugins/rbenv-plug
+}
 
 plugins=(
     ruby-build
@@ -29,10 +30,10 @@ plugins=(
     rbenv-gem-rehash
     rbenv-update
 )
-for item in ${plugins[@]}
-do
+for item in ${plugins[@]}; do
   rbenv plug $item
 done
+
 
 # set default-gems
 cat <<EOF > $HOME/.rbenv/default-gems
@@ -49,6 +50,7 @@ puppet-lint
 sheet
 sup
 EOF
+
 
 cat <<'EOF'
 
