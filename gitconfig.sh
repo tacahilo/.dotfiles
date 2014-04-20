@@ -11,6 +11,8 @@ git config --global user.name "Takahiro OKUMURA"
 git config --global user.email "hfm.garden@gmail.com"
 
 echo set alias
+git config --global alias.a 'add -A'
+git config --global alias.ap 'add -p'
 git config --global alias.co checkout
 git config --global alias.ci commit
 git config --global alias.ca 'commit --amend'
