@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 cat <<'EOF'
 
@@ -16,28 +16,42 @@ _____               _        __  __   _
 
 EOF
 
+
 # install rbenv
-git clone https://github.com/sstephenson/rbenv.git $HOME/.rbenv
+[ -d "$HOME/.rbenv" ] || {
+    git clone https://github.com/sstephenson/rbenv.git $HOME/.rbenv
+    mkdir $HOME/.rbenv/plugins
+    git clone https://github.com/znz/rbenv-plug $HOME/.rbenv/plugins/rbenv-plug
+}
 
-
-# install plugins
-mkdir -p $HOME/.rbenv/plugins
-git clone https://github.com/znz/rbenv-plug $HOME/.rbenv/plugins/rbenv-plug
-
-PLUGINS=(ruby-build rbenv-default-gems rbenv-gem-rehash rbenv-update)
-for ITEM in ${PLUGINS[@]}
-do
-  rbenv plug $ITEM
+plugins=(
+    ruby-build
+    rbenv-default-gems
+    rbenv-gem-rehash
+    rbenv-update
+)
+for item in ${plugins[@]}; do
+  rbenv plug $item
 done
+
 
 # set default-gems
 cat <<EOF > $HOME/.rbenv/default-gems
+artii
+awesome_print
 bundler
+debugger
+hirb
+hirb-unicode
+ipaddress
 pry
 pry-theme
-awesome_print
-hirb
+puppet-lint
+reek
+sheet
+sup
 EOF
+
 
 cat <<'EOF'
 
