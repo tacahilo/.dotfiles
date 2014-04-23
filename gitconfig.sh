@@ -14,7 +14,7 @@ echo set alias
 git config --global alias.a 'add -A'
 git config --global alias.ap 'add -p'
 git config --global alias.co checkout
-git config --global alias.ci commit
+git config --global alias.ci 'commit --verbose'
 git config --global alias.ca 'commit --amend'
 git config --global alias.cl 'clone --recursive'
 git config --global alias.d diff
