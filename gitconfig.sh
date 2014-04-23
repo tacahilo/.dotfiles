@@ -24,6 +24,7 @@ git config --global alias.b 'branch -v'
 git config --global alias.f 'fetch --prune'
 git config --global alias.l log
 git config --global alias.lg 'log --graph --all'
+git config --global alias.push 'push --verbose'
 
 echo set editor vim
 git config --global core.editor vim
