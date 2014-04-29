@@ -6,27 +6,34 @@ tap homebrew/versions
 tap josegonzalez/php
 tap phinze/homebrew-cask
 tap laurent22/massren
+
 install bash
 install brew-cask
 install coreutils
 install ctags
-install curl
+install curl --with-openssl
 install fontforge
+install fping
 install gcc47
 install gcc48
 install gfortran
 install gibo
+install gist
 install git --HEAD
 install git-flow
 install global --with-exuberant-ctags
 install graphviz
 install highlight
+install hping
 install hub --HEAD
-install jq
 install imagemagick
+install isync
+install jq
 install massren
 install mosh
+install msmtp
 install mysql
+install ncurses
 install nkf
 install node
 install openssl
@@ -38,7 +45,7 @@ install the_silver_searcher
 install tig
 install tmux
 install tree
-install vim --with-lua
+install vim --with-lua --with-luajit
 install weechat --with-python --with-perl --with-ruby --with-lua
 install wget
 install zsh
