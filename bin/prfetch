@@ -1,0 +1,21 @@
+#!/usr/bin/env ruby
+# original: https://github.com/yuku-t/dotfiles/blob/master/bin/prfetch
+# git checkout $(prfetch | percol | cut -f2)
+
+require 'git'
+require 'octokit'
+
+remote_name = ARGV[1] || 'origin'
+
+git = Git.open('./')
+remote = git.remotes.select { |r| r.name == remote_name }.first
+repo = if (match = remote.url.match(%r{^git@[^:]+:(?<repo>.+)\.git}))
+          match['repo']
+        elsif (match = remote.url.match(%r{^https://[^/]+/(?<repo>.+)\.git}))
+          match['repo']
+        end
+exit 1 unless repo
+
+Octokit::Client.new(netrc: true).pull_requests(repo).each do |pr|
+  puts "#{pr['title']}\t#{pr['head']['ref']}"
+end
