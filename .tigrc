@@ -1,4 +1,4 @@
-set show-author = full
+set main-view = line-number:true,interval=10 date:local author:full id commit-title:true,graph=true,refs=true
 set show-refs = true
 set show-rev-graph = true
 set show-date = local
