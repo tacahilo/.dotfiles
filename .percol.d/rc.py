@@ -1,6 +1,13 @@
-# X / _ / X
+import sys
+
 percol.view.PROMPT  = ur"<bold><yellow>Input:</yellow></bold> %q"
 percol.view.RPROMPT = ur"(%F) [%i/%I]"
+
+from percol.finder import FinderMultiQueryMigemo
+if sys.platform == "darwin":
+    FinderMultiQueryMigemo.dictionary_path = "/usr/local/Cellar/cmigemo/20110227/share/migemo/utf-8/migemo-dict"
+else:
+    FinderMultiQueryMigemo.dictionary_path = "/usr/local/share/migemo/utf-8/migemo-dict"
 
 # Emacs like
 percol.import_keymap({
