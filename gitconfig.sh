@@ -23,6 +23,7 @@ git config --global alias.dc 'diff --cached --ignore-space-change'
 git config --global alias.f 'fetch --prune'
 git config --global alias.l log
 git config --global alias.lg 'log --graph --all'
+git config --global alias.pl pull
 git config --global alias.plo 'pull origin'
 git config --global alias.plom 'pull origin master'
 git config --global alias.po 'push origin'
