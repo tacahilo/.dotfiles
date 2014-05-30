@@ -46,6 +46,7 @@ install tig
 install tmux
 install tree
 install vim --with-lua --with-luajit
+install watch
 install weechat --with-python --with-perl --with-ruby --with-lua
 install wget
 install zsh
