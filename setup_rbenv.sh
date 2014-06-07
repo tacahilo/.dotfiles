@@ -48,6 +48,7 @@ pry
 pry-theme
 puppet-lint
 reek
+rubocop
 sheet
 sup
 EOF
