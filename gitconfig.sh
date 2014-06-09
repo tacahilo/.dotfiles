@@ -50,4 +50,7 @@ git config --global github.email hfm.garden@gmail.com
 echo set push default
 git config --global push.default simple
 
+echo set ghq root
+git config --global ghq.root ~/src
+
 git config --list

@@ -29,6 +29,7 @@ plugins=(
     rbenv-default-gems
     rbenv-gem-rehash
     rbenv-update
+    gem-src
 )
 for item in ${plugins[@]}; do
   rbenv plug $item
@@ -48,6 +49,7 @@ pry
 pry-theme
 puppet-lint
 reek
+rubocop
 sheet
 sup
 EOF
