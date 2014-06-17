@@ -1,22 +1,30 @@
-update
-upgrade
 tap homebrew/binary
 tap homebrew/dupes
 tap homebrew/versions
+tap homebrew/science
 tap josegonzalez/php
 tap phinze/homebrew-cask
 tap laurent22/massren
 
+update
+upgrade
+
+install autoconf
+install automake
 install bash
+install boot2docker
 install brew-cask
+install cmake
 install coreutils
 install ctags
-install curl --with-openssl
+install curl
+install fontconfig
 install fontforge
 install fping
+install freetype
 install gcc47
 install gcc48
-install gfortran
+install gcc
 install gibo
 install gist
 install git --HEAD
@@ -43,7 +51,7 @@ install reattach-to-user-namespace
 install ssh-copy-id
 install the_silver_searcher
 install tig
-install tmux
+install tmux || true
 install tree
 install vim --with-lua --with-luajit
 install watch
@@ -63,5 +71,6 @@ cask install skitch
 cask install skype
 cask install vagrant
 cask install virtualbox
+
 cleanup
 doctor
