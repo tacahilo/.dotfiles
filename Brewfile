@@ -5,6 +5,7 @@ tap homebrew/science
 tap josegonzalez/php
 tap phinze/homebrew-cask
 tap laurent22/massren
+tap peco/peco
 
 update
 upgrade
@@ -22,9 +23,9 @@ install fontconfig
 install fontforge
 install fping
 install freetype
+install gcc
 install gcc47
 install gcc48
-install gcc
 install gibo
 install gist
 install git --HEAD
@@ -46,6 +47,7 @@ install nkf
 install node
 install openssl
 install packer
+install peco
 install readline
 install reattach-to-user-namespace
 install ssh-copy-id
