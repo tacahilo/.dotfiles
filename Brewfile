@@ -31,7 +31,9 @@ install gist
 install git --HEAD
 install git-flow
 install global --with-exuberant-ctags
+install gnu-tar
 install graphviz
+install gzip
 install highlight
 install hping
 install hub --HEAD
@@ -55,6 +57,7 @@ install the_silver_searcher
 install tig
 install tmux || true
 install tree
+install unzip
 install vim --with-lua --with-luajit
 install watch
 install weechat --with-python --with-perl --with-ruby --with-lua
