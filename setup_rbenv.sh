@@ -45,8 +45,10 @@ debugger
 hirb
 hirb-unicode
 ipaddress
+mgem
 pry
 pry-theme
+puppet
 puppet-lint
 reek
 rubocop
