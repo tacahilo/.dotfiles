@@ -1,0 +1,6 @@
+[submodule ".vim"]
+	path = .vim
+	url = https://github.com/tacahilo/.vim.git
+[submodule ".zsh.d"]
+	path = .zsh.d
+	url = https://github.com/tacahilo/.zsh.d.git
