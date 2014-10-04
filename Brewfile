@@ -1,78 +1,122 @@
-tap homebrew/binary
-tap homebrew/dupes
-tap homebrew/versions
-tap homebrew/science
-tap josegonzalez/php
+#!/bin/sh
 
-update
-upgrade
+PATH=/usr/local/bin:$PATH
 
-install autoconf
-install automake
-install bash
-install boot2docker
-install caskroom/cask/brew-cask
-install cmake
-install coreutils
-install ctags
-install curl
-install fontconfig
-install fontforge
-install fping
-install freetype
-install gcc
-install gcc47
-install gcc48
-install gibo
-install gist
-install git --HEAD
-install git-flow
-install global --with-exuberant-ctags
-install gnu-tar
-install graphviz
-install gzip
-install highlight
-install hping
-install hub --HEAD
-install imagemagick
-install isync
-install jq
-install laurent22/massren/massren
-install mosh
-install msmtp
-install mysql
-install ncurses
-install nkf
-install node
-install openssl
-install packer
-install peco/peco/peco
-install readline
-install reattach-to-user-namespace
-install ssh-copy-id
-install the_silver_searcher
-install tig
-install tmux || true
-install tree
-install unzip
-install vim --with-lua --with-luajit
-install watch
-install weechat --with-python --with-perl --with-ruby --with-lua
-install wget
-install zsh
+TAPS=(
+    homebrew/binary
+    homebrew/dupes
+    homebrew/versions
+    homebrew/science
+    josegonzalez/php
+)
 
-cask install coteditor
-cask install cyberduck
-cask install dropbox
-cask install firefox
-cask install google-chrome
-cask install iterm2
-cask install opera
-cask install silverlight
-cask install skitch
-cask install skype
-cask install vagrant
-cask install virtualbox
+FORMULAS=(
+    autoconf
+    automake
+    bash
+    boot2docker
+    caskroom/cask/brew-cask
+    cmake
+    coreutils
+    ctags
+    curl
+    fontconfig
+    fontforge
+    fping
+    freetype
+    gcc
+    gcc48
+    gibo
+    gist
+    "git --with-brewed-curl --with-brewed-openssl --with-gettext --with-pcre"
+    git-flow
+    "global --with-exuberant-ctags"
+    gnu-tar
+    graphviz
+    gzip
+    highlight
+    hping
+    "hub --HEAD"
+    imagemagick
+    isync
+    jq
+    laurent22/massren/massren
+    mosh
+    msmtp
+    mysql
+    ncurses
+    nkf
+    node
+    openssl
+    packer
+    peco/peco/peco
+    readline
+    reattach-to-user-namespace
+    ssh-copy-id
+    the_silver_searcher
+    tig
+    tmux
+    tree
+    unzip
+    "vim --with-lua --with-luajit"
+    watch
+    "weechat --with-python --with-perl --with-ruby --with-lua"
+    wget
+    zsh
+)
 
-cleanup
-doctor
+CASKS=(
+    coteditor
+    cyberduck
+    dropbox
+    firefox
+    google-chrome
+    iterm2
+    karabiner
+    kobito
+    onyx
+    opera
+    silverlight
+    skitch
+    skype
+    vagrant
+    virtualbox
+    xquartz
+)
+
+function setup() {
+    [ -x "/usr/local/bin/brew" ] || {
+        ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    }
+}
+
+function install_brewfiles() {
+    for tap in "${TAPS[@]}"; do
+        brew tap $tap
+    done
+
+    for formula in "${FORMULAS[@]}"; do
+        brew install $formula
+    done
+}
+
+function install_caskfiles() {
+    for cask in "${CASKS[@]}"; do
+        brew cask install $cask
+    done
+}
+
+function main() {
+    setup
+
+    brew update
+    brew upgrade
+
+    install_brewfiles
+    install_caskfiles
+
+    brew cleanup
+    brew doctor
+}
+
+main
