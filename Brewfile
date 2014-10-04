@@ -3,9 +3,6 @@ tap homebrew/dupes
 tap homebrew/versions
 tap homebrew/science
 tap josegonzalez/php
-tap phinze/homebrew-cask
-tap laurent22/massren
-tap peco/peco
 
 update
 upgrade
@@ -14,7 +11,7 @@ install autoconf
 install automake
 install bash
 install boot2docker
-install brew-cask
+install caskroom/cask/brew-cask
 install cmake
 install coreutils
 install ctags
@@ -40,7 +37,7 @@ install hub --HEAD
 install imagemagick
 install isync
 install jq
-install massren
+install laurent22/massren/massren
 install mosh
 install msmtp
 install mysql
@@ -49,7 +46,7 @@ install nkf
 install node
 install openssl
 install packer
-install peco
+install peco/peco/peco
 install readline
 install reattach-to-user-namespace
 install ssh-copy-id
