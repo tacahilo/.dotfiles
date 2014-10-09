@@ -2,5 +2,5 @@
 This is my dot files.
 
 ```bash
-curl -L https://raw.github.com/tacahilo/.dotfiles/master/install.sh | sh
+curl -L https://raw.githubusercontent.com/tacahilo/.dotfiles/master/install.sh | sh
 ```
