@@ -1,14 +1,12 @@
 #!/bin/bash
 
 git clone --recursive https://github.com/tacahilo/.dotfiles.git $HOME/.dotfiles
-git clone --recursive https://github.com/tacahilo/.vim.git $HOME/.vim
-git clone --recursive https://github.com/tacahilo/.zsh.d.git $HOME/.zsh.d
-ln -sf ~/.dotfiles/usr ~/usr
-mkdir ~/bin
-mkdir ~/src
+ln -sf $HOME/.dotfiles/.vim $HOME/.vim
+ln -sf $HOME/.dotfiles/.zsh.d $HOME/.zsh.d
+
+mkdir ~/{bin,src}
+mkdir -p ~/usr/local/{bin,lib,src}
 
 if expr "$OSTYPE" : "^darwin" >/dev/null; then
   . setup.sh.osx
-else
-  exit 1
 fi
