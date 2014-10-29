@@ -45,7 +45,9 @@ debugger
 hirb
 hirb-unicode
 ipaddress
+librarian-puppet
 mgem
+octokit
 pry
 pry-theme
 puppet
