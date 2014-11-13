@@ -42,6 +42,7 @@ artii
 awesome_print
 bundler
 debugger
+dotenv
 hirb
 hirb-unicode
 ipaddress
