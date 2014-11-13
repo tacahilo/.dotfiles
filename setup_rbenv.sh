@@ -48,6 +48,7 @@ hirb-unicode
 ipaddress
 librarian-puppet
 mgem
+mysql2
 octokit
 pry
 pry-theme
