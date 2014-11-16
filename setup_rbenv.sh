@@ -42,10 +42,13 @@ artii
 awesome_print
 bundler
 debugger
+dotenv
 hirb
 hirb-unicode
 ipaddress
+librarian-puppet
 mgem
+octokit
 pry
 pry-theme
 puppet
