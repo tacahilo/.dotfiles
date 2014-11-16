@@ -54,6 +54,7 @@ reek
 rubocop
 sheet
 sup
+wirb
 EOF
 
 
