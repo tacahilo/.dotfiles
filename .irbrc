@@ -1,7 +1,7 @@
 require 'irb/completion'
 
 # configuration
-IRB.conf[:AUTO_INDENT] = true
+# IRB.conf[:AUTO_INDENT] = true
 
 require 'readline'
 IRB.conf[:USE_READLINE] = true
