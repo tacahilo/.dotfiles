@@ -8,7 +8,7 @@ IRB.conf[:USE_READLINE] = true
 
 require 'irb/ext/save-history'
 IRB.conf[:HISTORY_FILE] = "~/.backup/irb_history"
-IRB.conf[:SAVE_HISTORY] = 100000
+IRB.conf[:SAVE_HISTORY] = 500000
 
 # colorize
 require 'wirb'

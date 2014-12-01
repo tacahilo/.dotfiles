@@ -6,7 +6,7 @@ if [ $? -eq 0 ]; then
     echo homebrew already installed
 else
     echo install homebrew
-    ruby -e "$(curl -fsSL https://raw.github.com/mxcl/homebrew/go)"
+    ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     brew install git
     brew update
 fi
