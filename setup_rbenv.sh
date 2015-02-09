@@ -43,6 +43,7 @@ awesome_print
 bundler
 debugger
 dotenv
+git-browse-remote
 hirb
 hirb-unicode
 ipaddress
