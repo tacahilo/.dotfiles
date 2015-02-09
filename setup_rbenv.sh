@@ -58,7 +58,6 @@ puppet-lint
 reek
 rubocop
 sheet
-sup
 wirb
 EOF
 
