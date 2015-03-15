@@ -1,9 +1,12 @@
 [submodule ".vim"]
 	path = .vim
 	url = https://github.com/tacahilo/.vim.git
+	ignore = dirty
 [submodule ".zsh.d"]
 	path = .zsh.d
 	url = https://github.com/tacahilo/.zsh.d.git
+	ignore = dirty
 [submodule ".anyenv"]
 	path = .anyenv
 	url = https://github.com/riywo/anyenv
+	ignore = dirty
