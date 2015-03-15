@@ -9,6 +9,7 @@ fi
 
 ln -sf $HOME/.dotfiles/.vim $HOME/.vim
 ln -sf $HOME/.dotfiles/.zsh.d $HOME/.zsh.d
+ln -sf $HOME/.dotfiles/.anyenv $HOME/.anyenv
 
 mkdir -p ~/{bin,src}
 mkdir -p ~/usr/local/{bin,lib,src}
