@@ -43,6 +43,7 @@ awesome_print
 bundler
 debugger
 dotenv
+git-browse-remote
 hirb
 hirb-unicode
 ipaddress
@@ -57,7 +58,6 @@ puppet-lint
 reek
 rubocop
 sheet
-sup
 wirb
 EOF
 
