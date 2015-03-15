@@ -1,6 +1,12 @@
 #!/bin/bash
 
-git clone --recursive https://github.com/tacahilo/.dotfiles.git $HOME/.dotfiles
+if [ -d "$HOME/.dotfiles" ]; then
+    echo Already exists
+    ls -ld "$HOME/.dotfiles"
+else
+    git clone --recursive https://github.com/tacahilo/.dotfiles.git $HOME/.dotfiles
+fi
+
 ln -sf $HOME/.dotfiles/.vim $HOME/.vim
 ln -sf $HOME/.dotfiles/.zsh.d $HOME/.zsh.d
 
