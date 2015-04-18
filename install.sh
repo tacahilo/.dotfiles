@@ -24,20 +24,67 @@ EOS
 ln -sf $HOME/.dotfiles/.zsh.d $HOME
 
 cat <<EOS
-##################
-# install anyenv #
-##################
+################
+# install *env #
+################
 EOS
-if [ -e "$HOME/.anyenv" ]; then
-    ln -sf $HOME/.dotfiles/.anyenv $HOME
-    mkdir -p $HOME/.anyenv/plugins
-    pushd $HOME/.anyenv/plugins
-    git clone https://github.com/znz/anyenv-update.git
-    git clone https://github.com/znz/anyenv-git.git
-    popd
-else
-    echo Already exists
-    ls -ld "$HOME/.anyenv"
+
+cat <<EOS
+#########
+# rbenv #
+#########
+EOS
+if [ ! -d "$HOME/.rbenv" ]; then
+    git clone --depth 1 https://github.com/sstephenson/rbenv.git $HOME/.rbenv
+    mkdir $HOME/.rbenv/plugins
+    git clone --depth 1 https://github.com/znz/rbenv-plug $HOME/.rbenv/plugins/rbenv-plug
+fi
+
+plugins=(
+    ruby-build
+    rbenv-default-gems
+    rbenv-gem-rehash
+    rbenv-update
+    gem-src
+)
+for item in ${plugins[@]}; do
+  rbenv plug $item
+done
+
+cat <<EOF > $HOME/.rbenv/default-gems
+artii
+awesome_print
+bundler
+debugger
+dotenv
+git-browse-remote
+hirb
+hirb-unicode
+ipaddress
+librarian-puppet
+mgem
+mysql2
+octokit
+pry
+pry-theme
+puppet
+puppet-lint
+reek
+rubocop
+sheet
+wirb
+EOF
+
+cat <<EOS
+#########
+# plenv #
+#########
+EOS
+if [ ! -d "$HOME/.plenv" ]; then
+    git clone --depth 1 git://github.com/tokuhirom/plenv.git ~/.plenv
+    mkdir ~/.plenv/plugins
+    git clone --depth 1 git://github.com/tokuhirom/Perl-Build.git ~/.plenv/plugins/perl-build
+    git clone --depth 1 git://github.com/Tacahilo/plenv-update.git ~/.plenv/plugins/plenv-update
 fi
 
 mkdir -p ~/{bin,src}
