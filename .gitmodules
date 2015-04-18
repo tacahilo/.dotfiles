@@ -6,7 +6,3 @@
 	path = .zsh.d
 	url = https://github.com/tacahilo/.zsh.d.git
 	ignore = dirty
-[submodule ".anyenv"]
-	path = .anyenv
-	url = https://github.com/riywo/anyenv
-	ignore = dirty
