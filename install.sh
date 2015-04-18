@@ -13,7 +13,7 @@ cat <<EOS
 ###############
 EOS
 ln -sf $HOME/.dotfiles/.vim $HOME
-curl -# https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
+curl --progress-bar https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
 vim +NeoBundleInstall +qall
 
 cat <<EOS
