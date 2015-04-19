@@ -16,6 +16,7 @@ FORMULAS=(
     bash
     boot2docker
     caskroom/cask/brew-cask
+    cmigemo
     cmake
     coreutils
     ctags
@@ -84,10 +85,12 @@ CASKS=(
     xquartz
 )
 
-function setup() {
-    [ -x "/usr/local/bin/brew" ] || {
+setup() {
+
+    if which brew; then
         ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    }
+    fi
+
 }
 
 function install_brewfiles() {

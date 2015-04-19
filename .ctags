@@ -1,7 +1,8 @@
 --append=no
 --recurse=yes
---tag-relative
 --sort=yes
-
+--tag-relative=yes
+--exclude=.git
+--exclude=vendor/bundle
 --langmap=PHP:+.inc
 --php-kinds=cfd
