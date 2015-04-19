@@ -1,4 +1,7 @@
---append=yes
+--append=no
 --recurse=yes
+--tag-relative
+--sort=yes
+
 --langmap=PHP:+.inc
 --php-kinds=cfd
