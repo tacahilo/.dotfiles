@@ -1,5 +1,6 @@
---append=yes
+--append=no
 --recurse=yes
+--sort=yes
 --tag-relative=yes
 --exclude=.git
 --exclude=vendor/bundle
