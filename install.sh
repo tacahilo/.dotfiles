@@ -30,6 +30,8 @@ git clone https://github.com/sstephenson/rbenv-default-gems.git
 ln -sf $HOME/.dotfiles/rbenv-default-gems $HOME/.anyenv/envs/rbenv/default-gems
 
 anyenv install plenv
+anyenv install pyenv
+anyenv install goenv
 
 mkdir -p ~/{bin,src}
 mkdir -p ~/usr/local/{bin,lib,src}
