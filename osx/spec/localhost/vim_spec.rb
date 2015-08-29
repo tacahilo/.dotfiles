@@ -5,7 +5,11 @@ describe "vim" do
     it { should be_installed }
   end
 
-  describe file("~/.vim/.git") do
+  describe file("#{Dir.home}/.vim/.git") do
+    it { should be_directory }
+  end
+
+  describe file("#{Dir.home}/.vim/bundle/neobundle.vim") do
     it { should be_directory }
   end
 end
