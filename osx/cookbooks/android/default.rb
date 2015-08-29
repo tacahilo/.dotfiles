@@ -1,4 +1,4 @@
-require 'itamae/plugin/resource/cask'
+require "itamae/plugin/resource/cask"
 
 %w(
   java
