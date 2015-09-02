@@ -35,4 +35,9 @@ describe 'mail client' do
     it { should be_file }
     it { should be_mode 600 }
   end
+
+  describe file("#{Dir.home}/.procmailrc") do
+    it { should be_file }
+    it { should be_mode 600 }
+  end
 end
