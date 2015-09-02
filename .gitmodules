@@ -1,4 +1,0 @@
-[submodule ".zsh.d"]
-	path = .zsh.d
-	url = https://github.com/tacahilo/.zsh.d.git
-	ignore = dirty
