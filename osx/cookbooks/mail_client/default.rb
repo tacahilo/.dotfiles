@@ -20,7 +20,7 @@ file "#{Dir.home}/.mutt/muttrc" do
   mode "0600"
 end
 
-file "#{Dir.home}/.msmtp" do
+file "#{Dir.home}/.msmtprc" do
   mode "0600"
 end
 
