@@ -5,6 +5,7 @@ describe 'mail client' do
     mutt
     fetchmail
     msmtp
+    urlview
   ).each do |pkg|
     describe package(pkg) do
       it { should be_installed }

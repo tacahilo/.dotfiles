@@ -2,6 +2,7 @@
   mutt
   fetchmail
   msmtp
+  urlview
 ).each { |pkg| package pkg }
 
 directory "#{Dir.home}/mail" do
