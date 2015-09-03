@@ -3,20 +3,6 @@
 # clone dotfiles dir
 [ -d "$HOME/.dotfiles" ] || git clone --recursive https://github.com/tacahilo/.dotfiles.git $HOME/.dotfiles
 
-# setting Vim
-ln -sf $HOME/.dotfiles/.vim $HOME/.vim
-curl --progress-bar https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh
-vim +NeoBundleInstall +qall
-
-# zsh
-ln -sf $HOME/.dotfiles/.zsh.d $HOME
-
-# anyenv
-if [ ! -d "$HOME/.anyenv" ]; then
-    git clone https://github.com/riywo/anyenv $HOME/.anyenv
-    mkdir -p $HOME/.anyenv/plugins && cd $HOME/.anyenv/plugins
-    git clone https://github.com/znz/anyenv-update.git
-fi
 
 PATH=$HOME/.anyenv/bin:$PATH
 eval "$(anyenv init -)"
