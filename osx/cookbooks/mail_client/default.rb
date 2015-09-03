@@ -1,5 +1,8 @@
+package "mutt" do
+  options "--with-confirm-attachment-patch --with-trash-patch --with-debug"
+end
+
 %w(
-  mutt
   fetchmail
   msmtp
   urlview
