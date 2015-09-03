@@ -6,6 +6,7 @@ describe 'mail client' do
     fetchmail
     msmtp
     urlview
+    w3c
   ).each do |pkg|
     describe package(pkg) do
       it { should be_installed }

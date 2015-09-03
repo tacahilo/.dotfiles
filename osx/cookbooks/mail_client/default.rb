@@ -6,6 +6,7 @@ end
   fetchmail
   msmtp
   urlview
+  w3c
 ).each { |pkg| package pkg }
 
 directory "#{Dir.home}/mail" do
