@@ -24,4 +24,18 @@ describe "anyenv" do
       it { should be_directory }
     end
   end
+
+  %w(
+    gem-src
+    rbenv-gem-rehash
+    rbenv-default-gems
+  ).each do |plugin|
+    describe file("#{Dir.home}/.anyenv/envs/rbenv/plugins/#{plugin}/.git") do
+      it { should be_directory }
+    end
+  end
+
+  describe file("#{Dir.home}/.anyenv/envs/rbenv/default-gems") do
+    it { should be_file }
+  end
 end
