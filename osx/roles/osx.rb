@@ -1,4 +1,4 @@
-include_recipe "../cookbooks/homebrew_cask/default.rb"
+include_recipe "../cookbooks/homebrew/default.rb"
 include_recipe "../cookbooks/gnu/default.rb"
 include_recipe "../cookbooks/vcs/default.rb"
 include_recipe "../cookbooks/network/default.rb"
