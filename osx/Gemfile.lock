@@ -10,6 +10,8 @@ GEM
       schash (~> 0.1.0)
       specinfra (>= 2.37.0, < 3.0.0)
       thor
+    itamae-plugin-resource-brew_tap (0.1.0)
+      itamae
     itamae-plugin-resource-cask (0.0.4)
       itamae
     multi_json (1.11.2)
@@ -52,6 +54,7 @@ PLATFORMS
 
 DEPENDENCIES
   itamae
+  itamae-plugin-resource-brew_tap
   itamae-plugin-resource-cask
   serverspec
 
