@@ -1,6 +1,7 @@
 include_recipe "../cookbooks/homebrew_cask/default.rb"
 include_recipe "../cookbooks/gnu/default.rb"
 include_recipe "../cookbooks/vcs/default.rb"
+include_recipe "../cookbooks/network/default.rb"
 include_recipe "../cookbooks/browser/default.rb"
 include_recipe "../cookbooks/vim/default.rb"
 include_recipe "../cookbooks/zsh/default.rb"
