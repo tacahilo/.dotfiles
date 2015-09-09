@@ -4,7 +4,7 @@ end
 
 execute "tcnksm/ghr" do
   command "brew tap tcnksm/ghr"
-  not_if %w(brew tap | grep -w -- 'tcnksm/ghr').shelljoin
+  not_if "brew tap | grep -w -- 'tcnksm/ghr'"
 end
 
 %w(
