@@ -4,6 +4,16 @@ package "git" do
   options %w(--with-brewed-curl --with-brewed-openssl --with-gettext --with-pcre).shelljoin
 end
 
+remote_file "#{Dir.home}/.gitignore_global"
+execute "git config --global core.excludesfile ~/.gitignore_global" do
+  not_if %w(git config --global --get core.excludesfile).shelljoin
+end
+
+remote_file "#{Dir.home}/.gitattributes_global"
+execute "git config --global core.attributesfile ~/.gitattributes_global" do
+  not_if %w(git config --global --get core.attributesfile).shelljoin
+end
+
 %w(
   gibo
 
