@@ -14,18 +14,18 @@ execute "git config --global core.attributesfile ~/.gitattributes_global" do
   not_if %w(git config --global --get core.attributesfile).shelljoin
 end
 
-%w(
-  gibo
-
-  hub
-  gist
-
-  bazaar
-  mercurial
-).each { |pkg| package pkg }
+remote_file "#{Dir.home}/.hgignore_global"
+package "mercurial"
 
 remote_file "#{Dir.home}/.tigrc"
 package "tig"
 
 brew_tap "tcnksm/ghr"
 package "ghr"
+
+%w(
+  gibo
+  hub
+  gist
+  bazaar
+).each { |pkg| package pkg }
