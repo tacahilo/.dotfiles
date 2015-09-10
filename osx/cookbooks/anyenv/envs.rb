@@ -26,3 +26,6 @@ git "#{Dir.home}/.anyenv/envs/rbenv/plugins/rbenv-default-gems" do
 end
 
 remote_file "#{Dir.home}/.anyenv/envs/rbenv/default-gems"
+remote_file "#{Dir.home}/.gemrc"
+remote_file "#{Dir.home}/.irbrc"
+remote_file "#{Dir.home}/.pryrc"
