@@ -5,7 +5,6 @@ package "git" do
 end
 
 %w(
-  tig
   gibo
 
   hub
@@ -14,6 +13,9 @@ end
   bazaar
   mercurial
 ).each { |pkg| package pkg }
+
+remote_file "#{Dir.home}/.tigrc"
+package "tig"
 
 brew_tap "tcnksm/ghr"
 package "ghr"
