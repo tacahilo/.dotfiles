@@ -1,6 +1,8 @@
 include_recipe './default.rb'
 include_recipe './definitions.rb'
 
+package 'erlang'
+
 %w(
   goenv
   plenv
