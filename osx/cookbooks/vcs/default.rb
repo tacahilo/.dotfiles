@@ -14,11 +14,11 @@ execute "git config --global core.attributesfile ~/.gitattributes_global" do
   not_if %w(git config --global --get core.attributesfile).shelljoin
 end
 
-remote_file "#{Dir.home}/.hgignore_global"
-package "mercurial"
-
-remote_file "#{Dir.home}/.tigrc"
 package "tig"
+remote_file "#{Dir.home}/.tigrc"
+
+package "mercurial"
+remote_file "#{Dir.home}/.hgignore_global"
 
 brew_tap "tcnksm/ghr"
 package "ghr"
