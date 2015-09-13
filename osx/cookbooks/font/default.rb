@@ -6,3 +6,4 @@ package 'ricty'
 
 brew_tap 'caskroom/fonts'
 cask 'font-noto-sans-japanese'
+cask 'font-lato'

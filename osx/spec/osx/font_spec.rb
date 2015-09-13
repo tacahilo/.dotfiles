@@ -8,4 +8,8 @@ describe "font" do
   describe package('font-noto-sans-japanese') do
     it { should be_installed.by("homebrew_cask") }
   end
+
+  describe package('font-lato') do
+    it { should be_installed.by("homebrew_cask") }
+  end
 end
