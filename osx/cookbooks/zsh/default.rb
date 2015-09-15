@@ -2,6 +2,7 @@ package "zsh"
 
 git "#{Dir.home}/.zsh.d" do
   repository "https://github.com/tacahilo/.zsh.d"
+  revision "master"
   recursive true
 end
 

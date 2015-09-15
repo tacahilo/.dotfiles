@@ -4,6 +4,7 @@ end
 
 git "#{Dir.home}/.vim" do
   repository "https://github.com/tacahilo/.vim"
+  revision "master"
 end
 
 execute "neobundle" do
