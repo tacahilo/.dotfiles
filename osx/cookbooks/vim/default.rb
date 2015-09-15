@@ -2,6 +2,8 @@ package "vim" do
   options "--with-lua --with-luajit"
 end
 
+package "ctags"
+
 git "#{Dir.home}/.vim" do
   repository "https://github.com/tacahilo/.vim"
   revision "master"

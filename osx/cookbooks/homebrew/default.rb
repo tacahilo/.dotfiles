@@ -9,8 +9,6 @@ package 'brew-cask'
 
 %w(
   cmake
-  cmigemo
-  ctags
   graphviz
   heroku-toolbelt
   imagemagick
