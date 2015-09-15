@@ -14,7 +14,6 @@ package 'brew-cask'
   imagemagick
   jpegoptim
   jq
-  ncurses
   nkf
   openssl
   optipng
