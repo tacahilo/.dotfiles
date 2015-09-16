@@ -20,6 +20,11 @@ file "#{Dir.home}/.mutt/muttrc" do
   mode "0600"
 end
 
+git "#{Dir.home}/.mutt/mutt-colors-solarized" do
+  repository "https://github.com/altercation/mutt-colors-solarized"
+  revision "master"
+end
+
 file "#{Dir.home}/.msmtprc" do
   mode "0600"
 end

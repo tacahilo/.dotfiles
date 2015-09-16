@@ -22,6 +22,10 @@ describe 'mail client' do
     it { should be_mode 700 }
   end
 
+  describe file("#{Dir.home}/.mutt/mutt-colors-solarized/.git") do
+    it { should be_directory }
+  end
+
   describe file("#{Dir.home}/.mutt/muttrc") do
     it { should be_file }
     it { should be_mode 600 }
