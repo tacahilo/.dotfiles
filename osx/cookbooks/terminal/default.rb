@@ -1,5 +1,7 @@
 include_recipe "../zsh/default.rb"
+include_recipe "../anyenv/envs.rb"
 include_recipe "../gnu/default.rb"
+include_recipe "../peco/default.rb"
 include_recipe "../mail_client/default.rb"
 
 %w(
