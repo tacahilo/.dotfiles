@@ -1,3 +1,4 @@
+include_recipe "../zsh/default.rb"
 include_recipe "../gnu/default.rb"
 include_recipe "../mail_client/default.rb"
 
