@@ -9,6 +9,10 @@ describe "vim" do
     it { should be_installed }
   end
 
+  describe file("#{Dir.home}/.ctags") do
+    it { should be_file }
+  end
+
   describe file("#{Dir.home}/.vim/.git") do
     it { should be_directory }
   end

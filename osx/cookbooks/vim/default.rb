@@ -4,6 +4,8 @@ end
 
 package "ctags"
 
+remote_file "#{Dir.home}/.ctags"
+
 git "#{Dir.home}/.vim" do
   repository "https://github.com/tacahilo/.vim"
   revision "master"
