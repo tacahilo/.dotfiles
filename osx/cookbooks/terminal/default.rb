@@ -1,3 +1,4 @@
+include_recipe "../homebrew/default.rb"
 include_recipe "../zsh/default.rb"
 include_recipe "../anyenv/envs.rb"
 include_recipe "../gnu/default.rb"
