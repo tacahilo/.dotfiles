@@ -10,5 +10,5 @@ include_recipe "../cookbooks/gcp/default.rb"
 include_recipe "../cookbooks/hashicorp/default.rb"
 include_recipe "../cookbooks/docker/default.rb"
 
-directory "~/src"
-directory "~/bin"
+directory "#{Dir.home}/src"
+directory "#{Dir.home}/bin"
