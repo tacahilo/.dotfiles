@@ -11,3 +11,4 @@ include_recipe "../cookbooks/docker/default.rb"
 
 directory "#{Dir.home}/src"
 directory "#{Dir.home}/bin"
+directory "#{Dir.home}/usr/local/bin"
