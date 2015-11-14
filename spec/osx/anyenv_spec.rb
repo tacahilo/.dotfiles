@@ -26,7 +26,6 @@ describe "anyenv" do
   end
 
   %w(
-    gem-src
     rbenv-gem-rehash
     rbenv-default-gems
   ).each do |plugin|
