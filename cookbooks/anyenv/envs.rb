@@ -13,10 +13,6 @@ package 'erlang'
 
 directory "#{Dir.home}/.anyenv/envs/rbenv/plugins"
 
-git "#{Dir.home}/.anyenv/envs/rbenv/plugins/rbenv-gem-rehash" do
-  repository "https://github.com/sstephenson/rbenv-gem-rehash"
-end
-
 git "#{Dir.home}/.anyenv/envs/rbenv/plugins/rbenv-default-gems" do
   repository "https://github.com/sstephenson/rbenv-default-gems"
 end
