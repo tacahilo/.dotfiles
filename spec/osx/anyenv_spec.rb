@@ -23,7 +23,6 @@ describe "anyenv" do
   end
 
   %w(
-    gem-src
     rbenv-default-gems
   ).each do |plugin|
     describe file("#{Dir.home}/.anyenv/envs/rbenv/plugins/#{plugin}/.git") do
