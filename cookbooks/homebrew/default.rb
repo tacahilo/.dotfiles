@@ -5,7 +5,6 @@ end
 
 require 'itamae/plugin/resource/brew_tap'
 brew_tap 'caskroom/cask'
-package 'brew-cask'
 
 %w(
   cmake
