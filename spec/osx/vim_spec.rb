@@ -17,7 +17,7 @@ describe "vim" do
     it { should be_directory }
   end
 
-  describe file("#{Dir.home}/.vim/bundle/neobundle.vim") do
-    it { should be_directory }
+  describe file("#{Dir.home}/.vim/autoload/plug.vim") do
+    it { should be_file }
   end
 end

@@ -11,7 +11,7 @@ git "#{Dir.home}/.vim" do
   revision "master"
 end
 
-execute "neobundle" do
-  command "curl -sSL https://raw.githubusercontent.com/Shougo/neobundle.vim/master/bin/install.sh | sh"
-  not_if "test -d #{Dir.home}/.vim/bundle/neobundle.vim"
+execute "vim-plug" do
+  command "curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim"
+  not_if "test -f #{Dir.home}/.vim/autoload/plug.vim"
 end
