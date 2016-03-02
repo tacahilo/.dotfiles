@@ -26,5 +26,10 @@ include_recipe "../mail_client/default.rb"
 package "tmux"
 remote_file "#{Dir.home}/.tmux.conf"
 
+directory "#{Dir.home}/.tmux/plugins"
+git "#{Dir.home}/.tmux/plugins/tpm" do
+  repository "https://github.com/tmux-plugins/tpm"
+end
+
 package "urlview"
 remote_file "#{Dir.home}/.urlview"
