@@ -14,11 +14,8 @@ describe "anyenv" do
   end
 
   %w(
-    goenv
     plenv
-    pyenv
     rbenv
-    exenv
   ).each do |env|
     describe file("#{Dir.home}/.anyenv/envs/#{env}") do
       it { should be_directory }
@@ -27,7 +24,6 @@ describe "anyenv" do
 
   %w(
     gem-src
-    rbenv-gem-rehash
     rbenv-default-gems
   ).each do |plugin|
     describe file("#{Dir.home}/.anyenv/envs/rbenv/plugins/#{plugin}/.git") do
