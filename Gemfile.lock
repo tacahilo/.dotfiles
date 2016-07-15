@@ -19,6 +19,7 @@ GEM
       net-ssh (>= 2.6.5)
     net-ssh (3.2.0)
     net-telnet (0.1.1)
+    rake (11.2.2)
     rspec (3.5.0)
       rspec-core (~> 3.5.0)
       rspec-expectations (~> 3.5.0)
@@ -56,6 +57,7 @@ DEPENDENCIES
   itamae
   itamae-plugin-resource-brew_tap
   itamae-plugin-resource-cask
+  rake
   serverspec
 
 BUNDLED WITH
