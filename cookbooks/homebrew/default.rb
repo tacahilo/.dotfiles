@@ -19,5 +19,4 @@ brew_tap 'caskroom/cask'
   pcre
   redis
   urlview
-  weechat
 ).each { |pkg| package pkg }

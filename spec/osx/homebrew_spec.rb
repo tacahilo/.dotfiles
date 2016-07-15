@@ -29,7 +29,6 @@ describe 'homebrew cask' do
     tree
     urlview
     watch
-    weechat
   ).each do |pkg|
     describe package(pkg) do
       it { should be_installed }

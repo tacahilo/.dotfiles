@@ -20,7 +20,6 @@ include_recipe "../mail_client/default.rb"
   the_silver_searcher
   tree
   watch
-  weechat
 ).each { |pkg| package pkg }
 
 package "tmux"
