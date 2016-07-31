@@ -4,6 +4,7 @@
   gzip
   coreutils
   parallel
+  gpg2
 ).each { |pkg| package pkg }
 
 %w(

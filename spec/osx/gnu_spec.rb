@@ -7,6 +7,7 @@ describe 'gnu packages' do
     gzip
     coreutils
     parallel
+    gpg2
     gnu-sed
     gnu-tar
     grep
