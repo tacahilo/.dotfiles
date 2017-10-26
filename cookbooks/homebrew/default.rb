@@ -9,7 +9,7 @@ brew_tap 'caskroom/cask'
 %w(
   cmake
   graphviz
-  heroku-toolbelt
+  heroku
   imagemagick
   jpegoptim
   jq

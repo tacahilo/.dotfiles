@@ -8,7 +8,7 @@ describe 'homebrew cask' do
     ctags
     direnv
     graphviz
-    heroku-toolbelt
+    heroku
     highlight
     imagemagick
     jpegoptim

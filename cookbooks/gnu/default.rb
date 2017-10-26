@@ -4,7 +4,8 @@
   gzip
   coreutils
   parallel
-  gpg2
+  gnupg
+  pinentry-mac
 ).each { |pkg| package pkg }
 
 %w(

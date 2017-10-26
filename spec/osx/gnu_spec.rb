@@ -7,10 +7,11 @@ describe 'gnu packages' do
     gzip
     coreutils
     parallel
-    gpg2
+    gnupg
     gnu-sed
     gnu-tar
     grep
+    pinentry-mac
   ).each do |pkg|
     describe package(pkg) do
       it { should be_installed }
