@@ -14,6 +14,10 @@ git "#{Dir.home}/.anyenv/envs/rbenv/plugins/rbenv-default-gems" do
   repository "https://github.com/sstephenson/rbenv-default-gems"
 end
 
+git "#{Dir.home}/.anyenv/envs/rbenv/plugins/rbenv-each" do
+  repository "https://github.com/rbenv/rbenv-each"
+end
+
 remote_file "#{Dir.home}/.anyenv/envs/rbenv/default-gems"
 remote_file "#{Dir.home}/.gemrc"
 remote_file "#{Dir.home}/.irbrc"
