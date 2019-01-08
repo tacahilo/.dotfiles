@@ -14,7 +14,6 @@ include_recipe "../mail_client/default.rb"
   lv
   massren
   ncurses
-  ncurses
   reattach-to-user-namespace
   ssh-copy-id
   the_silver_searcher
