@@ -11,10 +11,8 @@ include_recipe "../mail_client/default.rb"
   highlight
   jq
   less
-  lv
   massren
   ncurses
-  reattach-to-user-namespace
   ssh-copy-id
   the_silver_searcher
   tree
