@@ -12,7 +12,8 @@
         "C-m": "peco.Finish",
         "C-n": "peco.SelectNext",
         "C-p": "peco.SelectPrevious",
-        "C-v": "peco.SelectNextPage"
+        "C-v": "peco.SelectNextPage",
+        "C-s": "peco.ToggleSelectionAndSelectNext"
     },
     "Style": {
         "Basic": ["on_default", "default"],
