@@ -7,7 +7,7 @@ if [ $? -ne 0 ]; then
 fi
 
 echo set user information
-git config --global user.name "Takahiro OKUMURA"
+git config --global user.name "Takahiro Okumura"
 git config --global user.email "hfm.garden@gmail.com"
 
 echo set alias
