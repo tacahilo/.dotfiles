@@ -44,7 +44,7 @@ git config --global alias.graph 'log --graph --decorate --oneline'
 git config --global core.attributesfile ~/.gitattributes_global
 
 echo set github
-git config --global github.user Tacahilo
+git config --global github.user hfm
 git config --global github.email hfm.garden@gmail.com
 
 echo set push default
