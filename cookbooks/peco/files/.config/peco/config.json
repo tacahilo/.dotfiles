@@ -15,6 +15,7 @@
         "C-v": "peco.SelectNextPage",
         "C-s": "peco.ToggleSelectionAndSelectNext"
     },
+    "StickySelection": true,
     "Style": {
         "Basic": ["on_default", "default"],
         "Selected": ["underline", "on_green", "black"],
