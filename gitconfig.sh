@@ -33,6 +33,7 @@ git config --global alias.push 'push --verbose'
 git config --global alias.r 'remote -v'
 git config --global alias.re 'reset'
 git config --global alias.s 'status -sb'
+git config --global alias.delete-merged-branches '!git branch --merged | grep -v \* | xargs -I % git branch -d %'
 
 echo set editor vim
 git config --global core.editor vim
