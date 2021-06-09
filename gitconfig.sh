@@ -7,7 +7,7 @@ if [ $? -ne 0 ]; then
 fi
 
 echo set user information
-git config --global user.name "Takahiro OKUMURA"
+git config --global user.name "Takahiro Okumura"
 git config --global user.email "hfm.garden@gmail.com"
 
 echo set alias
@@ -33,6 +33,7 @@ git config --global alias.push 'push --verbose'
 git config --global alias.r 'remote -v'
 git config --global alias.re 'reset'
 git config --global alias.s 'status -sb'
+git config --global alias.delete-merged-branches '!git branch --merged | grep -v \* | xargs -I % git branch -d %'
 
 echo set editor vim
 git config --global core.editor vim
@@ -44,7 +45,7 @@ git config --global alias.graph 'log --graph --decorate --oneline'
 git config --global core.attributesfile ~/.gitattributes_global
 
 echo set github
-git config --global github.user Tacahilo
+git config --global github.user hfm
 git config --global github.email hfm.garden@gmail.com
 
 echo set push default
